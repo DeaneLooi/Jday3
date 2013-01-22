@@ -1,40 +1,57 @@
 package jday.ui.user;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
-import javax.swing.JSeparator;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import jday.entities.FnB;
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
+import jday.util.FnBViewTableModel;
 
 public class FnBConfirmation extends BackgroundPanel {
 
 
 	public FnBConfirmation() {
 		super();
-		initialize();
+
 	}
 
-	public FnBConfirmation(JFrame f) {
+	public FnBConfirmation(JFrame f,Member mem,ArrayList<FnB>fnb) {
 		this();
 		myFrame = f;
+		this.m = mem;
 		
-	}
-	
-	private void initialize(){
+
 		setSize(750,500);
 		setLayout(null);
+		
+		JLabel lbl = new JLabel("Confirmation Page");
+		lbl.setFont(new Font("Candara", Font.BOLD, 16));
+		lbl.setBounds(50,10,200,100);
+		add(lbl);
+		JTable table = new JTable();
+		ArrayList<FnB>list = new ArrayList<FnB>(fnb);
+		FnBViewTableModel model = new FnBViewTableModel(list);
+		table.setModel(model);
+		table.setBounds(0,0,600,400);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(50,75,400,200);
+		add(scrollPane);
 		
 		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new FnBMain(myFrame);
+				JPanel panel = new FnBMain(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -47,19 +64,5 @@ public class FnBConfirmation extends BackgroundPanel {
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBounds(316, 309, 89, 23);
 		add(btnNewButton);
-		
-		JTextPane txtpnDearMemberYou = new JTextPane();
-		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
-		txtpnDearMemberYou.setText("Dear member, you have ordered the following:\r\n\r\n1.\tMushroom Soup\r\n2.\tChicken Cutlet\r\n\t\r\n\t\t\t\t\t\t\t\tYour ordering No. is 5634A\r\n\t\t\t\t\t\t\t\tYour food will be ready in 20 minutes\r\n\t\r\n\t\t\t\t\t\t\t\t\t\t\tThank you\r\n\t\t\t\t\t\t\t\t\t\t\t\t\tfor your order");
-		txtpnDearMemberYou.setOpaque(false);
-		txtpnDearMemberYou.setEditable(false);
-		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		txtpnDearMemberYou.setForeground(new Color(0, 0, 0));
-		txtpnDearMemberYou.setBounds(53, 32, 387, 341);
-		add(txtpnDearMemberYou);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(58, 233, 382, 2);
-		add(separator);
 	}
 }

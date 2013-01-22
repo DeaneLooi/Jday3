@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import jday.entities.Class;
 import jday.entities.Member;
+import jday.entities.Register;
 import jday.util.BackgroundPanel;
 
 public class ClassesRegister extends BackgroundPanel{
@@ -172,6 +173,7 @@ public class ClassesRegister extends BackgroundPanel{
 				m.setContactnoM(Integer.parseInt(ContactNoM.getText()));
 				m.setEmail(Email.getText());
 				m.setAddress(Address.getText());
+
 				try {
 					m.updateMemberInfo();
 				} catch (SQLException e1) {
@@ -191,7 +193,17 @@ public class ClassesRegister extends BackgroundPanel{
 		btnConfirm.setForeground(new Color(0, 0, 0));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new ClassesConfirmation(myFrame,m,c);
+				
+				Register r = new Register(m);
+				r.setEventclass(c.getClasstype());
+				try {
+					r.register(r);
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
+				JPanel panel = new ClassesConfirmation(myFrame,m,c,r);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

@@ -4,34 +4,46 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
+import jday.entities.FnB;
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
+import jday.util.FnBViewTableModel;
 
 public class FnBViewOrder extends BackgroundPanel {
 
 	
 	public FnBViewOrder() {
 		super();
-		initialize();
+
 	}
-	public FnBViewOrder(JFrame f) {
+	public FnBViewOrder(JFrame f, Member mem) {
 		this();
 		myFrame = f;
-	}
-	
-	private void initialize(){
+		this.m = mem;
 		setSize(750,500);
 		setLayout(null);
 		
+		JTable table = new JTable();
+
+		ArrayList<FnB>list = FnB.searchFnbOrder(mem.getMemberid());
+		FnBViewTableModel model = new FnBViewTableModel(list);
+		table.setModel(model);
+		table.setBounds(0,0,600,400);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(50,50,600,400);
+		add(scrollPane);
 		JButton btnClose = new JButton("close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new FnBMain(myFrame);
+				JPanel panel = new FnBMain(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -41,17 +53,8 @@ public class FnBViewOrder extends BackgroundPanel {
 		btnClose.setOpaque(false);
 		btnClose.setFont(new Font("Candara", Font.PLAIN, 16));
 		btnClose.setForeground(new Color(0, 0, 0));
-		btnClose.setBounds(298, 354, 89, 23);
+		btnClose.setBounds(342, 11, 89, 23);
 		add(btnClose);
-		
-		JTextPane txtpnFoodAndDrinks = new JTextPane();
-		txtpnFoodAndDrinks.setForeground(new Color(0, 0, 0));
-		txtpnFoodAndDrinks.setFont(new Font("Calibri", Font.PLAIN, 16));
-		txtpnFoodAndDrinks.setText("Food and drinks that have been ordered:\r\n\r\n1.\tMushroom Soup\r\n\r\n2.\tChicken Cutlet\r\n\r\n3.\tCheesecake");
-		txtpnFoodAndDrinks.setOpaque(false);
-		txtpnFoodAndDrinks.setEditable(false);
-		txtpnFoodAndDrinks.setBounds(37, 67, 350, 310);
-		add(txtpnFoodAndDrinks);
 	}
 
 

@@ -13,8 +13,9 @@ import javax.swing.JSeparator;
 import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
 
-import jday.entities.Member;
 import jday.entities.Class;
+import jday.entities.Member;
+import jday.entities.Register;
 import jday.util.BackgroundPanel;
 
 public class ClassesConfirmation extends BackgroundPanel{
@@ -22,6 +23,7 @@ public class ClassesConfirmation extends BackgroundPanel{
 
 	private Class c = null;
 	private Member m = null;
+	private Register r = null;
 	
 	public ClassesConfirmation() {
 		super();
@@ -32,10 +34,11 @@ public class ClassesConfirmation extends BackgroundPanel{
 		myFrame = f;
 	}
 	
-	public ClassesConfirmation(JFrame f, Member m, Class c){
+	public ClassesConfirmation(JFrame f, Member m, Class c, Register r){
 		super();
 		this.c = c;
 		this.m = m;
+		this.r = r;
 		c.retrieveClass();
 		m.retrieveMember();
 		myFrame = f;
@@ -93,8 +96,8 @@ public class ClassesConfirmation extends BackgroundPanel{
 		lblFees.setBounds(179, 175, 270, 23);
 		lblFees.setText(c.getFees());
 		add(lblFees);
-		
-		JLabel lblRegisterno = new JLabel("1");
+		String registerNo = Integer.toString(r.getRegisterno());
+		JLabel lblRegisterno = new JLabel(registerNo);
 		lblRegisterno.setForeground(new Color(0, 0, 0));
 		lblRegisterno.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblRegisterno.setBounds(433, 261, 89, 18);

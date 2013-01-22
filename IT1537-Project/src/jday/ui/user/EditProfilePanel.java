@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -162,7 +163,11 @@ public class EditProfilePanel extends BackgroundPanel {
 				m.setEmail(tfEmail.getText());
 				m.setAddress(tfAddress.getText());
 				try {
-					m.updateMemberInfo();
+					boolean b = m.updateMemberInfo();
+					if(b = false)
+						JOptionPane.showMessageDialog(null, "Profile has not been changed");
+					if(b = true)
+						JOptionPane.showMessageDialog(null, "Profile has been changed");
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

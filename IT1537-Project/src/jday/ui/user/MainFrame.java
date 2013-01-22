@@ -102,7 +102,7 @@ public class MainFrame extends JFrame{
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-			jContentPane = new Event(myFrame,m);
+			jContentPane = new Classes(myFrame,m);
 
 
 		}
@@ -177,30 +177,9 @@ public class MainFrame extends JFrame{
 			jMenuGolf.setForeground(new Color(255, 255, 255));
 			jMenuGolf.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuGolf.setText("Golf");
-			jMenuGolf.addMenuListener(new MenuListener(){
-				public void menuSelected(MenuEvent e){
-					JPanel panel = new Golfing(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-
-				@Override
-				public void menuCanceled(MenuEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void menuDeselected(MenuEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
-			
-		}
+			}
 		return jMenuGolf;
+		
 	}
 
 	private JMenu getJMenuBanquet() {
@@ -221,28 +200,7 @@ public class MainFrame extends JFrame{
 			jMenuEvent.setForeground(new Color(255, 255, 255));
 			jMenuEvent.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuEvent.setText("Event");
-			jMenuEvent.addMenuListener(new MenuListener(){
-				public void menuSelected(MenuEvent e){
-					JPanel panel = new Event(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-
-				@Override
-				public void menuCanceled(MenuEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void menuDeselected(MenuEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
-		
+			
 
 		}
 		return jMenuEvent;
@@ -295,15 +253,6 @@ public class MainFrame extends JFrame{
 			jMenuItemRoomService = new JMenuItem("Room Service");
 			jMenuItemRoomService.setForeground(new Color(0, 0, 0));
 			jMenuItemRoomService.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemRoomService.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					JPanel panel= new RoomService(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint(); 
-				}
-			});
 
 		}
 		return jMenuItemRoomService;
@@ -331,15 +280,7 @@ public class MainFrame extends JFrame{
 			jMenuItemDayCare = new JMenuItem("Day Care");
 			jMenuItemDayCare.setForeground(new Color(0, 0, 0));
 			jMenuItemDayCare.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemDayCare.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new DayCareCalendar(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemDayCare;
 	}
@@ -349,16 +290,7 @@ public class MainFrame extends JFrame{
 			jMenuItemTaxi.setBackground(new Color(221, 160, 221));
 			jMenuItemTaxi.setForeground(new Color(0, 0, 0));
 			jMenuItemTaxi.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemTaxi.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new TaxiBooking(myFrame);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
-		}
+			}
 		return jMenuItemTaxi;
 	}
 	
@@ -367,15 +299,7 @@ public class MainFrame extends JFrame{
 			jMenuItemSports = new JMenuItem("Sports");
 			jMenuItemSports.setForeground(new Color(0, 0, 0));
 			jMenuItemSports.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemSports.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new Sport(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+	
 		}
 		return jMenuItemSports;
 	}
@@ -402,15 +326,7 @@ public class MainFrame extends JFrame{
 			jMenuItemPool = new JMenuItem("Pool");
 			jMenuItemPool.setForeground(new Color(0, 0, 0));
 			jMenuItemPool.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemPool.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new Pools(myFrame);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemPool;
 	}
@@ -438,15 +354,7 @@ public class MainFrame extends JFrame{
 			jMenuItemSPA.setBackground(new Color(221, 160, 221));
 			jMenuItemSPA.setForeground(new Color(0, 0, 0));
 			jMenuItemSPA.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemSPA.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new SpaPackages(myFrame);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemSPA;
 	}
@@ -455,15 +363,7 @@ public class MainFrame extends JFrame{
 			jMenuItemKaraoke = new JMenuItem("Karaoke");
 			jMenuItemKaraoke.setForeground(new Color(0, 0, 0));
 			jMenuItemKaraoke.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemKaraoke.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new KaraokeRegular(myFrame);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemKaraoke;
 	}
@@ -473,15 +373,7 @@ public class MainFrame extends JFrame{
 			jMenuItemRooms = new JMenuItem("Rooms");
 			jMenuItemRooms.setForeground(new Color(0, 0, 0));
 			jMenuItemRooms.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemRooms.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new Rooms(myFrame , m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemRooms;
 	}
@@ -491,15 +383,7 @@ public class MainFrame extends JFrame{
 			jMenuItemPackages.setBackground(new Color(221, 160, 221));
 			jMenuItemPackages.setForeground(new Color(0, 0, 0));
 			jMenuItemPackages.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemPackages.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new Packages(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 		}
 		return jMenuItemPackages;
 	}
@@ -527,15 +411,7 @@ public class MainFrame extends JFrame{
 	private JMenuItem getMntmProfile() {
 		if (mntmProfile == null) {
 			mntmProfile = new JMenuItem("Profile");
-			mntmProfile.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new MemberEdit(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 			mntmProfile.setForeground(new Color(0, 0, 0));
 			mntmProfile.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		}
@@ -544,15 +420,7 @@ public class MainFrame extends JFrame{
 	private JMenuItem getMntmBooking() {
 		if (mntmBooking == null) {
 			mntmBooking = new JMenuItem("Booking");
-			mntmBooking.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					JPanel panel = new UserBooking(myFrame,m);
-					myFrame.getContentPane().removeAll();
-					myFrame.getContentPane().add(panel);
-					myFrame.getContentPane().validate();
-					myFrame.getContentPane().repaint();
-				}
-			});
+
 			mntmBooking.setForeground(new Color(0, 0, 0));
 			mntmBooking.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			

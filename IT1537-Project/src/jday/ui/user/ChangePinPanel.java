@@ -68,7 +68,6 @@ public class ChangePinPanel extends BackgroundPanel {
 		btnConfirm.setOpaque(false);
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				boolean authenticate;
 				boolean authenticate1;
 				authenticate = authenticateMember(pfCurrent.getText());
@@ -77,12 +76,26 @@ public class ChangePinPanel extends BackgroundPanel {
 
 				try {
 					String newpin = pfNew.getText();
-					m.changePin(newpin);
+					boolean b= m.changePin(newpin);
+					if(b = false)
+						JOptionPane.showMessageDialog(null, "Pin has not been changed");
+					else if(b = true)
+						JOptionPane.showMessageDialog(null, "Pin has been changed");
+					if(myFrame instanceof LoginFrame){
 					JPanel panel = new EditProfilePanel(myFrame, m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
 					myFrame.getContentPane().repaint();
+					}
+					
+					else if(myFrame instanceof MainFrame){
+						JPanel panel = new Classes(myFrame,m);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

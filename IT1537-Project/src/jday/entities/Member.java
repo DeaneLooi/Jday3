@@ -1,14 +1,16 @@
 package jday.entities;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import jday.entities.dao.DBController;
 
 
 
 public class Member{
-	private static int count;
+	private int count = 0;
 	private String memberid;
 	private String pin;
 	private String name;
@@ -18,16 +20,45 @@ public class Member{
 	private String email;
 	private String address;
 	
-	
-
 
 
 	public int getCount() {
-		return count;
-	}
+		DBController db = new DBController();
+		Connection con = db.getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+			
+		try{
+			stmt = con.createStatement();
+			String query = "select * from user_aes where user_name = '"+memberid+"';";
+			rs = stmt.executeQuery(query);
+			while(rs.next())
+				count = rs.getInt(3);
+			
+		}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			db.terminate();
+			return count;
+		}
+	
 
 	public void setCount() {
-		count++;
+		count += 1;
+		DBController db = new DBController();
+		Connection con = db.getConnection();
+		Statement stmt = null;
+		
+		try{
+			stmt = con.createStatement();
+			String query = "update user_aes set count ='"+count+"' where user_name ='"+memberid+"';";
+			System.out.println(query);
+			stmt.execute(query);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		db.terminate();
 	}
 
 	public Member() {
@@ -112,7 +143,8 @@ public class Member{
 		db.getConnection();		
 
 		dbQuery = "INSERT INTO user_aes";
-	    dbQuery = dbQuery + " VALUES ('" + memberid + "',aes_encrypt('"+pin+"','keytoencrypt'));";
+	    dbQuery = dbQuery + " VALUES ('" + memberid + "',aes_encrypt('"+pin+"','keytoencrypt')"+",'"+count+"');";
+	    
 
 
 	    if (db.updateRequest(dbQuery) == 1){
@@ -164,7 +196,7 @@ public class Member{
 		db.getConnection();
 
 		String sql = "select * from user_aes where user_name= '"+memberid +"' and pin = aes_encrypt('"+pin+"','keytoencrypt');";
-
+	
 	
 		rs = db.readRequest(sql);
 
@@ -252,8 +284,10 @@ public class Member{
 		db.getConnection();	
 
 		dbQuery = "UPDATE MEMBERINFO SET Name = '" + name; 
-		dbQuery = dbQuery + "', Birthdate = '" + birthdate + "',contactnoH ='"+contactnoH+"',contactnoM ='"+contactnoM+"',email ='"+email+"', address = '" + address+"';";
-
+		dbQuery = dbQuery + "', Birthdate = '" + birthdate + "',contactnoH ='"+contactnoH+
+				"',contactnoM ='"+contactnoM+"',email ='"+email+"', address = '" + address+
+		"' WHERE memberid = '" + memberid+"';";
+		System.out.println(dbQuery);
 		if (db.updateRequest(dbQuery) == 1){
 		        success = true;
 		} 
