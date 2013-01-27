@@ -53,12 +53,14 @@ public class AProfile extends BackgroundPanel{
 		myFrame = f;
 		
 		JTable table = new JTable();
-		ProfileTableModel model = new ProfileTableModel(null);
-		
+	
+		ProfileTableModel model = new ProfileTableModel(MemberDAO.retrieveAll());
+		table.setBounds(0, 0, 400, 450);
         JScrollPane scrollPane = new JScrollPane(table);
-		table.setFillsViewportHeight(true);	
-		table.setCellSelectionEnabled(true);
-
+        scrollPane.setBounds(50, 50, 300, 400);
+		//table.setFillsViewportHeight(true);	
+		//table.setCellSelectionEnabled(true);
+		table.setModel(model);
 		add(scrollPane);
 	
 
@@ -97,7 +99,7 @@ public class AProfile extends BackgroundPanel{
 				membersearch.getName();
 				MemberDAO.searchByName(membersearch.getName());
 				
-				ArrayList <Member> memberList = MemberDAO.retrieveAll();
+				ArrayList <Member> memList = MemberDAO.retrieveAll();
 				
 				//JTableModel model = new JTableModel (memberList);
 				//table_1.setModel(model);

@@ -150,6 +150,7 @@ public class MemberDAO {
 	                 member.setContactnoM(memberContactnoM);
 	                 member.setEmail(memberEmail);
 	                 member.setAddress(memberAddress);
+	                 memberList.add(member);
 	            }
 	        } catch (Exception e) {
 	        	e.printStackTrace();

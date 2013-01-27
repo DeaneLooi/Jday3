@@ -2,13 +2,8 @@ package jday.util;
 
 import java.util.ArrayList;
 
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
-
-import jday.entities.Booking;
 import jday.entities.Member;
-import jday.entities.dao.AdminViewBookingDAO;
 
 public class ProfileTableModel extends AbstractTableModel {
 	private final long serialVersionUID = 1L;
@@ -16,15 +11,15 @@ public class ProfileTableModel extends AbstractTableModel {
 	private String[] columnNames = {"memberid", "name", "birthdate" , "contactnoH", "contactnoM", "email" , "address"};
 	private Object [] [] data;
 	
-	//ArrayList<Member> memberList = new ArrayList<Member>();
+	ArrayList<Member> memberList = new ArrayList<Member>();
 	
-	public ProfileTableModel(ArrayList<Member>memList){
-	rowCount = memList.size();
+	public ProfileTableModel(ArrayList<Member>memberList){
+	rowCount = memberList.size();
 	colCount = columnNames.length;
 	data = new Object[rowCount][colCount];
 	for(int i = 0; i< rowCount; i++){
 		/*Copy an ArrayList element to an instance of MyObject*/
-        Member member = memList.get(i); 
+        Member member = memberList.get(i); 
         data[i][0] = member.getMemberid();          
         data[i][1] = member.getName();
         data[i][2] = member.getBirthdate();
