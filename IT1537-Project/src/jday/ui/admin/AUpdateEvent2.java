@@ -83,7 +83,6 @@ public class AUpdateEvent2 extends BackgroundPanel {
 		String title = "";
 		String info = "";
 		String venue = "";
-		String date1 = EventDAO.dateToString(date);
 		//getEventByDate
 		Event event01 = EventDAO.getEventByDate(date);
 		//if not null, set the boxes with text
