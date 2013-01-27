@@ -92,7 +92,7 @@ public class DBController {
 		try {
 			// step 1
 			con=DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/jdaydatabase","myuser","jday");
+					"jdbc:mysql://192.168.44.135:3306/jdaydatabase","myuser","jday");
 					
 			// step 2
 			stmt=con.createStatement();
