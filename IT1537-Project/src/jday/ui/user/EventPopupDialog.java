@@ -53,10 +53,10 @@ public class EventPopupDialog extends JDialog {
 		// call DAO to retrieve DB 
 		//Event event = EventDAO.getEventByDate("1/2/2013");
 		//jtect.settext(event.getDescrt())
-		String info = " - ";
+		String info = "There are no events on this date.";
 		String title = " - ";
 		String venue = " - ";
-		String date1 = " - ";
+		String date1 = EventDAO.dateToString(date2);
 		
 		
 		Event event01 = EventDAO.getEventByDate(date2);
@@ -64,7 +64,6 @@ public class EventPopupDialog extends JDialog {
 		info = event01.getInfo();
 		title = event01.getTitle();
 		venue = event01.getVenue();
-		date1 = event01.getDate();
 		}
 		
 		
@@ -111,7 +110,7 @@ public class EventPopupDialog extends JDialog {
 		txpInfo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 204, 255)));
 		txpInfo.setForeground(new Color(0, 0, 51));
 		txpInfo.setBackground(new Color(255, 153, 255));
-		txpInfo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txpInfo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txpInfo.setText(info);
 		txpInfo.setBounds(271, 11, 306, 310);
 		contentPanel.add(txpInfo);

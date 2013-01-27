@@ -73,7 +73,7 @@ public class EventCalendar extends BackgroundPanel {
 			}
 		});
 		calendar.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		calendar.setBounds(10, 94, 730, 381);
+		calendar.setBounds(10, 94, 730, 395);
 		add(calendar);
 		
 		JLabel lblEvents = new JLabel("Events");
