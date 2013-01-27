@@ -66,7 +66,7 @@ public class SportInfo extends BackgroundPanel {
 		lblIcon.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -82,7 +82,7 @@ public class SportInfo extends BackgroundPanel {
 		lblNewLabel_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -98,7 +98,7 @@ public class SportInfo extends BackgroundPanel {
 		lblIcontennis.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -114,7 +114,7 @@ public class SportInfo extends BackgroundPanel {
 		lblIconvolley.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -130,7 +130,7 @@ public class SportInfo extends BackgroundPanel {
 		lblIconbowling.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -165,7 +165,7 @@ public class SportInfo extends BackgroundPanel {
 		lblNewLabel_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

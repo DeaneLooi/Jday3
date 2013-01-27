@@ -142,7 +142,7 @@ public class SportViewDetail extends BackgroundPanel {
 		JButton button = new JButton("Book Now");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new SportInfoBooking(myFrame);
+				JPanel panel = new SportInfoBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

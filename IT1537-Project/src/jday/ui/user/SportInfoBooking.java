@@ -25,6 +25,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import jday.entities.BookingNo;
+import jday.entities.Member;
 import jday.entities.SportBooking;
 import jday.entities.dao.SportBookingDAO;
 import jday.util.BackgroundPanel;
@@ -47,9 +48,12 @@ public class SportInfoBooking extends BackgroundPanel {
 		initialize();
 	}
 	
-	public SportInfoBooking(JFrame f){
+	public SportInfoBooking(JFrame f, Member m){
 		this();
 		myFrame = f;
+		this.m = m;
+		this.m.retrieveMemberInfo();
+				
 	}
 	
 	private void initialize(){
@@ -65,29 +69,11 @@ public class SportInfoBooking extends BackgroundPanel {
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-	
-					JComboBox comboBox = new JComboBox();
-					int timeSelected = comboBox.getSelectedIndex();
-					System.out.println("selected index = " + timeSelected);
-					String selectedTime = (String) (comboBox.getItemAt(timeSelected));
-					System.out.println("Selected time = " + comboBox);
-					
-					JComboBox comboBox_1 = new JComboBox();
-					int courtSelected = comboBox_1.getSelectedIndex();
-					System.out.println("selected index = " + courtSelected);
-					String selectedCourt = (String) comboBox_1.getItemAt(courtSelected);
-					System.out.println("Selected court = " + comboBox_1);
-					
-					JComboBox comboBox_2 = new JComboBox();
-					int sportSelected = comboBox_2.getSelectedIndex();
-					System.out.println("selected index = " + sportSelected);
-					String selectedSport = (String) (comboBox_2.getItemAt(sportSelected));
-					System.out.println("Selected sport = " + comboBox_2);
-					
+		
 					sportbooking.getCourt();
 					sportbooking.getSport();
-					sportbooking.getTime();
-					
+					sportbooking.setTime();
+					sportbooking.setMemberid(m.getMemberid());
 					
 					SportBookingDAO.CreateSportBooking(sportbooking);
 					BookingNo bookno = new BookingNo();
@@ -136,7 +122,16 @@ public class SportInfoBooking extends BackgroundPanel {
 		lblSports.setBounds(76, 376, 57, 25);
 		add(lblSports);
 		
-		JComboBox comboBox = new JComboBox();
+		final JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int timeSelected = comboBox.getSelectedIndex();
+				System.out.println("selected index = " + timeSelected);
+				String selectedTime = (String) (comboBox.getItemAt(timeSelected));
+				System.out.println("Selected time = " + comboBox);
+			}
+		});
 		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"0900-1000", "1000-1100", "1100-1200", "1200-1300", "1300-1400", "1400-1500", "1500-1600", "1600-1700", "1700-1800", "1800-1900"}));
 		comboBox.setToolTipText("");
@@ -144,7 +139,15 @@ public class SportInfoBooking extends BackgroundPanel {
 		add(comboBox);
 		
 		
-		JComboBox comboBox_1 = new JComboBox();
+		final JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int courtSelected = comboBox_1.getSelectedIndex();
+				System.out.println("selected index = " + courtSelected);
+				String selectedCourt = (String) comboBox_1.getItemAt(courtSelected);
+				System.out.println("Selected court = " + comboBox_1);
+			}
+		});
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
 		comboBox_1.setToolTipText("");
 		comboBox_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -153,7 +156,16 @@ public class SportInfoBooking extends BackgroundPanel {
 		
 		/////////////////////////////////
 		
-		JComboBox comboBox_2 = new JComboBox();
+		final JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JComboBox comboBox_2 = new JComboBox();
+				int sportSelected = comboBox_2.getSelectedIndex();
+				System.out.println("selected index = " + sportSelected);
+				String selectedSport = (String) (comboBox_2.getItemAt(sportSelected));
+				System.out.println("Selected sport = " + comboBox_2);
+			}
+		});
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Basketball", "Tennis", "Bowling", "Badminton", "Volleyball", "Table Tennis"}));
 		comboBox_1.setToolTipText("");
 		comboBox_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
