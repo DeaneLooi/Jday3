@@ -77,10 +77,6 @@ public class GolfingInfoBooking extends BackgroundPanel {
 				BookingNo bookno = new BookingNo();
 				bookno.setBookingNo();
 				
-				//BookingNoDAO.saveBookingNo(bookingno); 
-				//GolfingInfoBooking golfbooking = new GolfingInfoBooking();
-				//golfbooking.setBookingNo();
-				
 				golfingbooking.setMemberid(m.getMemberid());
 				golfingbooking.setGreenFees(choice2);
 				golfingbooking.setTime(choice);

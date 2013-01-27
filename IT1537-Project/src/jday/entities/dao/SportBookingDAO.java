@@ -32,7 +32,7 @@ public class SportBookingDAO {
 		stmt = currentCon.createStatement();
 		
         // query for inserting into the table
-        String query = "insert into sports(bookingno, memberid, time, date, court) values(?,?,?,?,?)";
+        String query = "insert into sports(bookingno, memberid, time, date, court, sport) values(?,?,?,?,?,?)";
         pstmt = currentCon.prepareStatement(query);
         
         // inserting values
@@ -41,6 +41,7 @@ public class SportBookingDAO {
         pstmt.setString(3,sportbooking.getTime());  
         pstmt.setString(4,sportbooking.getDate());
         pstmt.setInt(5,sportbooking.getCourt());
+        pstmt.setString(6,sportbooking.getSport());
         pstmt.executeUpdate();
         
 		} catch (Exception ex) {
@@ -97,6 +98,7 @@ public class SportBookingDAO {
                  String SportBookingTime = rs.getString("time");
                  String SportBookingDate = rs.getString("date");
                  int SportBookingCourt = rs.getInt("court");
+                 String SportBookingSport = rs.getString("sport");
                  
                  sportBooking = new SportBooking();
                  sportBooking.setMemberid(SportBookingMemberid);
@@ -104,6 +106,7 @@ public class SportBookingDAO {
                  sportBooking.setTime(SportBookingTime);
                  sportBooking.setDate(SportBookingDate);
                  sportBooking.setCourt(SportBookingCourt);
+                 sportBooking.setSport(SportBookingSport);
                 
             }
         } catch (Exception e) {
