@@ -5,10 +5,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
+import jday.entities.BookingNo;
 import jday.entities.Member;
 import jday.entities.SpaBookingDetails;
-import jday.ui.user.SpaBooking;
 
 public class SpaBookingDetailsDAO {
 
@@ -31,15 +30,19 @@ public class SpaBookingDetailsDAO {
             // query for inserting into the table
             String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
-            
+            BookingNo bookNo = BookingNoDAO.createBookNo();
+            sBooking.setBookingNo(bookNo.getBookingNo());
             // inserting values
-            pstmt.setInt(1, BookingNoDAO.createBookNo());
+            pstmt.setInt(1, bookNo.getBookingNo());
             pstmt.setString(2, m.getMemberid());
             pstmt.setString(3, sBooking.getTime());  
             pstmt.setString(4, sBooking.getDate());
             pstmt.setString(5, sBooking.getSession());
             
             pstmt.executeUpdate();
+            String updateQuery = "UPDATE bookingno SET availability = 'not available' where bookingno ='"+bookNo.getBookingNo()+"';";
+            pstmt1 = currentCon.prepareStatement (updateQuery);
+            pstmt1.executeUpdate();
             
 		} catch (Exception ex) {
 

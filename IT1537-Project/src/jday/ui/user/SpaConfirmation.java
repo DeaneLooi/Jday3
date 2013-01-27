@@ -34,7 +34,6 @@ public class SpaConfirmation extends BackgroundPanel {
 	/*public SpaConfirmation(JFrame f) {
 		this();
 		myFrame = f;
-		
 	}
 	
 	public void setBookingDetails(SpaBookingDetails bookingDetails) {
@@ -70,9 +69,8 @@ public class SpaConfirmation extends BackgroundPanel {
 		String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
 		String sessionDetails = spaBookingDetails.getSession();
 		String timeDetails = spaBookingDetails.getTime();
-		//String memberId = spaBookingDetails.getMemberId();
 		
-		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is "+ spaBookingDetails.getBookingNo()+" \r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
 		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));

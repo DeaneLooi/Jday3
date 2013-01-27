@@ -70,7 +70,7 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		String timeDetails = karaokeBookingEntities.getTime();
 		//String memberId = karaokeBookingEntities.getMemberId();
 		
-		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + roomsDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + roomsDetails + " \r\n\t\r\n\t\tYour booking No. is "+ karaokeBookingEntities.getBookingNo()+ "\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
 		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));

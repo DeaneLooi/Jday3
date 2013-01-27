@@ -19,7 +19,7 @@ public class BookingNoDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 	
-	public static int createBookNo(){
+	public static BookingNo createBookNo(){
 		
 		Statement stmt = null;
 		BookingNo bookingno = new BookingNo();
@@ -77,7 +77,7 @@ public class BookingNoDAO {
 						}
 					}
 		
-		return bookingNo;
+		return bookingno;
 	} 
 	
 
@@ -108,8 +108,8 @@ public class BookingNoDAO {
 	 }
 	
 	public static void main (String [] args){
-		int bookNo = BookingNoDAO.createBookNo();
-		System.out.println(bookNo);
+		BookingNo bookNo = BookingNoDAO.createBookNo();
+		System.out.println(bookNo.getBookingNo());
 	}
 	
 	}
