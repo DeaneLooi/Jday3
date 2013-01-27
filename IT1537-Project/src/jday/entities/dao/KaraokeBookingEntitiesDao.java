@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import jday.entities.BookingNo;
 import jday.entities.Member;
-import jday.entities.KaraokeBookingEntities;
 import jday.entities.KaraokeBookingEntities;
 import jday.entities.KaraokeBookingEntities;
 import jday.ui.user.KaraokeBooking;
@@ -20,7 +20,7 @@ public class KaraokeBookingEntitiesDao {
 	static PreparedStatement pstmt1 = null;
 	
 
-	public static KaraokeBookingEntities spaBooking(KaraokeBookingEntities kBooking, Member m) {
+	public static KaraokeBookingEntities karaokeBooking(KaraokeBookingEntities kBooking, Member m) {
 		DBController db = new DBController();
 		Connection currentCon = db.getConnection();
 		
@@ -30,11 +30,13 @@ public class KaraokeBookingEntitiesDao {
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, session/roomtype) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
+            BookingNo bookNo = BookingNoDAO.createBookNo();
+            kBooking.setBookingNo(bookNo.getBookingNo());
             
             // inserting values
-            pstmt.setInt(1, kBooking.getBookingNo());
+            pstmt.setInt(1, bookNo.getBookingNo());
             pstmt.setString(2, m.getMemberid());
             pstmt.setString(3, kBooking.getTime());  
             pstmt.setString(4, kBooking.getDate());
@@ -42,10 +44,13 @@ public class KaraokeBookingEntitiesDao {
 
             
             pstmt.executeUpdate();
+            String updateQuery = "UPDATE bookingno SET availability = 'not available' where bookingno ='"+bookNo.getBookingNo()+"';";
+            pstmt1 = currentCon.prepareStatement (updateQuery);
+            pstmt1.executeUpdate();
             
 		} catch (Exception ex) {
 
-			System.out.println("Booking failed! "+ ex);
+			System.out.println("Booking failed!" + ex);
 		}
 
 		
@@ -83,7 +88,7 @@ public class KaraokeBookingEntitiesDao {
 		KaraokeBookingEntities kBookings = null;
 		Statement stmt = null;
         String searchQuery = "select * from spakaraoke";
-        ArrayList<KaraokeBookingEntities> spaBookingDetailsList = new ArrayList<KaraokeBookingEntities>();
+        ArrayList<KaraokeBookingEntities> karaokeBookingEntitiesList = new ArrayList<KaraokeBookingEntities>();
         try {
             // connect to DB
         	DBController db = new DBController();
@@ -91,7 +96,6 @@ public class KaraokeBookingEntitiesDao {
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
-            
                 String bookingNo = rs.getString("bookingNo");
                 String memberId = rs.getString("memberId");
                 String time = rs.getString("time");
@@ -108,7 +112,7 @@ public class KaraokeBookingEntitiesDao {
         	e.printStackTrace();
         }
 
-		return  spaBookingDetailsList;
+		return  karaokeBookingEntitiesList;
 	}
 
 	

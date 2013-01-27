@@ -21,7 +21,9 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
+import jday.entities.Member;
 import jday.entities.SpaBookingDetails;
+import jday.entities.dao.SpaBookingDetailsDAO;
 import jday.util.BackgroundPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -43,6 +45,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 	private JComboBox session;
 	
 	private String time; 
+	
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	
 
@@ -51,9 +54,10 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		initialize();
 	}
 
-	public SpaBooking(JFrame f) {
+	public SpaBooking(JFrame f, Member m) {
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 
 	private void initialize() {
@@ -181,13 +185,16 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		bookingDetails.setDay(selectedDay);
 		bookingDetails.setMonth(selectedMonth);
 		bookingDetails.setYear(selectedYear);
+		bookingDetails.setDate();
 		
 		bookingDetails.setTime(selectedT);
 		
 		bookingDetails.setSession(selectedSession);
-	
+		
+		SpaBookingDetails bookDetails = new SpaBookingDetails();
+		bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
 
-		SpaConfirmation panel = new SpaConfirmation(myFrame, bookingDetails);
+		SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
 
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);

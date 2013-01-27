@@ -21,6 +21,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import jday.entities.KaraokeBookingEntities;
+import jday.entities.Member;
+import jday.entities.dao.KaraokeBookingEntitiesDao;
 import jday.util.BackgroundPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.AbstractAction;
@@ -49,9 +51,10 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		initialize();
 	}
 
-	public KaraokeBooking(JFrame f) {
+	public KaraokeBooking(JFrame f, Member m) {
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 
 	private void initialize() {
@@ -158,17 +161,6 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 
 	}
 
-	/*
-	 * private class SwingAction extends AbstractAction { public SwingAction() {
-	 * putValue(NAME, "SwingAction"); putValue(SHORT_DESCRIPTION,
-	 * "Some short description"); }
-	 * 
-	 * @Override public void actionPerformed(ActionEvent e) { // TODO
-	 * Auto-generated method stub
-	 * 
-	 * } }
-	 */
-
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int selectedDay = (int) day.getValue();
@@ -192,13 +184,16 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		bookingDetails.setDay(selectedDay);
 		bookingDetails.setMonth(selectedMonth);
 		bookingDetails.setYear(selectedYear);
-
+		bookingDetails.setDate();
+		
 		bookingDetails.setTime(selectedT);
 
 		bookingDetails.setRooms(selectedRoom);
 
-		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame,
-				bookingDetails);
+		KaraokeBookingEntities bookDetails = new KaraokeBookingEntities();
+		bookDetails = KaraokeBookingEntitiesDao.karaokeBooking(bookingDetails, m);
+
+		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookDetails, m);
 
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
@@ -206,4 +201,5 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		myFrame.getContentPane().repaint();
 
 	}
+	
 }
