@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import jday.entities.KaraokeBookingEntities;
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import javax.swing.JTextField;
 
@@ -19,10 +20,11 @@ public class KaraokeConfirmation extends BackgroundPanel {
 
 	private KaraokeBookingEntities karaokeBookingEntities;
 	
-	public KaraokeConfirmation(JFrame myFrame, KaraokeBookingEntities bookingDetails) {
+	public KaraokeConfirmation(JFrame myFrame, KaraokeBookingEntities bookingDetails, Member m) {
 		super();
 		karaokeBookingEntities = bookingDetails;
 		this.myFrame = myFrame;
+		this.m = m;
 		initialize();
 	}
 
@@ -46,7 +48,7 @@ public class KaraokeConfirmation extends BackgroundPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				//KaraokeBookingDetailsDao.save(karaokeBookingEntities);
-				JPanel panel = new KaraokeRegular(myFrame);
+				JPanel panel = new KaraokeRegular(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -66,6 +68,7 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		String dateDetails = karaokeBookingEntities.getDay() + "." + karaokeBookingEntities.getMonth() + ". " + karaokeBookingEntities.getYear();
 		String roomsDetails = karaokeBookingEntities.getRooms();
 		String timeDetails = karaokeBookingEntities.getTime();
+		//String memberId = karaokeBookingEntities.getMemberId();
 		
 		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + roomsDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);

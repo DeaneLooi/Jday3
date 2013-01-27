@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import jday.entities.Member;
 import jday.entities.KaraokeBookingEntities;
 import jday.entities.KaraokeBookingEntities;
-import jday.entities.KaraokeBookingEntities;
 import jday.ui.user.KaraokeBooking;
 
 public class KaraokeBookingEntitiesDao {
@@ -20,7 +19,7 @@ public class KaraokeBookingEntitiesDao {
 	static PreparedStatement pstmt1 = null;
 	
 
-	public static KaraokeBookingEntities spaBooking(KaraokeBookingEntities kBooking, Member m) {
+	public static KaraokeBookingEntities karaokeBooking(KaraokeBookingEntities kBooking, Member m) {
 		DBController db = new DBController();
 		Connection currentCon = db.getConnection();
 		
@@ -30,7 +29,7 @@ public class KaraokeBookingEntitiesDao {
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, session/roomtype) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
             
             // inserting values
@@ -45,7 +44,7 @@ public class KaraokeBookingEntitiesDao {
             
 		} catch (Exception ex) {
 
-			System.out.println("Booking failed! "+ ex);
+			System.out.println("Booking failed!" + ex);
 		}
 
 		
@@ -83,7 +82,7 @@ public class KaraokeBookingEntitiesDao {
 		KaraokeBookingEntities kBookings = null;
 		Statement stmt = null;
         String searchQuery = "select * from spakaraoke";
-        ArrayList<KaraokeBookingEntities> spaBookingDetailsList = new ArrayList<KaraokeBookingEntities>();
+        ArrayList<KaraokeBookingEntities> karaokeBookingEntitiesList = new ArrayList<KaraokeBookingEntities>();
         try {
             // connect to DB
         	DBController db = new DBController();
@@ -91,7 +90,6 @@ public class KaraokeBookingEntitiesDao {
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
-            
                 String bookingNo = rs.getString("bookingNo");
                 String memberId = rs.getString("memberId");
                 String time = rs.getString("time");
@@ -108,7 +106,7 @@ public class KaraokeBookingEntitiesDao {
         	e.printStackTrace();
         }
 
-		return  spaBookingDetailsList;
+		return  karaokeBookingEntitiesList;
 	}
 
 	

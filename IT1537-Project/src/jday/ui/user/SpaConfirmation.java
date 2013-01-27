@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import jday.entities.Member;
 import jday.entities.SpaBookingDetails;
 import jday.entities.dao.SpaBookingDetailsDAO;
 import jday.util.BackgroundPanel;
@@ -22,10 +23,11 @@ public class SpaConfirmation extends BackgroundPanel {
 
 	private SpaBookingDetails spaBookingDetails;
 	
-	public SpaConfirmation(JFrame myFrame, SpaBookingDetails bookingDetails) {
+	public SpaConfirmation(JFrame myFrame, SpaBookingDetails bookingDetails,Member m) {
 		super();
 		spaBookingDetails = bookingDetails;
 		this.myFrame = myFrame;
+		this.m = m;
 		initialize();
 	}
 
@@ -48,7 +50,7 @@ public class SpaConfirmation extends BackgroundPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				//SpaBookingDetailsDao.save(spaBookingDetails);
-				JPanel panel = new SpaPackages(myFrame);
+				JPanel panel = new SpaPackages(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -68,6 +70,7 @@ public class SpaConfirmation extends BackgroundPanel {
 		String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
 		String sessionDetails = spaBookingDetails.getSession();
 		String timeDetails = spaBookingDetails.getTime();
+		//String memberId = spaBookingDetails.getMemberId();
 		
 		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
