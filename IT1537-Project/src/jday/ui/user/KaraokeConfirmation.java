@@ -22,6 +22,7 @@ public class KaraokeConfirmation extends BackgroundPanel {
 	public KaraokeConfirmation(JFrame myFrame, KaraokeBookingEntities bookingDetails) {
 		super();
 		karaokeBookingEntities = bookingDetails;
+		this.myFrame = myFrame;
 		initialize();
 	}
 

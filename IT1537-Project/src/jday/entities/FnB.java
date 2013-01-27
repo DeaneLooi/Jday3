@@ -160,7 +160,7 @@ public class FnB {
 			
 		//The symbol % is used as the wildcard.
 	      if (phrase == null || phrase == "" )
-			return null;
+			dbQuery = "SELECT * FROM FNB;";
 		else
 			dbQuery = "SELECT * FROM FNB WHERE MEMBERID LIKE '%" + phrase + "%'";	
 			
@@ -185,4 +185,19 @@ public class FnB {
 		return fnbList;
 	}
 
+	public boolean deleteOrder() throws SQLException{
+		boolean success = false;
+		DBController db = new DBController();
+		String dbQuery;	
+		db.getConnection();
+
+		dbQuery = "DELETE FROM FnB where bookingno = '" + bookingno +"';";
+
+		if (db.updateRequest(dbQuery) == 1){
+			success = true;
+		}
+
+		db.terminate();
+		return success;
+	}
 }

@@ -25,6 +25,7 @@ public class SpaConfirmation extends BackgroundPanel {
 	public SpaConfirmation(JFrame myFrame, SpaBookingDetails bookingDetails) {
 		super();
 		spaBookingDetails = bookingDetails;
+		this.myFrame = myFrame;
 		initialize();
 	}
 
