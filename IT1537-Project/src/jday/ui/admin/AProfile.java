@@ -27,7 +27,7 @@ import jday.entities.Member;
 import jday.entities.dao.AdminViewBookingDAO;
 import jday.entities.dao.MemberDAO;
 import jday.util.BackgroundPanel;
-import jday.util.JTableModel;
+import jday.util.*;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -52,51 +52,16 @@ public class AProfile extends BackgroundPanel{
 		this();
 		myFrame = f;
 		
-		JTable table = new JTable(new JTableModel()); 
+		JTable table = new JTable();
+		ProfileTableModel model = new ProfileTableModel(null);
+		
         JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);	
 		table.setCellSelectionEnabled(true);
 
 		add(scrollPane);
 	
-	class JTableModel extends AbstractTableModel {
-		private final long serialVersionUID = 1L;
-		private final String[] COLUMN_NAMES = new String[] {"memberid", "name", "birthdate" , "contactnoH", "contactnoM", "email" , "address"};
-		private final Class<?>[] COLUMN_TYPES = new Class<?>[] {String.class, String.class, String.class, int.class, int.class, String.class,  String.class};
-		
-		ArrayList<Member> memberList = MemberDAO.retrieveAll();
-		int count = memberList.size();
-		
-		@Override public int getColumnCount() {
-			return COLUMN_NAMES.length;
-		}
 
-		@Override public int getRowCount() {
-			return count;
-		}
-		
-		@Override public String getColumnName(int columnIndex) {
-	        return COLUMN_NAMES[columnIndex];
-	    }
-		
-		@Override public Class<?> getColumnClass(int columnIndex) {
-			return COLUMN_TYPES[columnIndex];
-		}
-
-		@Override public Object getValueAt(final int rowIndex, final int columnIndex) {
-			switch (columnIndex) {
-				case 0: return memberList.get(rowIndex).getMemberid();
-				case 1: return memberList.get(rowIndex).getName();
-				case 2: return memberList.get(rowIndex).getBirthdate();
-				case 3: return memberList.get(rowIndex).getContactnoH();
-				case 4: return memberList.get(rowIndex).getContactnoM();
-				case 5: return memberList.get(rowIndex).getEmail();
-				case 6: return memberList.get(rowIndex).getAddress();
-						
-				default: return "Error";
-			}
-		}	
-	}
 	}
 	
 	private void initialize(){
