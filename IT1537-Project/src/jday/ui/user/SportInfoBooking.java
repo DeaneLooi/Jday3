@@ -24,9 +24,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import jday.entities.BookingNo;
 import jday.entities.SportBooking;
 import jday.entities.dao.SportBookingDAO;
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
 
 import org.freixas.jcalendar.DateEvent;
 import org.freixas.jcalendar.DateListener;
@@ -88,10 +90,12 @@ public class SportInfoBooking extends BackgroundPanel {
 					
 					
 					SportBookingDAO.CreateSportBooking(sportbooking);
+					BookingNo bookno = new BookingNo();
+					bookno.setBookingNo();
 					
-			
+					EmailSender email = new EmailSender(bookno.getBookingNo(),m);
+					JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
 				
-				JOptionPane.showMessageDialog(null,"Your booking no. is 123212");
 			}
 		});
 		button.setBounds(610, 420, 87, 23);
