@@ -39,7 +39,7 @@ import java.awt.Cursor;
 
 public class SportInfoBooking extends BackgroundPanel {
 	private SportBooking sportbooking = new SportBooking();
-
+	private JComboBox cb = new JComboBox();
 	/**
 	 * Create the panel.
 	 */
@@ -69,16 +69,19 @@ public class SportInfoBooking extends BackgroundPanel {
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-		
-					sportbooking.getCourt();
-					sportbooking.getSport();
-					sportbooking.setTime();
+				
+				BookingNo bookno = new BookingNo();
+				bookno.setBookingNo();
 					sportbooking.setMemberid(m.getMemberid());
 					
-					SportBookingDAO.CreateSportBooking(sportbooking);
-					BookingNo bookno = new BookingNo();
-					bookno.setBookingNo();
 					
+					sportbooking.setSport();
+					sportbooking.setTime();
+					sportbooking.setTime();
+					sportbooking.setBookingno(bookno.getBookingNo());
+					
+					SportBookingDAO.CreateSportBooking(sportbooking);
+				
 					EmailSender email = new EmailSender(bookno.getBookingNo(),m);
 					JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
 				
@@ -159,7 +162,7 @@ public class SportInfoBooking extends BackgroundPanel {
 		final JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JComboBox comboBox_2 = new JComboBox();
+				
 				int sportSelected = comboBox_2.getSelectedIndex();
 				System.out.println("selected index = " + sportSelected);
 				String selectedSport = (String) (comboBox_2.getItemAt(sportSelected));
