@@ -1,20 +1,31 @@
 package jday.ui.admin;
 
-import javax.swing.JPanel;
-
-import jday.util.BackgroundPanel;
-import java.awt.Dimension;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.ImageIcon;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import jday.util.BackgroundPanel;
 
 public class AUpdate extends BackgroundPanel {
 
 	public AUpdate() {
+		super();
+		initialize();
+	}
+	
+	public AUpdate(JFrame f){
+		this();
+		myFrame = f;
+	}
+	private void initialize(){
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 		

@@ -77,7 +77,7 @@ public class AMainpage extends BackgroundPanel {
 		lblUpdate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AUpdateEvent(myFrame);
+				JPanel panel = new AUpdate(myFrame);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

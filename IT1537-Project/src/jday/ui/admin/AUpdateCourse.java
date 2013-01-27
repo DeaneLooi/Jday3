@@ -1,7 +1,18 @@
 package jday.ui.admin;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
@@ -9,15 +20,6 @@ import javax.swing.Timer;
 import jday.entities.CourseBooking;
 import jday.util.BackgroundPanel;
 import jday.util.ClassTableModel;
-import javax.swing.JButton;
-
-
-
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class AUpdateCourse extends BackgroundPanel{
 	
@@ -35,9 +37,9 @@ public class AUpdateCourse extends BackgroundPanel{
 	
 	private void initialize(){
 		setSize(750,500);
-		setLayout(null);
 		
 		JButton btnAddCourse = new JButton("Add Course");
+		btnAddCourse.setBounds(41, 405, 130, 37);
 		btnAddCourse.setOpaque(false);
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -55,11 +57,12 @@ public class AUpdateCourse extends BackgroundPanel{
 					timer.start(); 
 			}
 		});
+		setLayout(null);
 		btnAddCourse.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnAddCourse.setBounds(41, 405, 130, 37);
 		add(btnAddCourse);
 		
 		JButton btnRemoveCourse = new JButton("Remove Course");
+		btnRemoveCourse.setBounds(210, 405, 161, 37);
 		btnRemoveCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -71,7 +74,6 @@ public class AUpdateCourse extends BackgroundPanel{
 			}});
 		btnRemoveCourse.setOpaque(false);
 		btnRemoveCourse.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnRemoveCourse.setBounds(210, 405, 161, 37);
 		add(btnRemoveCourse);
 		
 
@@ -85,8 +87,23 @@ public class AUpdateCourse extends BackgroundPanel{
 		tableList.getColumnModel().getColumn(4).setPreferredWidth(300);
 		
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(0, 75, 750, 165);
+		scrollPane.setBounds(10, 133, 750, 165);
 		add(scrollPane);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JPanel panel = new AMainpage(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
+		lblLogo.setIcon(new ImageIcon(AUpdateCourse.class.getResource("/images/90logo.png")));
+		lblLogo.setBounds(10, 11, 130, 97);
+		add(lblLogo);
 
 	}
 	
@@ -112,5 +129,4 @@ public class AUpdateCourse extends BackgroundPanel{
 			JOptionPane.showMessageDialog(null,"No record Selected", "Alert",
 					JOptionPane.ERROR_MESSAGE);
 	}
-	
 }
