@@ -57,7 +57,7 @@ public class AProfile extends BackgroundPanel{
 		ProfileTableModel model = new ProfileTableModel(MemberDAO.retrieveAll());
 		table.setBounds(0, 0, 400, 450);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(50, 50, 300, 400);
+        scrollPane.setBounds(80, 100, 580, 280);
 		//table.setFillsViewportHeight(true);	
 		//table.setCellSelectionEnabled(true);
 		table.setModel(model);
@@ -89,7 +89,7 @@ public class AProfile extends BackgroundPanel{
 		add(label);
 		
 		JLabel lblMemberIdname = new JLabel("Member's name");
-		lblMemberIdname.setBounds(59, 399, 85, 25);
+		lblMemberIdname.setBounds(50, 399, 94, 25);
 		add(lblMemberIdname);
 		
 		JButton btnSearch = new JButton("Search");
@@ -117,6 +117,11 @@ public class AProfile extends BackgroundPanel{
 		textField.setBounds(154, 401, 147, 23);
 		add(textField);
 		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Member profile");
+		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 26));
+		lblNewLabel.setBounds(141, 40, 258, 44);
+		add(lblNewLabel);
 		
 		 
 
