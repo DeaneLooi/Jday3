@@ -25,38 +25,42 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.SpinnerDateModel;
+
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Calendar;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
+import jday.entities.Event;
+import jday.entities.dao.EventDAO;
 import jday.util.BackgroundPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import org.freixas.jcalendar.JCalendarCombo;
 
-public class AUpdate2 extends BackgroundPanel {
+public class AUpdateEvent2 extends BackgroundPanel {
 	private JTextField titleTxtF;
 	private JTextField venueTxtF;
 	
 	/**
 	 * Create the panel.
 	 */
-	public AUpdate2() {
+	public AUpdateEvent2() {
 		super();
-		initialize();
+		
 	}
 	
-	public AUpdate2(JFrame f, Date date){
+	public AUpdateEvent2(JFrame f, Date date) throws SQLException{
 		this();
 		myFrame = f;
-		initialize();
+		initialize(date);
 	}
 	
 	
 	
-	private void initialize(){
+	private void initialize(Date date) throws SQLException{
 		setForeground(new Color(255, 255, 255));
 		setFont(new Font("Arial", Font.PLAIN, 14));
 		setBackground(new Color(204, 51, 153));
@@ -75,7 +79,24 @@ public class AUpdate2 extends BackgroundPanel {
 				
 			}
 		});
-		label.setIcon(new ImageIcon(AUpdate2.class.getResource("/images/90logo.png")));
+		
+		String title = "";
+		String info = "";
+		String venue = "";
+		String date1 = EventDAO.dateToString(date);
+		//getEventByDate
+		Event event01 = EventDAO.getEventByDate(date);
+		//if not null, set the boxes with text
+		
+		if (event01.getDate() != null){
+			info = event01.getInfo();
+			title = event01.getTitle();
+			venue = event01.getVenue();
+			}
+		//if null set boxes with empty
+
+		
+		label.setIcon(new ImageIcon(AUpdateEvent2.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
@@ -91,16 +112,17 @@ public class AUpdate2 extends BackgroundPanel {
 		lblDescription.setBounds(48, 326, 106, 27);
 		add(lblDescription);
 		
-		//info textfield
+		//title textfield
 		titleTxtF = new JTextField();
 		titleTxtF.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
 		titleTxtF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		titleTxtF.setBounds(202, 125, 466, 27);
 		add(titleTxtF);
 		titleTxtF.setColumns(10);
+		titleTxtF.setText(title);
 		
 		//info text area
-		JTextArea infoTxtA = new JTextArea();
+		final JTextArea infoTxtA = new JTextArea();
 		infoTxtA.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
 		infoTxtA.setWrapStyleWord(true);
 		infoTxtA.setFocusTraversalKeysEnabled(false);
@@ -108,20 +130,7 @@ public class AUpdate2 extends BackgroundPanel {
 		infoTxtA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		infoTxtA.setBounds(202, 280, 466, 150);
 		add(infoTxtA);
-		
-		JButton submitBtn = new JButton("Submit");
-		submitBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new AUpdate(myFrame);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
-			}
-		});
-		submitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		submitBtn.setBounds(562, 441, 106, 35);
-		add(submitBtn);
+		infoTxtA.setText(info);
 		
 		JLabel lblNewLabel_1 = new JLabel("Edit Events");
 		lblNewLabel_1.setForeground(new Color(153, 51, 153));
@@ -143,10 +152,11 @@ public class AUpdate2 extends BackgroundPanel {
 		add(lblVenue);
 		
 		//date combo box
-		JCalendarCombo dateCalCombo = new JCalendarCombo();
+		final JCalendarCombo dateCalCombo = new JCalendarCombo();
 		dateCalCombo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
 		dateCalCombo.setBounds(202, 178, 307, 35);
 		add(dateCalCombo);
+		dateCalCombo.setDate(date);
 		
 		//venue text field
 		venueTxtF = new JTextField();
@@ -155,6 +165,31 @@ public class AUpdate2 extends BackgroundPanel {
 		venueTxtF.setColumns(10);
 		venueTxtF.setBounds(202, 237, 466, 27);
 		add(venueTxtF);
+		venueTxtF.setText(venue);
+		
+		//submit button
+				JButton submitBtn = new JButton("Submit");
+				submitBtn.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						//overwrite database entry if not null
+						try {
+							EventDAO.setEvent(titleTxtF.getText(), dateCalCombo.getDate() , venueTxtF.getText(), infoTxtA.getText());
+							
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						JPanel panel = new AUpdateEvent(myFrame);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+					}
+				});
+				submitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				submitBtn.setBounds(562, 441, 106, 35);
+				add(submitBtn);
 
 	}
 }

@@ -1,94 +1,72 @@
 package jday.ui.admin;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-
 
 import jday.util.BackgroundPanel;
+import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Date;
-
-import org.freixas.jcalendar.JCalendar;
-import javax.swing.border.MatteBorder;
-import org.freixas.jcalendar.DateListener;
-import org.freixas.jcalendar.DateEvent;
 
 public class AUpdate extends BackgroundPanel {
-	private JFrame myFrame = null;
-	/**
-	 * Create the panel.
-	 */
+
 	public AUpdate() {
-		super();
-		initialize();
-	}
-	
-	public AUpdate(JFrame f){
-		this();
-		myFrame = f;
-		initialize();
-	}
-	
-	private void initialize(){
-		setForeground(new Color(255, 255, 255));
-		setFont(new Font("Arial", Font.PLAIN, 14));
-		setBackground(new Color(204, 51, 153));
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 		
-		JLabel label = new JLabel("logo");
-		label.addMouseListener(new MouseAdapter() {
+		JLabel lblNewLabel = new JLabel("Courses");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AUpdateCourse(myFrame);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
 				myFrame.getContentPane().repaint();
 				
+				
 			}
 		});
-		label.setIcon(new ImageIcon(AUpdate.class.getResource("/images/90logo.png")));
-		label.setBounds(10, 11, 94, 102);
-		add(label);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(131, 234, 133, 110);
+		add(lblNewLabel);
 		
-		final JCalendar calendar = new JCalendar();
-		calendar.addDateListener(new DateListener() {
-			public void dateChanged(DateEvent arg0) {
-				//when date clicked, get date and open panel
-				Date date3 = calendar.getDate();
-				//open next panel
-				JPanel panel = new JPanel();
-				panel = new AUpdate2(myFrame, date3);
+		JLabel lblEvents = new JLabel("Events");
+		lblEvents.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JPanel panel = new AUpdateEvent(myFrame);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
 				myFrame.getContentPane().repaint();
 			}
 		});
-		calendar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(128, 128, 128)));
-		calendar.setBounds(10, 124, 730, 365);
-		add(calendar);
+		lblEvents.setForeground(new Color(0, 0, 0));
+		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEvents.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEvents.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblEvents.setBounds(472, 234, 133, 110);
+		add(lblEvents);
 		
-		JLabel lblNewLabel = new JLabel("Edit Events");
-		lblNewLabel.setForeground(new Color(102, 0, 102));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(114, 33, 167, 47);
-		add(lblNewLabel);
-
+		JLabel lblUpdate = new JLabel("Update");
+		lblUpdate.setForeground(new Color(102, 0, 102));
+		lblUpdate.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblUpdate.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblUpdate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUpdate.setBounds(131, 60, 133, 61);
+		add(lblUpdate);
+		
+		JLabel lblJdayLogo = new JLabel("");
+		lblJdayLogo.setIcon(new ImageIcon(AUpdate.class.getResource("/images/110jday_logo.png")));
+		lblJdayLogo.setBounds(10, 27, 115, 125);
+		add(lblJdayLogo);
+		
 	}
 }

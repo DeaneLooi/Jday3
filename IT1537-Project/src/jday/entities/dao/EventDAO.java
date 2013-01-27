@@ -16,7 +16,7 @@ public class EventDAO {
 	
 	public static Event getEventByDate(Date date) throws SQLException {
 		// do the coding to connect to actual db;
-		@SuppressWarnings("deprecation")
+
 		String date2 = dateToString(date);
 
 		DBController db = new DBController();
@@ -42,9 +42,9 @@ public class EventDAO {
 		return event;
 	}
 	
-	public static void setEvent (String title2, String date2, String venue2, String info2) throws SQLException {
+	public static void setEvent (String title2, Date date2, String venue2, String info2) throws SQLException {
 		String title = title2;
-		String date = date2;
+		String date = dateToString(date2);
 		String venue = venue2;
 		String info = info2;
 		
