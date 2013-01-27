@@ -31,10 +31,9 @@ public class UseDataBaseController {
 		}
 	*/
 		
-		Register r = new Register();
-		r.setEventclass("Yoga");
-		r.setMemberid("admin");
-		r.register(r);
+		Member m = new Member("120923t");
+		m.setPin("1");
+		m.createMember();
 		}
 		
 	public static void FnBOrder(ArrayList<FnB>list){

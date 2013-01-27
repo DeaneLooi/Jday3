@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -30,6 +31,7 @@ import jday.entities.Member;
 import jday.entities.dao.BookingNoDAO;
 import jday.entities.dao.GolfingBookingDAO;
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
 
 import org.freixas.jcalendar.DateEvent;
 import org.freixas.jcalendar.DateListener;
@@ -50,6 +52,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		this();
 		myFrame = f;
 		this.m = m;
+		this.m.retrieveMemberInfo();
 	}
 
 	/**
@@ -71,20 +74,26 @@ public class GolfingInfoBooking extends BackgroundPanel {
 						.getActionCommand();
 				System.out.println("test: " + choice2);
 
-				/*BookingNo bookno = new BookingNo();
-				bookno.setBookingno();
+				BookingNo bookno = new BookingNo();
+				bookno.setBookingNo();
 				
-				BookingNoDAO.saveBookingNo(bookingno); 
-				GolfingInfoBooking golfbooking = new GolfingInfoBooking();
-				golfbooking.setBookingno();
-
-				golfingbooking.setMemberid("1212312");
+				//BookingNoDAO.saveBookingNo(bookingno); 
+				//GolfingInfoBooking golfbooking = new GolfingInfoBooking();
+				//golfbooking.setBookingNo();
+				
+				golfingbooking.setMemberid(m.getMemberid());
 				golfingbooking.setGreenFees(choice2);
 				golfingbooking.setTime(choice);
-				golfingbooking.setBookingno(bookno.getBookingno());
-*/
+				golfingbooking.setBookingno(bookno.getBookingNo());
+				
+				
 				// store in DAO
 				GolfingBookingDAO.CreateBooking(golfingbooking);
+				
+				
+				EmailSender email = new EmailSender(bookno.getBookingNo(),m);
+				JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
+				
 
 				JPanel panel = new GolfingInfo(myFrame, m);
 				myFrame.getContentPane().removeAll();
