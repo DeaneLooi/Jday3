@@ -85,6 +85,7 @@ public class SpaBookingDetails {
 
 	public void setBookingNo(int bookingNo) {
 		this.bookingNo = bookingNo;
+		
 	}
 
 }

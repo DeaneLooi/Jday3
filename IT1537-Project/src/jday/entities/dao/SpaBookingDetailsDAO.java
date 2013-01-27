@@ -33,18 +33,17 @@ public class SpaBookingDetailsDAO {
             pstmt = currentCon.prepareStatement(query);
             
             // inserting values
-            pstmt.setInt(1, sBooking.getBookingNo());
+            pstmt.setInt(1, BookingNoDAO.createBookNo());
             pstmt.setString(2, m.getMemberid());
             pstmt.setString(3, sBooking.getTime());  
             pstmt.setString(4, sBooking.getDate());
             pstmt.setString(5, sBooking.getSession());
-
             
             pstmt.executeUpdate();
             
 		} catch (Exception ex) {
 
-			System.out.println("Booking failed!" + ex);
+			System.out.println("Booking failed! " + ex);
 		}
 
 		// exception handling
@@ -91,13 +90,14 @@ public class SpaBookingDetailsDAO {
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
             
-                String bookingNo = rs.getString("bookingNo");
+                int bookingNo = rs.getInt("bookingNo");
                 String memberId = rs.getString("memberId");
                 String time = rs.getString("time");
                 String date = rs.getString("date");
                 String session = rs.getString("session");
                 
                 spaBookings = new SpaBookingDetails();
+                spaBookings.setBookingNo(bookingNo);
                 spaBookings.setMemberId(memberId);
                 spaBookings.setTime(time);
                 spaBookings.setDate(date);
