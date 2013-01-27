@@ -2,32 +2,32 @@ package jday.entities;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import jday.entities.dao.DBController;
 
 
-public class Class{
+public class CourseBooking{
 
 	private String memberid;
-	private  String classtype;
+	private  String coursetype;
 	private String fees;
 	private String timing;
 	private String venue;
 	private String description;
 	
-	public Class() {
+	public CourseBooking() {
 		super();
 	}
 	
-	public Class(String memberid, String classtype){
-		this.memberid = memberid;
-		this.classtype = classtype;
+	public CourseBooking(String coursetype){
+		this.coursetype = coursetype;
 	}
 	
-	public Class(String classtype,String fees, String timing, String venue,String description){
-		this.classtype = classtype;
+	public CourseBooking(String coursetype,String fees, String timing, String venue,String description){
+		this.coursetype = coursetype;
 		this.fees = fees;
 		this.timing = timing;
 		this.venue = venue;
@@ -35,23 +35,15 @@ public class Class{
 	}
 
 
-	public String getMemberid() {
-		return memberid;
+
+
+	public String getCoursetype() {
+		return coursetype;
 	}
 
 
-	public void setMemberid(String memberid) {
-		this.memberid = memberid;
-	}
-
-
-	public String getClasstype() {
-		return classtype;
-	}
-
-
-	public void setClasstype(String classtype) {
-		this.classtype = classtype;
+	public void setCoursetype(String coursetype) {
+		this.coursetype = coursetype;
 	}
 
 
@@ -75,8 +67,24 @@ public class Class{
 		return description;
 	}
 
+	public boolean deleteCourse() throws SQLException{
+		
+		boolean success = false;
+		DBController db = new DBController();
+		String dbQuery;	
+		db.getConnection();
+
+		dbQuery = "DELETE FROM CLASS WHERE class = '" + coursetype +"';";
+
+		if (db.updateRequest(dbQuery) == 1){
+			success = true;
+		}
+
+		db.terminate();
+		return success;
+	}
 	
-	public Class createClass(Class c){
+	public CourseBooking createClass(CourseBooking c){
 		DBController db = new DBController();
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -84,7 +92,7 @@ public class Class{
 		String query = "insert into class(class,fees,timing,venue,description) values(?,?,?,?,?)";
 		try{
 		pstmt = con.prepareStatement(query);
-		pstmt.setString(1, c.getClasstype());
+		pstmt.setString(1, c.getCoursetype());
 		pstmt.setString(2, c.getFees());
 		pstmt.setString(3, c.getTiming());
 		pstmt.setString(4, c.getVenue());
@@ -93,7 +101,7 @@ public class Class{
 		
 		}catch (Exception ex) {
 
-			System.out.println("Creating Class failed: An Exception has occurred! "
+			System.out.println("Creating Course failed: An Exception has occurred! "
 					+ ex);
 		}
 
@@ -120,11 +128,11 @@ public class Class{
 		}
 		return c;
 	}
-	public static ArrayList<Class> retrieveClasses(){
+	public static ArrayList<CourseBooking> retrieveCourses(){
 		ResultSet rs = null;
 		DBController db = new DBController();
 		Connection con =db.getConnection();
-		ArrayList<Class> classList = new ArrayList<Class>();
+		ArrayList<CourseBooking> classList = new ArrayList<CourseBooking>();
 		Statement stmt = null;
 		
 		try{
@@ -134,9 +142,9 @@ public class Class{
 	
 
 	while(rs.next()){
-			    String classtype = rs.getString("class"); 
-			    Class c = new Class();
-			    c.setClasstype(classtype);
+			    String coursetype = rs.getString("class"); 
+			    CourseBooking c = new CourseBooking();
+			    c.setCoursetype(coursetype);
 			    classList.add(c);
 	}
 		   
@@ -147,7 +155,7 @@ public class Class{
 		return classList;
 	}
 
-	public boolean retrieveClass(){
+	public boolean retrieveCourse(){
 		boolean success = true;
 		ResultSet rs = null;
 		DBController db = new DBController();
@@ -156,11 +164,11 @@ public class Class{
 		
 		try{
 			stmt = con.createStatement();
-			String retrieve = "select * from class where class ='"+classtype+"';";
+			String retrieve = "select * from class where class ='"+coursetype+"';";
 			rs = stmt.executeQuery(retrieve);
 			
 			while(rs.next()){
-				classtype = rs.getString(1);
+				coursetype = rs.getString(1);
 				fees = rs.getString(2);
 				timing = rs.getString(3);
 				venue = rs.getString(4);

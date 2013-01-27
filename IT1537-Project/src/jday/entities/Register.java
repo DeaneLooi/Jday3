@@ -11,10 +11,10 @@ import jday.entities.dao.DBController;
 public class Register {
 
 
-	int registerno;
-	String eventclass;
-	String memberid;
-	String availability;
+	private int registerno;
+	private String eventclass;
+	private String memberid;
+	private String availability;
 	
 	
 	public Register(Member m){
@@ -63,10 +63,12 @@ public class Register {
 
 		DBController db = new DBController();
 		String dbQuery;	
+		String updateQuery;
 		Connection con = db.getConnection();	
 		PreparedStatement pstmt = null;
-		
+		PreparedStatement pstmt1 = null;
 		dbQuery = "INSERT INTO Register(registerno,eventclass,memberid) values(?,?,?)";
+		
 		
 		try{
 			pstmt = con.prepareStatement(dbQuery);
@@ -74,6 +76,9 @@ public class Register {
 			pstmt.setString(2,r.getEventclass());
 			pstmt.setString(3, r.getMemberid());
 			pstmt.executeUpdate();
+			updateQuery = "UPDATE Registerno SET availability ='not available' where registerno ='"+registerno+"';";
+			pstmt1 = con.prepareStatement(updateQuery);
+			pstmt1.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -85,20 +90,18 @@ public class Register {
 	public int registerNumber(){
 		DBController db = new DBController();
 		String dbQuery;	
-		String updateQuery;
 		Connection con = db.getConnection();	
 		PreparedStatement pstmt = null;
-		PreparedStatement pstmt1 = null;
+		
 		dbQuery = "INSERT INTO Registerno(registerno,availability) values(?,?)";
-		updateQuery = "UPDATE Registerno SET availability ='not available'";
+		
 		registerno = setRegisterno();
 		try{
 			pstmt = con.prepareStatement(dbQuery);
 			pstmt.setInt(1,registerno);
 			pstmt.setString(2, getDefaultAvailability());
 			pstmt.executeUpdate();
-			pstmt1 = con.prepareStatement(updateQuery);
-			pstmt1.executeUpdate();
+		
 			
 			
 		}catch(Exception e){

@@ -13,33 +13,33 @@ import javax.swing.JSeparator;
 import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
 
-import jday.entities.Class;
+import jday.entities.CourseBooking;
 import jday.entities.Member;
 import jday.entities.Register;
 import jday.util.BackgroundPanel;
 
-public class ClassesConfirmation extends BackgroundPanel{
+public class CoursesConfirmation extends BackgroundPanel{
 
 
-	private Class c = null;
+	private CourseBooking c = null;
 	private Member m = null;
 	private Register r = null;
 	
-	public ClassesConfirmation() {
+	public CoursesConfirmation() {
 		super();
 		initialize();
 	}
-	public ClassesConfirmation(JFrame f){
+	public CoursesConfirmation(JFrame f){
 		this();
 		myFrame = f;
 	}
 	
-	public ClassesConfirmation(JFrame f, Member m, Class c, Register r){
+	public CoursesConfirmation(JFrame f, Member m, CourseBooking c, Register r){
 		super();
 		this.c = c;
 		this.m = m;
 		this.r = r;
-		c.retrieveClass();
+		c.retrieveCourse();
 		m.retrieveMember();
 		myFrame = f;
 		initialize();
@@ -55,7 +55,7 @@ public class ClassesConfirmation extends BackgroundPanel{
 		btnOk.setForeground(new Color(0, 0, 0));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new Classes(myFrame,m);
+				JPanel panel = new Courses(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -72,7 +72,7 @@ public class ClassesConfirmation extends BackgroundPanel{
 		txtpnConfirmation.setBorder(new LineBorder(new Color(138, 43, 226), 4));
 		txtpnConfirmation.setOpaque(false);
 		txtpnConfirmation.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		txtpnConfirmation.setText(" Dear member, you have registered the following class:\r\n\r\n Class:\r\n\r\n Venue:\r\n\r\n Fees:\r\n\r\n Timing:\r\n\t\t\t\t\t\t\t\t\tYour registering No. is \r\n\r\n\t\t\t\t\t\t\t\t\t\tThank You\r\n\t\t\t\t\t\t\t\t\t\tfor your registration");
+		txtpnConfirmation.setText(" Dear member, you have registered the following course:\r\n\r\n Course:\r\n\r\n Venue:\r\n\r\n Fees:\r\n\r\n Timing:\r\n\t\t\t\t\t\t\t\t\tYour registering No. is \r\n\r\n\t\t\t\t\t\t\t\t\t\tThank You\r\n\t\t\t\t\t\t\t\t\t\tfor your registration");
 		txtpnConfirmation.setBounds(38, 46, 511, 390);
 		add(txtpnConfirmation);
 		
@@ -80,7 +80,7 @@ public class ClassesConfirmation extends BackgroundPanel{
 		lblClass.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblClass.setForeground(new Color(0, 0, 0));
 		lblClass.setBounds(179, 89, 270, 23);
-		lblClass.setText(c.getClasstype());
+		lblClass.setText(c.getCoursetype());
 		add(lblClass);
 		
 		JLabel lblVenue = new JLabel("");

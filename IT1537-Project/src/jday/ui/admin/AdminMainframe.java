@@ -60,7 +60,7 @@ public class AdminMainframe extends JFrame {
 	}
 	
 	private void initialize(){
-		setIconImage(Toolkit.getDefaultToolkit().getImage(AdminMainframe.class.getResource("/pic/jday_logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AdminMainframe.class.getResource("/images/jday_logo.png")));
 		setTitle("Admin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 550);
@@ -121,7 +121,7 @@ public class AdminMainframe extends JFrame {
 		mnLogout.setBackground(new Color(128, 0, 128));
 		mnLogout.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		menuBar.add(mnLogout);
-		contentPane = new AMainpage(myFrame);
+		contentPane = new AMainpage(myFrame,m);
 		contentPane.setSize(new Dimension(750, 500));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

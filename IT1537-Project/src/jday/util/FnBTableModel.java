@@ -21,6 +21,9 @@ public class FnBTableModel extends AbstractTableModel{
     private int rowCount, colCount;
     private String[] columnNames = {"Orders", "Quantity"};
     private Object [][] data;
+    Class[] types = new Class [] {  
+            java.lang.Object.class, java.lang.Integer.class 
+    		};  
 
     public FnBTableModel(ArrayList<FnB> listOfObjects) {
     	
@@ -41,6 +44,13 @@ public class FnBTableModel extends AbstractTableModel{
 	           // data[i][1] = spinner;
 		}
     } 
+    
+    @SuppressWarnings("unchecked")
+	@Override
+    public Class getColumnClass(int columnIndex){
+    	
+    	return types[columnIndex];
+    }
     @Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
@@ -59,7 +69,7 @@ public class FnBTableModel extends AbstractTableModel{
     public String getColumnName(int col) {
         return columnNames[col];
     }
-
+    
 	public boolean isCellEditable(int row, int col) {
         
         if (col == 1) {

@@ -52,7 +52,7 @@ public class AViewSummary extends BackgroundPanel{
 				myFrame.getContentPane().repaint();
 			}
 		});
-		label.setIcon(new ImageIcon(AViewSummary.class.getResource("/pic/90logo.png")));
+		label.setIcon(new ImageIcon(AViewSummary.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
@@ -69,6 +69,8 @@ public class AViewSummary extends BackgroundPanel{
 		table = new JTable();
 		table.setBackground(new Color(216, 191, 216));
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		
+		
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Services", null},

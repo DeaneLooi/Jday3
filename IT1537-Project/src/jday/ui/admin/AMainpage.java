@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import jday.entities.Member;
 import jday.ui.user.MainFrame;
 import jday.util.BackgroundPanel;
 
@@ -29,6 +30,10 @@ public class AMainpage extends BackgroundPanel {
 	public AMainpage(JFrame f){
 		this();
 		myFrame = f;
+	}
+	public AMainpage(JFrame f,Member m){
+		this();
+		myFrame = f;
 		this.m = m;
 
 	}
@@ -37,7 +42,7 @@ public class AMainpage extends BackgroundPanel {
 		setLayout(null);
 		
 		JLabel label = new JLabel("logo");
-		label.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/110jday_logo.png")));
+		label.setIcon(new ImageIcon(AMainpage.class.getResource("/images/110jday_logo.png")));
 		label.setBounds(303, 11, 112, 118);
 		add(label);
 		
@@ -64,7 +69,7 @@ public class AMainpage extends BackgroundPanel {
 		lblProfile.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblProfile.setVerticalAlignment(SwingConstants.TOP);
 		lblProfile.setHorizontalAlignment(SwingConstants.LEFT);
-		lblProfile.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/_profile.png")));
+		lblProfile.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_profile.png")));
 		lblProfile.setBounds(303, 169, 135, 118);
 		add(lblProfile);
 		
@@ -87,7 +92,7 @@ public class AMainpage extends BackgroundPanel {
 		lblUpdate.setVerticalAlignment(SwingConstants.TOP);
 		lblUpdate.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUpdate.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblUpdate.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/_update.png")));
+		lblUpdate.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_update.png")));
 		lblUpdate.setBounds(192, 315, 139, 113);
 		add(lblUpdate);
 		
@@ -108,7 +113,7 @@ public class AMainpage extends BackgroundPanel {
 		lblBooking.setVerticalAlignment(SwingConstants.TOP);
 		lblBooking.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblBooking.setHorizontalAlignment(SwingConstants.LEFT);
-		lblBooking.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/_booking.png")));
+		lblBooking.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_r2.png")));
 		lblBooking.setBounds(419, 315, 135, 113);
 		add(lblBooking);
 		
@@ -118,7 +123,7 @@ public class AMainpage extends BackgroundPanel {
 			public void mouseClicked(MouseEvent e) {
 				myFrame.setVisible(false);
 				myFrame = new MainFrame(m);
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.setContentPane(panel);
 				myFrame.setVisible(true);
 			
@@ -131,7 +136,7 @@ public class AMainpage extends BackgroundPanel {
 		lblMi.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblMi.setVerticalAlignment(SwingConstants.TOP);
 		lblMi.setHorizontalAlignment(SwingConstants.LEFT);
-		lblMi.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/_group.png")));
+		lblMi.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_group.png")));
 		lblMi.setBounds(511, 169, 139, 112);
 		add(lblMi);
 		
@@ -152,7 +157,7 @@ public class AMainpage extends BackgroundPanel {
 		lblRestaurant_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblRestaurant_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblRestaurant_1.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblRestaurant_1.setIcon(new ImageIcon(AMainpage.class.getResource("/pic/rsz_r2.png")));
+		lblRestaurant_1.setIcon(new ImageIcon(AMainpage.class.getResource("/images/rsz_mdsvbmb.png")));
 		lblRestaurant_1.setBounds(100, 169, 139, 112);
 		add(lblRestaurant_1);
 

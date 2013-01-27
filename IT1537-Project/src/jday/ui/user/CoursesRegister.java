@@ -13,12 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import jday.entities.Class;
+import jday.entities.CourseBooking;
 import jday.entities.Member;
 import jday.entities.Register;
 import jday.util.BackgroundPanel;
 
-public class ClassesRegister extends BackgroundPanel{
+public class CoursesRegister extends BackgroundPanel{
 
 
 	private JTextField Name;
@@ -28,21 +28,21 @@ public class ClassesRegister extends BackgroundPanel{
 	private JTextField Email;
 	private JTextField MemberID;
 	private JTextField Address;
-	private Class c = null;
+	private CourseBooking c = null;
 	private Member m = null;
 	
 	
-	public ClassesRegister() {
+	public CoursesRegister() {
 		super();
 		initialize();
 	}
 	
-	public ClassesRegister(JFrame f){
+	public CoursesRegister(JFrame f){
 		this();
 		myFrame = f;
 	}
 	
-	public ClassesRegister(JFrame f, Member m, Class c){
+	public CoursesRegister(JFrame f, Member m, CourseBooking c){
 		super();
 		this.c = c;
 		this.m = m;
@@ -195,7 +195,7 @@ public class ClassesRegister extends BackgroundPanel{
 			public void actionPerformed(ActionEvent e) {
 				
 				Register r = new Register(m);
-				r.setEventclass(c.getClasstype());
+				r.setEventclass(c.getCoursetype());
 				try {
 					r.register(r);
 				} catch (SQLException e2) {
@@ -203,7 +203,7 @@ public class ClassesRegister extends BackgroundPanel{
 					e2.printStackTrace();
 				}
 				
-				JPanel panel = new ClassesConfirmation(myFrame,m,c,r);
+				JPanel panel = new CoursesConfirmation(myFrame,m,c,r);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -217,7 +217,7 @@ public class ClassesRegister extends BackgroundPanel{
 		btnCancel.setOpaque(false);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new Classes(myFrame,m);
+				JPanel panel = new Courses(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

@@ -49,9 +49,15 @@ public class FnBOrderQuantity extends BackgroundPanel{
 				for(int i=0; i<tableList.getRowCount();i++){
 					FnB fnb1 = new FnB();
 					String fnborder = (String)tableList.getValueAt(i, 0);
-					Object quant = tableList.getValueAt(i, 1);
-					
-					int quantity = Integer.parseInt((String)quant);
+					int quantity = 0;
+					if(tableList.isEditing()){
+						String quant = (String) tableList.getValueAt(i, 1);
+						if(quant != null)
+						quantity = Integer.parseInt(quant);
+					}
+					else if(tableList.isEditing()!=true){
+					quantity =((Integer)(tableList.getValueAt(i,1))).intValue();
+					}
 					fnb1.setFnborder(fnborder);
 					fnb1.setQuantity(quantity);
 					fnb.add(fnb1);

@@ -90,7 +90,7 @@ public class ChangePinPanel extends BackgroundPanel {
 					}
 					
 					else if(myFrame instanceof MainFrame){
-						JPanel panel = new Classes(myFrame,m);
+						JPanel panel = new Courses(myFrame,m);
 						myFrame.getContentPane().removeAll();
 						myFrame.getContentPane().add(panel);
 						myFrame.getContentPane().validate();

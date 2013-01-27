@@ -34,10 +34,12 @@ import javax.swing.JTextArea;
 import jday.util.BackgroundPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import org.freixas.jcalendar.JCalendarCombo;
 
 public class AUpdate2 extends BackgroundPanel {
-	private JTextField textField;
-
+	private JTextField titleTxtF;
+	private JTextField venueTxtF;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -46,10 +48,13 @@ public class AUpdate2 extends BackgroundPanel {
 		initialize();
 	}
 	
-	public AUpdate2(JFrame f){
+	public AUpdate2(JFrame f, Date date){
 		this();
 		myFrame = f;
+		initialize();
 	}
+	
+	
 	
 	private void initialize(){
 		setForeground(new Color(255, 255, 255));
@@ -70,38 +75,42 @@ public class AUpdate2 extends BackgroundPanel {
 				
 			}
 		});
-		label.setIcon(new ImageIcon(ARegister.class.getResource("/pic/90logo.png")));
+		label.setIcon(new ImageIcon(AUpdate2.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
 		JLabel lblNewLabel = new JLabel("Title:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(48, 178, 106, 27);
+		lblNewLabel.setBounds(48, 124, 106, 27);
 		add(lblNewLabel);
 		
 		JLabel lblDescription = new JLabel("Description:");
 		lblDescription.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDescription.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblDescription.setBounds(48, 229, 106, 27);
+		lblDescription.setBounds(48, 326, 106, 27);
 		add(lblDescription);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField.setBounds(202, 179, 466, 27);
-		add(textField);
-		textField.setColumns(10);
+		//info textfield
+		titleTxtF = new JTextField();
+		titleTxtF.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
+		titleTxtF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		titleTxtF.setBounds(202, 125, 466, 27);
+		add(titleTxtF);
+		titleTxtF.setColumns(10);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setFocusTraversalKeysEnabled(false);
-		textArea.setLineWrap(true);
-		textArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textArea.setBounds(202, 233, 466, 208);
-		add(textArea);
+		//info text area
+		JTextArea infoTxtA = new JTextArea();
+		infoTxtA.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
+		infoTxtA.setWrapStyleWord(true);
+		infoTxtA.setFocusTraversalKeysEnabled(false);
+		infoTxtA.setLineWrap(true);
+		infoTxtA.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		infoTxtA.setBounds(202, 280, 466, 150);
+		add(infoTxtA);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton submitBtn = new JButton("Submit");
+		submitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JPanel panel = new AUpdate(myFrame);
 				myFrame.getContentPane().removeAll();
@@ -110,15 +119,43 @@ public class AUpdate2 extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(562, 441, 106, 35);
-		add(btnNewButton);
+		submitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		submitBtn.setBounds(562, 441, 106, 35);
+		add(submitBtn);
 		
 		JLabel lblNewLabel_1 = new JLabel("Edit Events");
+		lblNewLabel_1.setForeground(new Color(153, 51, 153));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 23));
-		lblNewLabel_1.setBounds(53, 102, 160, 30);
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 23));
+		lblNewLabel_1.setBounds(114, 43, 160, 30);
 		add(lblNewLabel_1);
+		
+		JLabel lblDate = new JLabel("Date:");
+		lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDate.setBounds(48, 179, 106, 27);
+		add(lblDate);
+		
+		JLabel lblVenue = new JLabel("Venue:");
+		lblVenue.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblVenue.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblVenue.setBounds(48, 236, 106, 27);
+		add(lblVenue);
+		
+		//date combo box
+		JCalendarCombo dateCalCombo = new JCalendarCombo();
+		dateCalCombo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
+		dateCalCombo.setBounds(202, 178, 307, 35);
+		add(dateCalCombo);
+		
+		//venue text field
+		venueTxtF = new JTextField();
+		venueTxtF.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
+		venueTxtF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		venueTxtF.setColumns(10);
+		venueTxtF.setBounds(202, 237, 466, 27);
+		add(venueTxtF);
 
 	}
 }
+

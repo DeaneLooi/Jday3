@@ -1,4 +1,7 @@
 package jday.ui.admin;
+
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,17 +14,31 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.AbstractTableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
+import jday.entities.Booking;
+import jday.entities.Member;
+import jday.entities.dao.AdminViewBookingDAO;
+import jday.entities.dao.MemberDAO;
 import jday.util.BackgroundPanel;
+import jday.util.JTableModel;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 
 public class AProfile extends BackgroundPanel{
 	private JTable table;
+	private JTextField textField;
+	private JTable table_1;
+	private Object name;
+	private Member membersearch = new Member();
 
 	/**
 	 * Create the panel.
@@ -34,6 +51,52 @@ public class AProfile extends BackgroundPanel{
 	public AProfile(JFrame f){
 		this();
 		myFrame = f;
+		
+		JTable table = new JTable(new JTableModel()); 
+        JScrollPane scrollPane = new JScrollPane(table);
+		table.setFillsViewportHeight(true);	
+		table.setCellSelectionEnabled(true);
+
+		add(scrollPane);
+	
+	class JTableModel extends AbstractTableModel {
+		private final long serialVersionUID = 1L;
+		private final String[] COLUMN_NAMES = new String[] {"memberid", "name", "birthdate" , "contactnoH", "contactnoM", "email" , "address"};
+		private final Class<?>[] COLUMN_TYPES = new Class<?>[] {String.class, String.class, String.class, int.class, int.class, String.class,  String.class};
+		
+		ArrayList<Member> memberList = MemberDAO.retrieveAll();
+		int count = memberList.size();
+		
+		@Override public int getColumnCount() {
+			return COLUMN_NAMES.length;
+		}
+
+		@Override public int getRowCount() {
+			return count;
+		}
+		
+		@Override public String getColumnName(int columnIndex) {
+	        return COLUMN_NAMES[columnIndex];
+	    }
+		
+		@Override public Class<?> getColumnClass(int columnIndex) {
+			return COLUMN_TYPES[columnIndex];
+		}
+
+		@Override public Object getValueAt(final int rowIndex, final int columnIndex) {
+			switch (columnIndex) {
+				case 0: return memberList.get(rowIndex).getMemberid();
+				case 1: return memberList.get(rowIndex).getName();
+				case 2: return memberList.get(rowIndex).getBirthdate();
+				case 3: return memberList.get(rowIndex).getContactnoH();
+				case 4: return memberList.get(rowIndex).getContactnoM();
+				case 5: return memberList.get(rowIndex).getEmail();
+				case 6: return memberList.get(rowIndex).getAddress();
+						
+				default: return "Error";
+			}
+		}	
+	}
 	}
 	
 	private void initialize(){
@@ -51,62 +114,44 @@ public class AProfile extends BackgroundPanel{
 				myFrame.getContentPane().repaint();
 			}
 		});
-		label.setIcon(new ImageIcon(AProfile.class.getResource("/pic/90logo.png")));
+		
+		
+		
+		label.setIcon(new ImageIcon(AProfile.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
-		table = new JTable();
-		table.setBackground(new Color(216, 191, 216));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Name", "Birth Date", "Member ID", "PIN", "Contact No.(H)", "Contact No.(M)", "E-mail", "Address"},
-				{"John Tan", "01-03-1972", "122347M", "1224", "6555 7333", "9872 3333", "john@yahoo.com", null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setRowHeight(40);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBounds(59, 142, 641, 240);
-		add(table);
-		
-		JLabel lblMemberIdname = new JLabel("Member ID/Name");
+		JLabel lblMemberIdname = new JLabel("Member's name");
 		lblMemberIdname.setBounds(59, 399, 85, 25);
 		add(lblMemberIdname);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textArea.setBounds(154, 393, 154, 30);
-		add(textArea);
-		
 		JButton btnSearch = new JButton("Search");
-		btnSearch.setBounds(330, 400, 89, 23);
-		add(btnSearch);
-		
-		JButton btnViewSummary = new JButton("View Summary");
-		btnViewSummary.addActionListener(new ActionListener() {
+		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new AViewSummary(myFrame);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
+				String name =textField.getText();
+				membersearch.getName();
+				MemberDAO.searchByName(membersearch.getName());
+				
+				ArrayList <Member> memberList = MemberDAO.retrieveAll();
+				
+				//JTableModel model = new JTableModel (memberList);
+				//table_1.setModel(model);
 			}
 		});
-		btnViewSummary.setBounds(577, 400, 123, 23);
-		add(btnViewSummary);
+		btnSearch.setBounds(330, 400, 89, 23);
+		add(btnSearch);
 		
 		JLabel label_1 = new JLabel("JDAY Members Profile");
 		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		label_1.setBounds(114, 43, 312, 42);
-		add(label_1);
+		
+		
+		textField = new JTextField();
+		textField.setBounds(154, 401, 147, 23);
+		add(textField);
+		textField.setColumns(10);
+		
+		 
 
 	}
-
 }

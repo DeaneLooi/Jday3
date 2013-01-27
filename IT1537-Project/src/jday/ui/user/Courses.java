@@ -20,28 +20,28 @@ import javax.swing.event.ListSelectionListener;
 
 
 
-import jday.entities.Class;
+import jday.entities.CourseBooking;
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import jday.util.ClassTableModel;
 
-public class Classes extends BackgroundPanel{
+public class Courses extends BackgroundPanel{
 
 
 
 	private Member m;
 	
-	public Classes() {
+	public Courses() {
 		super();
 		initialize();
 	}
 	
-	public Classes(JFrame f){
+	public Courses(JFrame f){
 		this();
 		myFrame = f;
 	}
 	
-	public Classes(JFrame f,Member m){
+	public Courses(JFrame f,Member m){
 		super();
 		myFrame = f;
 		this.m = m;
@@ -53,7 +53,7 @@ public class Classes extends BackgroundPanel{
 
 		
 		final JTable tableList = new JTable();
-		ClassTableModel model = new ClassTableModel(Class.retrieveClasses());
+		ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
 		tableList.setModel(model);
 		tableList.setBounds(0,0,850,165);
 		tableList.getColumnModel().getColumn(0).setPreferredWidth(75);
@@ -71,11 +71,11 @@ public class Classes extends BackgroundPanel{
 						JOptionPane.showConfirmDialog(null, "Register?","Register", dialog);
 						if(dialog == JOptionPane.YES_OPTION){
 									
-							String classtype;	 
-						    classtype = (String)tableList.getValueAt(tableList.getSelectedRow(), 0);  
-								System.out.println(classtype);
-							Class c = new Class(m.getMemberid(),classtype);
-							JPanel panel = new ClassesRegister(myFrame,m,c);
+							String coursetype;	 
+						    coursetype = (String)tableList.getValueAt(tableList.getSelectedRow(), 0);  
+								System.out.println(coursetype);
+							CourseBooking c = new CourseBooking(coursetype);
+							JPanel panel = new CoursesRegister(myFrame,m,c);
 							myFrame.getContentPane().removeAll();
 							myFrame.getContentPane().add(panel);
 							myFrame.getContentPane().validate();
