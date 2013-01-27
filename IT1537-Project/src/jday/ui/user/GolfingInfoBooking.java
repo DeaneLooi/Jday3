@@ -71,9 +71,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 						.getActionCommand();
 				System.out.println("test: " + choice2);
 
-				Random random = new Random();
-				int num = random.nextInt(999999);
-				BookingNo bookno = new BookingNo();
+				/*BookingNo bookno = new BookingNo();
 				bookno.setBookingno();
 				
 				BookingNoDAO.saveBookingNo(bookingno); 
@@ -84,7 +82,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 				golfingbooking.setGreenFees(choice2);
 				golfingbooking.setTime(choice);
 				golfingbooking.setBookingno(bookno.getBookingno());
-
+*/
 				// store in DAO
 				GolfingBookingDAO.CreateBooking(golfingbooking);
 
