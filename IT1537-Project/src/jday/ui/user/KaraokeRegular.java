@@ -19,6 +19,7 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -43,15 +44,27 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		initialize();
 	}
 
-	public KaraokeRegular(JFrame f) {
+	public KaraokeRegular(JFrame f, Member m) {
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 
 	private void initialize() {
 		setSize(new Dimension(750, 500));
 		setLayout(null);
-
+		
+		JButton button = new JButton("Book Now!");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JPanel panel = new KaraokeBooking(myFrame, m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
+		
 		JLabel lblKaraokeRooms = new JLabel("KARAOKE ROOMS");
 		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class
 				.getResource("/images/microphone.png")));
@@ -59,16 +72,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		lblKaraokeRooms.setBounds(12, -14, 286, 155);
 		add(lblKaraokeRooms);
 
-		JButton button = new JButton("Book Now!");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new KaraokeBooking(myFrame);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
-			}
-		});
+		
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setOpaque(false);
 		button.setBounds(116, 445, 95, 32);
@@ -158,30 +162,6 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnFriendsRoom.setOpaque(false);
 		rdbtnFriendsRoom.setBounds(329, 343, 385, 144);
 		add(rdbtnFriendsRoom);
-
-		// changing info
-		/*final JRadioButton rdbtn = new JRadioButton();
-		rdbtn.addSelectionListener(new SelectionListener() {
-			public void valueChanged(rdbtnSelectionEvent e) {
-
-				if (rdbtn.getSelectedIndex() == 0) {
-					txtpnRoomTypeCorporate.setVisible(true);
-					txtpnRoomTypeFamily.setVisible(false);
-					txtpnRoomTypeFriends.setVisible(false);
-				}
-				if (rdbtn.getSelectedIndex() == 1) {
-					txtpnRoomTypeCorporate.setVisible(false);
-					txtpnRoomTypeFamily.setVisible(true);
-					txtpnRoomTypeFriends.setVisible(false);
-				}
-				if (rdbtn.getSelectedIndex() == 2) {
-					txtpnRoomTypeCorporate.setVisible(false);
-					txtpnRoomTypeFamily.setVisible(false);
-					txtpnRoomTypeFriends.setVisible(true);
-				}
-			}
-		});*/
-
 	}
 
 }

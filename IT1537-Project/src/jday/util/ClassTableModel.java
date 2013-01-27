@@ -25,6 +25,7 @@ package jday.util;
 	            data[i][2] = c1.getTiming();
 	            data[i][3] = c1.getVenue();
 	            data[i][4] = c1.getDescription();
+	            
 	        }              
 	    } 
 	    @Override

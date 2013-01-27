@@ -64,9 +64,13 @@ public class SpaBookingDetails {
 	}
 
 	public void setDate(String date) {
-		this.date = day + month + year;
+		this.date = date;
 	}
-
+	
+	public void setDate(){
+		date = day +"/"+ month +"/ "+ year;
+	}
+	
 	public String getMemberId() {
 		return memberId;
 	}
@@ -81,6 +85,7 @@ public class SpaBookingDetails {
 
 	public void setBookingNo(int bookingNo) {
 		this.bookingNo = bookingNo;
+		
 	}
 
 }

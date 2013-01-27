@@ -7,32 +7,34 @@ import java.util.Random;
 
 import jday.entities.dao.DBController;
 
-
 public class BookingNo {
-	
-	private int bookingno;
+
+	private int bookingNo;
 	private String availability;
-	
+
 	public BookingNo() {
 		super();
-	
 	}
 
-	public int setBookingno(){
+	public int setBookingNo() {
 		Random randomNumber = new Random();
-		bookingno = (int)randomNumber.nextInt(99999);
-		return bookingno;
+		bookingNo = (int) randomNumber.nextInt(99999);
+		return bookingNo;
 	}
-	public int getBookingno() {
-		return bookingno;
+
+	public int getBookingNo() {
+		return bookingNo;
 	}
+
 	public String getAvailability() {
 		return availability;
 	}
-	public String getDefaultAvailability(){
+
+	public String getDefaultAvailability() {
 		availability = "available";
 		return availability;
 	}
+
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}

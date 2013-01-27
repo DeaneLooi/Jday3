@@ -19,31 +19,34 @@ public class BookingNoDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 	
-	public static BookingNo saveBookNo(BookingNo bookingNo){
+	public static BookingNo createBookNo(){
 		
-		 Statement stmt = null;
+		Statement stmt = null;
 		BookingNo bookingno = new BookingNo();
+		int bookingNo = bookingno.setBookingNo();
 		 
 		 try {
-				///////////////////////////////////////////
-				currentCon = DBConnectionManager.getConnection();
+			 	DBController db = new DBController();
+				currentCon = db.getConnection();
 				stmt = currentCon.createStatement();
 				
 	            // query for inserting into the table
-	            String query = "insert into bookinno(bookingno, availability) values(?,?)";
+	            String query = "insert into bookingno(bookingno, availability) values(?,?)";
 	            pstmt = currentCon.prepareStatement(query);
-	            // inserting values
 	            
-	            pstmt.setInt(1, bookingNo.getBookingno());
-	            pstmt.setString(2, bookingNo.getDefaultAvailability());
+	            // inserting values
+	            pstmt.setInt(1, bookingNo);
+	            pstmt.setString(2, bookingno.getDefaultAvailability());
+	           
 	            pstmt.executeUpdate();
-	            //String updateQuery = "UPDATE bookingno SET availability ='not available' where bookingno ='"+bookingNo+"';";
+	            
+	            //String updateQuery = "UPDATE booking no SET availability ='not available' where bookingno ='"+bookingNo+"';";
 	            //pstmt1 = currentCon.prepareStatement(updateQuery);
 				//pstmt1.executeUpdate();
 	            
 			} catch (Exception ex) {
 
-				System.out.println("Fail" + ex);
+				System.out.println("Failed " + ex);
 			}
 		 
 		// exception handling
@@ -74,7 +77,7 @@ public class BookingNoDAO {
 						}
 					}
 		
-		return bookingNo;
+		return bookingno;
 	} 
 	
 
@@ -92,10 +95,10 @@ public class BookingNoDAO {
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
             
-                 int bookingNobookingno = rs.getInt("bookingno");
+                 int bookingNumber= rs.getInt("bookingno");
                  String bookingNoAvailability = rs.getString("availability");
                  //problem: should be 'bookingNo.setBookingno(bookingNobookingno);'
-                 bookingNo.setBookingno();
+                 bookingNo.setBookingNo();
                  bookingNo.setAvailability(bookingNoAvailability);
             }
         } catch (Exception e) {
@@ -103,6 +106,11 @@ public class BookingNoDAO {
         }
 		 return bookingList;
 	 }
+	
+	public static void main (String [] args){
+		BookingNo bookNo = BookingNoDAO.createBookNo();
+		System.out.println(bookNo.getBookingNo());
+	}
 	
 	}
 

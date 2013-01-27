@@ -23,6 +23,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
@@ -48,9 +49,10 @@ public class SpaPackages extends BackgroundPanel {
 		initialize();
 	}
 	
-	public SpaPackages(JFrame f){
+	public SpaPackages(JFrame f, Member m){
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 	
 	private void initialize(){
@@ -61,7 +63,7 @@ public class SpaPackages extends BackgroundPanel {
 		JButton btnBookNow = new JButton("Book Now!");
 		btnBookNow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new SpaBooking(myFrame);
+				JPanel panel = new SpaBooking(myFrame, m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
