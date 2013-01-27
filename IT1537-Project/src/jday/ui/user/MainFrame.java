@@ -179,7 +179,7 @@ public class MainFrame extends JFrame{
 			jMenuGolf.setText("Golf");
 			jMenuGolf.addMenuListener(new MenuListener(){
 				public void menuSelected(MenuEvent e){
-					JPanel panel = new GolfingInfo();
+					JPanel panel = new GolfingInfo(myFrame,m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
