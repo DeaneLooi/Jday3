@@ -31,9 +31,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class AProfile extends BackgroundPanel{
-	private JTable table;
+	private JTable table = new JTable();
 	private JTextField textField;
-	private JTable table_1;
 	//private Object name;
 	private Member membersearch = new Member();
 
@@ -49,7 +48,7 @@ public class AProfile extends BackgroundPanel{
 		this();
 		myFrame = f;
 		
-		JTable table = new JTable();
+		
 	
 		ProfileTableModel model = new ProfileTableModel(MemberDAO.retrieveAll());
 		table.setBounds(0, 0, 400, 450);
@@ -92,18 +91,17 @@ public class AProfile extends BackgroundPanel{
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String name =textField.getText();
-				//ArrayList<Member> mlist = MemberDAO.searchByName(name);
-				//membersearch.getName();
-				//MemberDAO.searchByName(membersearch.getName());
-				//SearchTableModel modelsearch = new SearchTableModel(mlist);
-				//ArrayList <Member> mlist = MemberDAO.retrieveAll();
-				
+				ArrayList <Member> mlist = MemberDAO.searchByName(name);
+				ProfileTableModel model = new ProfileTableModel(mlist);
+				table.setModel(model);
 			}
 		});
 		btnSearch.setBounds(330, 400, 89, 23);
 		add(btnSearch);
 		
-		JLabel label_1 = new JLabel("JDAY Members Profile");
+		
+		JLabel label_1;
+		label_1 = new JLabel("JDAY Members Profile");
 		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		label_1.setBounds(114, 43, 312, 42);
 		

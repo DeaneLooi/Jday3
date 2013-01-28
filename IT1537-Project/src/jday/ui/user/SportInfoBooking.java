@@ -37,7 +37,7 @@ import org.freixas.jcalendar.JCalendar;
 import java.awt.Cursor;
 
 
-public class SportInfoBooking extends BackgroundPanel implements ActionListener{
+public class SportInfoBooking extends BackgroundPanel{
 	private SportBooking sportbooking = new SportBooking();
 	private JComboBox sport;
 	private JComboBox time;
@@ -52,7 +52,7 @@ public class SportInfoBooking extends BackgroundPanel implements ActionListener{
 		this();
 		myFrame = f;
 		this.m = m;
-		//this.m.retrieveMemberInfo();
+		this.m.retrieveMemberInfo();
 				
 	}
 	
@@ -71,6 +71,33 @@ public class SportInfoBooking extends BackgroundPanel implements ActionListener{
 				
 				BookingNo bookno = new BookingNo();
 				bookno.setBookingNo();
+				
+				int timeSelected = time.getSelectedIndex();
+				System.out.println("selected index = " + timeSelected);
+				String selectedTime = (String) (time.getItemAt(timeSelected));
+				System.out.println("Selected time = " + time);
+				
+				
+				int courtSelected = court.getSelectedIndex();
+				System.out.println("selected index = " + courtSelected);
+				int selectedCourt = Integer.parseInt(court.getItemAt(courtSelected).toString());
+				System.out.println("Selected court = " + court);
+				
+				
+				int sportSelected = sport.getSelectedIndex();
+				System.out.println("selected index = " + sportSelected);
+				String selectedSport = (String) (sport.getItemAt(sportSelected));
+				System.out.println("Selected sport = " + sport);
+				
+				
+				sportbooking.setTime(selectedTime);
+				sportbooking.setCourt(selectedCourt);
+				sportbooking.setSport(selectedSport);
+				sportbooking.setBookingno(bookno.getBookingNo());
+				
+				
+				SportBooking sportbk = new SportBooking();
+				sportbk=SportBookingDAO.sportbooking(sportbooking,m);
 				
 				EmailSender email = new EmailSender(bookno.getBookingNo(),m);
 				JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
@@ -178,33 +205,5 @@ public class SportInfoBooking extends BackgroundPanel implements ActionListener{
 		add(calendar);
 		
 	}
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
-		
-		int timeSelected = time.getSelectedIndex();
-		System.out.println("selected index = " + timeSelected);
-		String selectedTime = (String) (time.getItemAt(timeSelected));
-		System.out.println("Selected time = " + time);
-		
-		
-		int courtSelected = court.getSelectedIndex();
-		System.out.println("selected index = " + courtSelected);
-		int selectedCourt =(int) court.getItemAt(courtSelected);
-		System.out.println("Selected court = " + court);
-		
-		
-		int sportSelected = sport.getSelectedIndex();
-		System.out.println("selected index = " + sportSelected);
-		String selectedSport = (String) (sport.getItemAt(sportSelected));
-		System.out.println("Selected sport = " + sport);
-		
-		SportBooking sportbooking2 = new SportBooking();
-		sportbooking2.setTime(selectedTime);
-		sportbooking2.setCourt(selectedCourt);
-		sportbooking2.setSport(selectedSport);
-		
-		SportBooking sportbk = new SportBooking();
-		sportbk=SportBookingDAO.sportbooking(sportbooking2, m);
-	}
+
 }

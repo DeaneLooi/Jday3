@@ -78,7 +78,7 @@ public class MemberDAO {
 
 		}
 	   
-	   public static Member searchByName(String name) {
+	   public static ArrayList<Member> searchByName(String name) {
 			ArrayList<Member> mlist = new ArrayList<Member>();
 			Member member = null;
 			Statement stmt = null;
@@ -115,13 +115,14 @@ public class MemberDAO {
 	                 member.setContactnoM(memberContactnoM);
 	                 member.setEmail(memberEmail);
 	                 member.setAddress(memberAddress);
+	                 mlist.add(member);
 	            }
 	        } catch (Exception e) {
 	        	e.printStackTrace();
 	        }
 
 			return  
-					member;
+					mlist;
 	        
 		}
 	   

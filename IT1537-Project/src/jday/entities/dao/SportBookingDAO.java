@@ -37,7 +37,7 @@ public class SportBookingDAO {
         
         // inserting values
         pstmt.setInt(1,sportbooking.getBookingno());
-        pstmt.setString(2,sportbooking.getMemberid());
+        pstmt.setString(2,m.getMemberid());
         pstmt.setString(3,sportbooking.getTime());  
         pstmt.setString(4,sportbooking.getDate());
         pstmt.setInt(5,sportbooking.getCourt());
