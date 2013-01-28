@@ -46,27 +46,26 @@ public class EventPopupDialog extends JDialog {
 
 	/**
 	 * Create the dialog.
-	 * @param date2 
-	 * @throws SQLException 
+	 * 
+	 * @param date2
+	 * @throws SQLException
 	 */
 	public EventPopupDialog(Date date2) throws SQLException {
-		// call DAO to retrieve DB 
-		//Event event = EventDAO.getEventByDate("1/2/2013");
-		//jtect.settext(event.getDescrt())
+		// call DAO to retrieve DB
+		// Event event = EventDAO.getEventByDate("1/2/2013");
+		// jtect.settext(event.getDescrt())
 		String info = "There are no events on this date.";
 		String title = " - ";
 		String venue = " - ";
 		String date1 = EventDAO.dateToString(date2);
-		
-		
+
 		Event event01 = EventDAO.getEventByDate(date2);
-		if (event01.getDate() != null){
-		info = event01.getInfo();
-		title = event01.getTitle();
-		venue = event01.getVenue();
+		if (event01.getDate() != null) {
+			info = event01.getInfo();
+			title = event01.getTitle();
+			venue = event01.getVenue();
 		}
-		
-		
+
 		getContentPane().setBackground(new Color(240, 240, 240));
 		setBounds(new Rectangle(0, 0, 700, 450));
 		setSize(new Dimension(700, 450));
@@ -77,7 +76,7 @@ public class EventPopupDialog extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+
 		JLabel lblTitle = new JLabel(" " + title);
 		lblTitle.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		lblTitle.setForeground(new Color(255, 204, 255));
@@ -86,7 +85,7 @@ public class EventPopupDialog extends JDialog {
 		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTitle.setBounds(10, 11, 251, 36);
 		contentPanel.add(lblTitle);
-		
+
 		JLabel lblDate = new JLabel(" " + date1);
 		lblDate.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		lblDate.setForeground(new Color(255, 204, 255));
@@ -95,7 +94,7 @@ public class EventPopupDialog extends JDialog {
 		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDate.setBounds(10, 58, 251, 36);
 		contentPanel.add(lblDate);
-		
+
 		JLabel lblVenue = new JLabel(" " + venue);
 		lblVenue.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		lblVenue.setForeground(new Color(255, 204, 255));
@@ -104,7 +103,7 @@ public class EventPopupDialog extends JDialog {
 		lblVenue.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVenue.setBounds(10, 105, 251, 36);
 		contentPanel.add(lblVenue);
-		
+
 		JTextPane txpInfo = new JTextPane();
 		txpInfo.setEditable(false);
 		txpInfo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 204, 255)));
@@ -123,7 +122,7 @@ public class EventPopupDialog extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						//close the dialog box
+						// close the dialog box
 						EventPopupDialog.super.dispose();
 					}
 				});
