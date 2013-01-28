@@ -427,7 +427,7 @@ public class MainFrame extends JFrame{
 			jMenuItemSPA.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuItemSPA.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new SpaPackages(myFrame);
+					JPanel panel = new SpaPackages(myFrame, m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
@@ -445,7 +445,7 @@ public class MainFrame extends JFrame{
 			jMenuItemKaraoke.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuItemKaraoke.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new KaraokeRegular(myFrame);
+					JPanel panel = new KaraokeRegular(myFrame, m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
