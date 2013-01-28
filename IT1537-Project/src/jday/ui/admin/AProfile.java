@@ -1,7 +1,5 @@
 package jday.ui.admin;
 
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -32,12 +30,11 @@ import jday.util.*;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-
 public class AProfile extends BackgroundPanel{
 	private JTable table;
 	private JTextField textField;
 	private JTable table_1;
-	private Object name;
+	//private Object name;
 	private Member membersearch = new Member();
 
 	/**
@@ -82,8 +79,7 @@ public class AProfile extends BackgroundPanel{
 			}
 		});
 		
-		
-		
+	
 		label.setIcon(new ImageIcon(AProfile.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
@@ -96,13 +92,12 @@ public class AProfile extends BackgroundPanel{
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String name =textField.getText();
-				membersearch.getName();
-				MemberDAO.searchByName(membersearch.getName());
+				//ArrayList<Member> mlist = MemberDAO.searchByName(name);
+				//membersearch.getName();
+				//MemberDAO.searchByName(membersearch.getName());
+				//SearchTableModel modelsearch = new SearchTableModel(mlist);
+				//ArrayList <Member> mlist = MemberDAO.retrieveAll();
 				
-				ArrayList <Member> memList = MemberDAO.retrieveAll();
-				
-				//JTableModel model = new JTableModel (memberList);
-				//table_1.setModel(model);
 			}
 		});
 		btnSearch.setBounds(330, 400, 89, 23);

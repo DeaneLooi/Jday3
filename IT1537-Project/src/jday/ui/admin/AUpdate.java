@@ -10,12 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 import jday.util.BackgroundPanel;
 
 public class AUpdate extends BackgroundPanel {
-
+	
 	public AUpdate() {
 		super();
 		initialize();

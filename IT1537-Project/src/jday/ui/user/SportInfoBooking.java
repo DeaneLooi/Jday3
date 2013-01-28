@@ -37,12 +37,12 @@ import org.freixas.jcalendar.JCalendar;
 import java.awt.Cursor;
 
 
-public class SportInfoBooking extends BackgroundPanel {
+public class SportInfoBooking extends BackgroundPanel implements ActionListener{
 	private SportBooking sportbooking = new SportBooking();
-	private JComboBox cb = new JComboBox();
-	/**
-	 * Create the panel.
-	 */
+	private JComboBox sport;
+	private JComboBox time;
+	private JComboBox court;
+	
 	public SportInfoBooking() {
 		super();
 		initialize();
@@ -52,7 +52,7 @@ public class SportInfoBooking extends BackgroundPanel {
 		this();
 		myFrame = f;
 		this.m = m;
-		this.m.retrieveMemberInfo();
+		//this.m.retrieveMemberInfo();
 				
 	}
 	
@@ -65,17 +65,34 @@ public class SportInfoBooking extends BackgroundPanel {
 		lblDearMemberThe.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		add(lblDearMemberThe);
 		
-		JButton button = new JButton("Confirm");
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button.addActionListener(new ActionListener() {
+		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BookingNo bookno = new BookingNo();
+				bookno.setBookingNo();
+				
+				EmailSender email = new EmailSender(bookno.getBookingNo(),m);
+				JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
+				
+
+				JPanel panel = new SportInfo(myFrame, m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
+		
+		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		/*button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				BookingNo bookno = new BookingNo();
 				bookno.setBookingNo();
 					sportbooking.setMemberid(m.getMemberid());
 					
-					
-					sportbooking.setSport();
+					sportbooking.setSport(comboBox_2.selectedTime);
 					sportbooking.setTime();
 					sportbooking.setTime();
 					sportbooking.setBookingno(bookno.getBookingNo());
@@ -87,23 +104,10 @@ public class SportInfoBooking extends BackgroundPanel {
 				
 			}
 		});
-		button.setBounds(610, 420, 87, 23);
-		add(button);
-		
-		JButton button_1 = new JButton("Back");
-		button_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new SportInfo(myFrame,m);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
-			}
-		});
-		button_1.setBounds(610, 454, 87, 23);
-		add(button_1);
-		
+		*/
+		btnConfirm.setBounds(609, 446, 87, 23);
+		add(btnConfirm);
+	
 		JLabel label_2 = new JLabel("Booking time:");
 		label_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		label_2.setBounds(66, 343, 129, 25);
@@ -125,56 +129,29 @@ public class SportInfoBooking extends BackgroundPanel {
 		lblSports.setBounds(76, 376, 57, 25);
 		add(lblSports);
 		
-		final JComboBox comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				int timeSelected = comboBox.getSelectedIndex();
-				System.out.println("selected index = " + timeSelected);
-				String selectedTime = (String) (comboBox.getItemAt(timeSelected));
-				System.out.println("Selected time = " + comboBox);
-			}
-		});
-		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"0900-1000", "1000-1100", "1100-1200", "1200-1300", "1300-1400", "1400-1500", "1500-1600", "1600-1700", "1700-1800", "1800-1900"}));
-		comboBox.setToolTipText("");
-		comboBox.setBounds(151, 418, 101, 20);
-		add(comboBox);
+		time = new JComboBox();
+		time.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		time.setModel(new DefaultComboBoxModel(new String[] {"0900-1000", "1000-1100", "1100-1200", "1200-1300", "1300-1400", "1400-1500", "1500-1600", "1600-1700", "1700-1800", "1800-1900"}));
+		time.setToolTipText("");
+		time.setBounds(151, 418, 101, 20);
+		add(time);
 		
 		
-		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int courtSelected = comboBox_1.getSelectedIndex();
-				System.out.println("selected index = " + courtSelected);
-				String selectedCourt = (String) comboBox_1.getItemAt(courtSelected);
-				System.out.println("Selected court = " + comboBox_1);
-			}
-		});
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
-		comboBox_1.setToolTipText("");
-		comboBox_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		comboBox_1.setBounds(441, 381, 70, 20);
-		add(comboBox_1);
+		court = new JComboBox();
+		court.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
+		court.setToolTipText("");
+		court.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		court.setBounds(441, 381, 70, 20);
+		add(court);
+	
 		
-		/////////////////////////////////
-		
-		final JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				int sportSelected = comboBox_2.getSelectedIndex();
-				System.out.println("selected index = " + sportSelected);
-				String selectedSport = (String) (comboBox_2.getItemAt(sportSelected));
-				System.out.println("Selected sport = " + comboBox_2);
-			}
-		});
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Basketball", "Tennis", "Bowling", "Badminton", "Volleyball", "Table Tennis"}));
-		comboBox_1.setToolTipText("");
-		comboBox_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		comboBox.setMaximumRowCount(7);
-		comboBox_2.setBounds(152, 380, 100, 20);
-		add(comboBox_2);
+		sport = new JComboBox();
+		sport.setModel(new DefaultComboBoxModel(new String[] {"Basketball", "Tennis", "Bowling", "Badminton", "Volleyball", "Table Tennis"}));
+		sport.setToolTipText("");
+		sport.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		sport.setMaximumRowCount(7);
+		sport.setBounds(152, 380, 100, 20);
+		add(sport);
 		
 		final JCalendar calendar = new JCalendar();
 		calendar.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -200,6 +177,34 @@ public class SportInfoBooking extends BackgroundPanel {
 		calendar.setBounds(66, 81, 630, 251);
 		add(calendar);
 		
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
 		
+		
+		int timeSelected = time.getSelectedIndex();
+		System.out.println("selected index = " + timeSelected);
+		String selectedTime = (String) (time.getItemAt(timeSelected));
+		System.out.println("Selected time = " + time);
+		
+		
+		int courtSelected = court.getSelectedIndex();
+		System.out.println("selected index = " + courtSelected);
+		int selectedCourt =(int) court.getItemAt(courtSelected);
+		System.out.println("Selected court = " + court);
+		
+		
+		int sportSelected = sport.getSelectedIndex();
+		System.out.println("selected index = " + sportSelected);
+		String selectedSport = (String) (sport.getItemAt(sportSelected));
+		System.out.println("Selected sport = " + sport);
+		
+		SportBooking sportbooking2 = new SportBooking();
+		sportbooking2.setTime(selectedTime);
+		sportbooking2.setCourt(selectedCourt);
+		sportbooking2.setSport(selectedSport);
+		
+		SportBooking sportbk = new SportBooking();
+		sportbk=SportBookingDAO.sportbooking(sportbooking2, m);
 	}
 }

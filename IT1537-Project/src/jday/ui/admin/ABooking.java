@@ -16,9 +16,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import jday.util.BackgroundPanel;
 import jday.util.BookingTableModel;
-import jday.util.JTableModel;
 import jday.util.ProfileTableModel;
 import jday.entities.*;
+import jday.entities.dao.AdminViewBookingDAO;
 import jday.entities.dao.MemberDAO;
 
 import javax.swing.table.AbstractTableModel;
@@ -38,7 +38,7 @@ public class ABooking extends BackgroundPanel {
 		
 		JTable table = new JTable();
 		
-		BookingTableModel model = new BookingTableModel(MemberDAO.retrieveAll());
+		BookingTableModel model = new BookingTableModel(AdminViewBookingDAO.retrieveAll());
 		table.setBounds(0, 0, 400, 450);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(80, 100, 580, 280);
@@ -71,14 +71,7 @@ public class ABooking extends BackgroundPanel {
 		lblJdayBooking.setBounds(125, 42, 277, 42);
 		lblJdayBooking.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		add(lblJdayBooking);
-		
-		table.setModel(new JTableModel());
-		JScrollPane scrollPane = new JScrollPane(table);
-		table.setFillsViewportHeight(true);	
-		table.setCellSelectionEnabled(true);
-		add(scrollPane);
-		
-		
+
 		table.setBounds(84, 124, 583, 240);
 		table.setBackground(new Color(216, 191, 216));
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -99,10 +92,5 @@ public class ABooking extends BackgroundPanel {
 		*/
 
 		add(table);
-		
-		JButton btnCancelBooking = new JButton("Cancel booking");
-		btnCancelBooking.setBounds(538, 375, 128, 23);
-		add(btnCancelBooking);
-
 	}
 }

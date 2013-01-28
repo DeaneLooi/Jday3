@@ -22,7 +22,7 @@ public class SportBookingDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 	
-	public static void CreateSportBooking(SportBooking sportbooking){
+	public static SportBooking sportbooking(SportBooking sportbooking, Member m){
 		
 		Statement stmt = null;
 		
@@ -75,6 +75,7 @@ public class SportBookingDAO {
 				currentCon = null;
 			}
 		}
+		return sportbooking;
 	
 	}
 	

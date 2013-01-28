@@ -79,6 +79,7 @@ public class MemberDAO {
 		}
 	   
 	   public static Member searchByName(String name) {
+			ArrayList<Member> mlist = new ArrayList<Member>();
 			Member member = null;
 			Statement stmt = null;
 	        String searchQuery = "select * from memberinfo where name ='"
@@ -119,7 +120,9 @@ public class MemberDAO {
 	        	e.printStackTrace();
 	        }
 
-			return  member;
+			return  
+					member;
+	        
 		}
 	   
 	   public static ArrayList<Member> retrieveAll() {
