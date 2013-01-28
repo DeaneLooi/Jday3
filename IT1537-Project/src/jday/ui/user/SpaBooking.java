@@ -25,6 +25,8 @@ import jday.entities.Member;
 import jday.entities.SpaBookingDetails;
 import jday.entities.dao.SpaBookingDetailsDAO;
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
@@ -58,6 +60,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		this();
 		myFrame = f;
 		this.m = m;
+		this.m.retrieveMemberInfo();
 	}
 
 	private void initialize() {
@@ -194,6 +197,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		SpaBookingDetails bookDetails = new SpaBookingDetails();
 		bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
 
+		//EmailSender email = new EmailSender(bookDetails.getBookingNo(),m);
 		SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
 
 		myFrame.getContentPane().removeAll();
