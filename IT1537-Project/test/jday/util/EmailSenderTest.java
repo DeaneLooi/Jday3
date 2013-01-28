@@ -7,7 +7,7 @@ import jday.entities.Member;
 import org.junit.Test;
 
 public class EmailSenderTest {
-
+//
 	@Test
 	public void testSendMessage() {
 		Member m = new Member();
