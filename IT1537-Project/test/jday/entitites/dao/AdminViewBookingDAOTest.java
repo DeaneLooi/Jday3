@@ -15,10 +15,10 @@ public class AdminViewBookingDAOTest {
 	public void testRetrieveAll() {
 		ArrayList<Booking> bookings = AdminViewBookingDAO.retrieveAll();
 		for (Booking booking:bookings) {
-			System.out.println(booking.getMemberid());
-			System.out.println(booking.getVenue());
-			System.out.println(booking.getTime());
-			System.out.println(booking.getBookingno());
+			System.out.println("memberid"+booking.getMemberid());
+			System.out.println("venue"+booking.getVenue());
+			System.out.println("time"+booking.getTime());
+			System.out.println("bookingno"+booking.getBookingno());
 			
 			
 		}

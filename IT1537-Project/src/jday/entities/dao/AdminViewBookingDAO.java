@@ -2,6 +2,7 @@ package jday.entities.dao;
 
 import jday.entities.dao.DBConnectionManager;
 import jday.entities.Booking;
+import jday.entities.BookingNo;
 import jday.entities.CourseBooking;
 import jday.entities.Event;
 import jday.entities.GolfingBooking;
@@ -24,11 +25,11 @@ public class AdminViewBookingDAO {
 
 	 public static ArrayList<Booking> retrieveAll() {
 		 
-		 	//ArrayList <CourseBooking> coursebookings = CourseBooking.retrieveAll();
+		 	//ArrayList <RegisterBooking> Registerbookings = RegisterBooking.retrieveCourses();
 		 	ArrayList <GolfingBooking> golfbookings = GolfingBookingDAO.retrieveAll();
 		 	ArrayList<SportBooking> sportbookings = SportBookingDAO.retrieveAll();
 		 	ArrayList<SpaBookingDetails> spabookings = SpaBookingDetailsDAO.retrieveAll();
-		 	//ArrayList<Event> eventbookings = EventDAO.retrieveAll();
+		 	
 		 		
 		    ArrayList<Booking> bookings = new ArrayList<Booking>();
 		    
@@ -47,14 +48,17 @@ public class AdminViewBookingDAO {
 		    	booking.setBookingno(sportbooking.getBookingno());
 		    	booking.setMemberid(sportbooking.getMemberid());
 		    	booking.setTime(sportbooking.getTime());
-		    	booking.setVenue("Sports hall");
+		    	booking.setVenue(sportbooking.getSport());
 		    	bookings.add(booking);
 		    }
 		    
-		  /*  for (SpaBookingDetails spabooking : spabookings) {
+		   for (SpaBookingDetails spabooking : spabookings) {
+			    BookingNo bookno= new BookingNo();
+			    bookno.setBookingNo();
+			    
 		    	Booking booking = new Booking();
-		    	booking.setBookingno(spabooking.getBookingno());
-		    	booking.setMemberid(spabooking.getMemberid());
+		    	booking.setBookingno(spabooking.getBookingNo());
+		    	booking.setMemberid(spabooking.getMemberId());
 		    	if (spabooking.getSession()==null) {
 		    		// then this is a karaoke booking
 		    		booking.setVenue("Karaoke room");
@@ -66,11 +70,15 @@ public class AdminViewBookingDAO {
 		    	bookings.add(booking);
 		    }
 		    
-		   
-		    for (CourseBooking coursebooking : coursebooking){
+		   /*
+		    
+		    for (CourseBooking coursebooking : coursebookings){
 		    	Booking booking = new Booking();
-		    	booking.setBookingno(coursebooking.getBookingno());
-		    	booking.setMemberid(coursebooking.getMemberid());
+		    	BookingNo bookno= new BookingNo();
+				bookno.setBookingNo();
+				
+		    	booking.setBookingno(coursebooking.getRNo());
+		    	booking.setMemberid(coursebooking.getMemberId());
 		    	booking.setVenue(coursebooking.getVenue());
 		    	booking.setTime(coursebooking.getDate());
 		    }

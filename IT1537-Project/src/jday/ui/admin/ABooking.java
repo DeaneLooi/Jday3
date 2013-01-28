@@ -25,7 +25,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
 public class ABooking extends BackgroundPanel {
-	private JTable table;
+	private JTable table = new JTable();
 
 	public ABooking() {
 		super();
@@ -36,16 +36,7 @@ public class ABooking extends BackgroundPanel {
 		this();
 		myFrame = f;
 		
-		JTable table = new JTable();
-		
-		BookingTableModel model = new BookingTableModel(AdminViewBookingDAO.retrieveAll());
-		table.setBounds(0, 0, 400, 450);
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(80, 100, 580, 280);
-		//table.setFillsViewportHeight(true);	
-		//table.setCellSelectionEnabled(true);
-		table.setModel(model);
-		add(scrollPane);
+
 	}
 	
 	private void initialize(){
@@ -72,12 +63,22 @@ public class ABooking extends BackgroundPanel {
 		lblJdayBooking.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		add(lblJdayBooking);
 
-		table.setBounds(84, 124, 583, 240);
+	
+
+		
+		
+		BookingTableModel model = new BookingTableModel(AdminViewBookingDAO.retrieveAll());
+		table.setModel(model);
+		table.setBounds(0, 0, 400, 450);
 		table.setBackground(new Color(216, 191, 216));
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setRowHeight(30);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(80, 100, 580, 280);
+		//table.setFillsViewportHeight(true);	
+		//table.setCellSelectionEnabled(true);
 		
+		add(scrollPane);
 		
 		
 		/*table.setModel(bookingList);
