@@ -20,8 +20,8 @@ import jday.util.BackgroundPanel;
 
 
 public class GolfingInfo extends BackgroundPanel {
-	private JTable table;
-	private JTable table_3;
+	private JTable tblweekday;
+	private JTable tblweekend;
 	private JLabel lblWeekdays;
 	private JLabel lblWeekends;
 
@@ -40,12 +40,12 @@ public class GolfingInfo extends BackgroundPanel {
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 		
-		table = new JTable();
-		table.setFont(new Font("Candara", Font.PLAIN, 16));
-		table.setBackground(new Color(216, 191, 216));
-		table.setRowHeight(30);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setModel(new DefaultTableModel(
+		tblweekday = new JTable();
+		tblweekday.setFont(new Font("Candara", Font.PLAIN, 16));
+		tblweekday.setBackground(new Color(216, 191, 216));
+		tblweekday.setRowHeight(30);
+		tblweekday.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tblweekday.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"9 Holes", "S$75.00", "Morning, Afternoon, Evening"},
 				{"18 Holes", "S$60.00", "Morning, Afternoon, Evening"},
@@ -54,16 +54,16 @@ public class GolfingInfo extends BackgroundPanel {
 				"New column", "New column", "New column"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(155);
-		table.getColumnModel().getColumn(1).setPreferredWidth(155);
-		table.getColumnModel().getColumn(2).setPreferredWidth(155);
-		table.setBounds(60, 200, 619, 60);
-		add(table);
+		tblweekday.getColumnModel().getColumn(0).setPreferredWidth(155);
+		tblweekday.getColumnModel().getColumn(1).setPreferredWidth(155);
+		tblweekday.getColumnModel().getColumn(2).setPreferredWidth(155);
+		tblweekday.setBounds(60, 200, 619, 60);
+		add(tblweekday);
 		
-		table_3 = new JTable();
-		table_3.setFont(new Font("Candara", Font.PLAIN, 16));
-		table_3.setBackground(new Color(216, 191, 216));
-		table_3.setModel(new DefaultTableModel(
+		tblweekend = new JTable();
+		tblweekend.setFont(new Font("Candara", Font.PLAIN, 16));
+		tblweekend.setBackground(new Color(216, 191, 216));
+		tblweekend.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"9 Holes", "S$70.00", "Morning, Afternoon,Evening"},
 				{"18 Holes", "S$100.00", "Morning, Afternoon ,Evening "},
@@ -72,16 +72,16 @@ public class GolfingInfo extends BackgroundPanel {
 				"New column", "New column", "New column"
 			}
 		));
-		table_3.getColumnModel().getColumn(0).setPreferredWidth(115);
-		table_3.getColumnModel().getColumn(1).setPreferredWidth(115);
-		table_3.getColumnModel().getColumn(2).setPreferredWidth(115);
-		table_3.setRowHeight(30);
-		table_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table_3.setBounds(60, 283, 619, 60);
-		add(table_3);
-		
-		JButton btnNewButton = new JButton("Book");
-		btnNewButton.addActionListener(new ActionListener() {
+		tblweekend.getColumnModel().getColumn(0).setPreferredWidth(115);
+		tblweekend.getColumnModel().getColumn(1).setPreferredWidth(115);
+		tblweekend.getColumnModel().getColumn(2).setPreferredWidth(115);
+		tblweekend.setRowHeight(30);
+		tblweekend.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tblweekend.setBounds(60, 283, 619, 60);
+		add(tblweekend);
+	
+		JButton btnbook = new JButton("Book");
+		btnbook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JPanel panel = new GolfingInfoBooking(myFrame,m);
 				myFrame.getContentPane().removeAll();
@@ -90,8 +90,8 @@ public class GolfingInfo extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		btnNewButton.setBounds(590, 395, 89, 23);
-		add(btnNewButton);
+		btnbook.setBounds(590, 395, 89, 23);
+		add(btnbook);
 		
 		JLabel lblNewLabel = new JLabel("Green Fees:");
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));

@@ -34,6 +34,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
 import jday.entities.Event;
+import jday.entities.Member;
 import jday.entities.dao.EventDAO;
 import jday.util.BackgroundPanel;
 import java.awt.event.ActionListener;
@@ -52,9 +53,10 @@ public class AUpdateEvent2 extends BackgroundPanel {
 
 	}
 
-	public AUpdateEvent2(JFrame f, Date date) throws SQLException {
+	public AUpdateEvent2(JFrame f, Date date, Member m) throws SQLException {
 		this();
 		myFrame = f;
+		this.m = m;
 		initialize(date);
 	}
 
@@ -69,7 +71,7 @@ public class AUpdateEvent2 extends BackgroundPanel {
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -176,7 +178,7 @@ public class AUpdateEvent2 extends BackgroundPanel {
 					e1.printStackTrace();
 				}
 
-				JPanel panel = new AUpdateEvent(myFrame);
+				JPanel panel = new AUpdateEvent(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

@@ -1,4 +1,3 @@
-//yw's golf booking-O
 package jday.entities.dao;
 
 import java.sql.Connection;
@@ -93,7 +92,7 @@ public class GolfingBookingDAO {
             	 int GolfingBookingBookingno = rs.getInt("bookingno");
                  String GolfingBookingTime = rs.getString("time");
                  String GolfingBookingDate = rs.getString("date");
-                 String GolfingBookingGreenfee = rs.getString("greenfee");
+                 String GolfingBookingGreenfee = rs.getString("greenfees");
                  Double GolfingBookingPrice = rs.getDouble("price");
                  
                  golfingBooking = new GolfingBooking();

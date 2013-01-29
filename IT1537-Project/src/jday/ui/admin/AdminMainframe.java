@@ -18,7 +18,11 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
 import jday.entities.Member;
+import jday.ui.user.ChangePinPanel;
+import jday.ui.user.EditProfilePanel;
 import jday.ui.user.LoginFrame;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class AdminMainframe extends JFrame {
@@ -86,11 +90,29 @@ public class AdminMainframe extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmViewProfile = new JMenuItem("View profile");
+		mntmViewProfile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JPanel panel = new EditProfilePanel(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
 		mntmViewProfile.setBorder(new LineBorder(new Color(0, 0, 0)));
 		mntmViewProfile.setBackground(new Color(255, 255, 255));
 		mnNewMenu.add(mntmViewProfile);
 		
 		JMenuItem mntmChangePin = new JMenuItem("Change PIN");
+		mntmChangePin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JPanel panel = new ChangePinPanel(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
 		mntmChangePin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		mntmChangePin.setOpaque(true);
 		mntmChangePin.setBackground(new Color(250, 235, 215));

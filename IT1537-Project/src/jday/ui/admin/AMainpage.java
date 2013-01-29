@@ -55,7 +55,7 @@ public class AMainpage extends BackgroundPanel {
 		lblProfile.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AProfile(myFrame);
+				JPanel panel = new AProfile(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -77,7 +77,7 @@ public class AMainpage extends BackgroundPanel {
 		lblUpdate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AUpdate(myFrame);
+				JPanel panel = new AUpdate(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -100,7 +100,7 @@ public class AMainpage extends BackgroundPanel {
 		lblBooking.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new ABooking(myFrame);
+				JPanel panel = new ABooking(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -145,7 +145,7 @@ public class AMainpage extends BackgroundPanel {
 		lblRestaurant_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new ARegister(myFrame);
+				JPanel panel = new ARegister(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

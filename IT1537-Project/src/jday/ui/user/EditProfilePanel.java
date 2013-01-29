@@ -10,10 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import jday.entities.Member;
+import jday.ui.admin.AMainpage;
+import jday.ui.admin.AdminMainframe;
+import jday.ui.admin.Kitchen;
 import jday.util.BackgroundPanel;
 
 public class EditProfilePanel extends BackgroundPanel {
@@ -183,9 +187,40 @@ public class EditProfilePanel extends BackgroundPanel {
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(myFrame instanceof LoginFrame){
 				myFrame.setVisible(false);
 				JFrame myFrame = new MainFrame(m);
 				myFrame.setVisible(true);
+				}
+				
+				else if(myFrame instanceof MainFrame){
+					JPanel panel = new EventCalendar(myFrame,m);
+					myFrame.getContentPane().removeAll();
+					myFrame.getContentPane().add(panel);
+					myFrame.getContentPane().validate();
+					myFrame.getContentPane().repaint();
+				}
+				
+				else if(myFrame instanceof AdminMainframe){
+					if(m.getMemberid().contains("au")){
+						JPanel panel = new AMainpage(myFrame,m);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+					}
+					
+					else if(m.getMemberid().contains("ar")){
+						JPanel panel = new Kitchen(myFrame);
+						myFrame.getContentPane().removeAll();
+						myFrame.setContentPane(panel);
+						myFrame.setVisible(false);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+						myFrame.setVisible(true);
+					
+					}
+				}
 			}
 		});
 		btnConfirm.setOpaque(false);

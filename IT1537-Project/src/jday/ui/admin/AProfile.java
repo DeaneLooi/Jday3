@@ -31,12 +31,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class AProfile extends BackgroundPanel{
-	private JTable table;
-	private JTextField textField;
-	private JTable table_1;
-	//private Object name;
-	private Member membersearch = new Member();
-
+	private JTable table = new JTable();
+	private JTextField tfsearch;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -45,18 +42,17 @@ public class AProfile extends BackgroundPanel{
 		initialize();
 	}
 	
-	public AProfile(JFrame f){
+	public AProfile(JFrame f,Member m){
 		this();
 		myFrame = f;
+		this.m = m;
 		
-		JTable table = new JTable();
 	
 		ProfileTableModel model = new ProfileTableModel(MemberDAO.retrieveAll());
 		table.setBounds(0, 0, 400, 450);
+		table.setBackground(new Color(216, 191, 216));
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(80, 100, 580, 280);
-		//table.setFillsViewportHeight(true);	
-		//table.setCellSelectionEnabled(true);
+        scrollPane.setBounds(80, 120, 580, 250);
 		table.setModel(model);
 		add(scrollPane);
 	
@@ -71,7 +67,7 @@ public class AProfile extends BackgroundPanel{
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -84,39 +80,38 @@ public class AProfile extends BackgroundPanel{
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
-		JLabel lblMemberIdname = new JLabel("Member's name");
-		lblMemberIdname.setBounds(50, 399, 94, 25);
-		add(lblMemberIdname);
+		JLabel lblname = new JLabel("Member's name");
+		lblname.setBounds(50, 399, 94, 25);
+		add(lblname);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String name =textField.getText();
-				//ArrayList<Member> mlist = MemberDAO.searchByName(name);
-				//membersearch.getName();
-				//MemberDAO.searchByName(membersearch.getName());
-				//SearchTableModel modelsearch = new SearchTableModel(mlist);
-				//ArrayList <Member> mlist = MemberDAO.retrieveAll();
-				
+				String name =tfsearch.getText();
+				ArrayList <Member> mlist = MemberDAO.searchByName(name);
+				ProfileTableModel model = new ProfileTableModel(mlist);
+				table.setModel(model);
 			}
 		});
 		btnSearch.setBounds(330, 400, 89, 23);
 		add(btnSearch);
 		
-		JLabel label_1 = new JLabel("JDAY Members Profile");
+		
+		JLabel label_1;
+		label_1 = new JLabel("JDAY Members Profile");
 		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		label_1.setBounds(114, 43, 312, 42);
 		
 		
-		textField = new JTextField();
-		textField.setBounds(154, 401, 147, 23);
-		add(textField);
-		textField.setColumns(10);
+		tfsearch = new JTextField();
+		tfsearch.setBounds(154, 401, 147, 23);
+		add(tfsearch);
+		tfsearch.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Member profile");
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 26));
-		lblNewLabel.setBounds(141, 40, 258, 44);
-		add(lblNewLabel);
+		JLabel lblHeader = new JLabel("Member profile");
+		lblHeader.setFont(new Font("Trebuchet MS", Font.PLAIN, 26));
+		lblHeader.setBounds(141, 40, 258, 44);
+		add(lblHeader);
 		
 		 
 

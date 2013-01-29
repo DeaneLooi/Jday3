@@ -69,7 +69,7 @@ public class MainFrame extends JFrame{
 	}
 
 	private void initialize() {
-		this.setBounds(100, 100, 750, 600);
+		this.setBounds(100, 100, 800, 600);
 		this.setJMenuBar(getJJMenuBar());
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage("C:/Users/Deane/Desktop/JDAY logo.png"));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -179,7 +179,7 @@ public class MainFrame extends JFrame{
 			jMenuGolf.setText("Golf");
 			jMenuGolf.addMenuListener(new MenuListener(){
 				public void menuSelected(MenuEvent e){
-					JPanel panel = new GolfingInfo();
+					JPanel panel = new GolfingInfo(myFrame,m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
@@ -503,9 +503,9 @@ public class MainFrame extends JFrame{
 
 			mntmProfile.setForeground(new Color(0, 0, 0));
 			mntmProfile.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-			jMenuItemFB.addActionListener(new ActionListener() {
+			mntmProfile.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JPanel panel = new MemberEdit(myFrame,m);
+					JPanel panel = new EditProfilePanel(myFrame,m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();

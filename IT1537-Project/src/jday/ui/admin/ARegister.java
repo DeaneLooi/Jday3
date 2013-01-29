@@ -1,4 +1,3 @@
-//yw's register
 package jday.ui.admin;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -7,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
@@ -27,16 +27,18 @@ import javax.swing.DropMode;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.JPasswordField;
 
 public class ARegister extends BackgroundPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextArea textArea;
+	private JTextField tfname;
+	private JTextField tfbirthdate;
+	private JTextField tfnoh;
+	private JTextField tfnoM;
+	private JTextField tfmemberid;
+	private JTextField tfemail;
+	private JTextArea taaddress;
 	private Member memberregister = new Member();
+	private JPasswordField pwdPin;
 
 	/**
 	 * Create the panel.
@@ -47,9 +49,10 @@ public class ARegister extends BackgroundPanel {
 		initialize();
 	}
 	
-	public ARegister(JFrame f){
+	public ARegister(JFrame f, Member m){
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 	
 	private void initialize(){
@@ -60,7 +63,7 @@ public class ARegister extends BackgroundPanel {
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -73,16 +76,17 @@ public class ARegister extends BackgroundPanel {
 		add(label);
 		
 		JButton btnCreate = new JButton("Create member");
-		btnCreate.setBounds(565, 425, 107, 23);
+		btnCreate.setBounds(540, 425, 132, 23);
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String name = textField.getText();
-				String birthdate = textField_1.getText();
-				int contactnoM = Integer.parseInt(textField_2.getText());
-				int contactnoH = Integer.parseInt(textField_2.getText());
-				String memberid = textField_4.getText();
-				String email = textField_5.getText();
-				String address = textArea.getText();
+				String name = tfname.getText();
+				String birthdate = tfbirthdate.getText();
+				int contactnoM = Integer.parseInt(tfnoM.getText());
+				int contactnoH = Integer.parseInt(tfnoh.getText());
+				String memberid = tfmemberid.getText();
+				String email = tfemail.getText();
+				String address = taaddress.getText();
+				String pin = pwdPin.getText();
 				
 				memberregister.setName(name);
 				memberregister.setBirthdate(birthdate);
@@ -91,18 +95,18 @@ public class ARegister extends BackgroundPanel {
 				memberregister.setMemberid(memberid);
 				memberregister.setEmail(email);
 				memberregister.setAddress(address);
+				memberregister.setPin(pin);
 				
-				MemberDAO.register(memberregister);
-				
-				/*
-				//Member member =new Member(name, birthdate, contactnoM, contactnoH, memberid, email, address);
 				try {
-					member.register(Member);
+					memberregister.createMember();
+					memberregister.createMemberInfo();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				*/
+				
+				JOptionPane.showMessageDialog(null, "Member created");
+				
 			}
 		});
 		add(btnCreate);
@@ -117,10 +121,10 @@ public class ARegister extends BackgroundPanel {
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblName);
 		
-		JLabel lblPleaseEnterThe = new JLabel("Please enter your details:");
-		lblPleaseEnterThe.setBounds(44, 125, 246, 29);
-		lblPleaseEnterThe.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		add(lblPleaseEnterThe);
+		JLabel lbldetails = new JLabel("Please enter your details:");
+		lbldetails.setBounds(44, 125, 246, 29);
+		lbldetails.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		add(lbldetails);
 		
 		JLabel lblMemberId = new JLabel("Member ID:");
 		lblMemberId.setBounds(418, 192, 89, 24);
@@ -152,40 +156,50 @@ public class ARegister extends BackgroundPanel {
 		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblAddress);
 		
-		textField = new JTextField();
-		textField.setBounds(226, 194, 140, 23);
-		add(textField);
-		textField.setColumns(10);
+		JLabel lblPin = new JLabel("PIN:");
+		lblPin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPin.setBounds(179, 381, 37, 23);
+		add(lblPin);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(226, 237, 140, 23);
-		textField_1.setColumns(10);
-		add(textField_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(226, 285, 140, 23);
-		textField_2.setColumns(10);
-		add(textField_2);
+		tfname = new JTextField();
+		tfname.setBounds(226, 194, 140, 23);
+		add(tfname);
+		tfname.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(226, 336, 140, 23);
-		textField_3.setColumns(10);
-		add(textField_3);
+		tfbirthdate = new JTextField();
+		tfbirthdate.setBounds(226, 237, 140, 23);
+		tfbirthdate.setColumns(10);
+		add(tfbirthdate);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(531, 192, 141, 23);
-		textField_4.setColumns(10);
-		add(textField_4);
+		tfnoh = new JTextField();
+		tfnoh.setBounds(226, 285, 140, 23);
+		tfnoh.setColumns(10);
+		add(tfnoh);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(532, 237, 140, 23);
-		textField_5.setColumns(10);
-		add(textField_5);
+		tfnoM = new JTextField();
+		tfnoM.setBounds(226, 336, 140, 23);
+		tfnoM.setColumns(10);
+		add(tfnoM);
 		
-		textArea = new JTextArea();
-		textArea.setBorder(new LineBorder(UIManager.getColor("Button.shadow")));
-		textArea.setBounds(531, 286, 141, 75);
-		add(textArea);
+		tfmemberid = new JTextField();
+		tfmemberid.setBounds(531, 192, 141, 23);
+		tfmemberid.setColumns(10);
+		add(tfmemberid);
+		
+		tfemail = new JTextField();
+		tfemail.setBounds(532, 237, 140, 23);
+		tfemail.setColumns(10);
+		add(tfemail);
+		
+		taaddress = new JTextArea();
+		taaddress.setBorder(new LineBorder(UIManager.getColor("Button.shadow")));
+		taaddress.setBounds(531, 286, 141, 75);
+		add(taaddress);
+
+		pwdPin = new JPasswordField();
+		pwdPin.setBounds(226, 384, 140, 23);
+		add(pwdPin);
 
 	}
 }

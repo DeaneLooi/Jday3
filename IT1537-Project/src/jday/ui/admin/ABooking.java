@@ -25,30 +25,34 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
 public class ABooking extends BackgroundPanel {
-	private JTable table;
+	private JTable table = new JTable();
 
 	public ABooking() {
 		super();
 		initialize();
 	}
 	
-	public ABooking(JFrame f){
+	public ABooking(JFrame f,Member m){
 		this();
 		myFrame = f;
-		
-		JTable table = new JTable();
-		
+		this.m = m;
 		BookingTableModel model = new BookingTableModel(AdminViewBookingDAO.retrieveAll());
-		table.setBounds(0, 0, 400, 450);
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(80, 100, 580, 280);
-		//table.setFillsViewportHeight(true);	
-		//table.setCellSelectionEnabled(true);
+		
 		table.setModel(model);
+		table.setBounds(0, 0, 400, 450);
+		table.setBackground(new Color(216, 191, 216));
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		table.setRowHeight(30);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(80, 120, 580, 250);
+		
 		add(scrollPane);
+		
+
 	}
 	
 	private void initialize(){
+		
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 		
@@ -56,7 +60,7 @@ public class ABooking extends BackgroundPanel {
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -71,25 +75,6 @@ public class ABooking extends BackgroundPanel {
 		lblJdayBooking.setBounds(125, 42, 277, 42);
 		lblJdayBooking.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		add(lblJdayBooking);
-
-		table.setBounds(84, 124, 583, 240);
-		table.setBackground(new Color(216, 191, 216));
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		table.setRowHeight(30);
-		
-		
-		
-		/*table.setModel(bookingList);
-		ViewBookingList[] viewBooking= new ViewBookingList[];
-			 viewBooking.setMemberid(memberid());
-		
-			for(int i=0; i<viewBooking.length; i++){
-				
-			}
-		ArrayList <viewBooking> bookingList = new ArrayList<String>();
-		bookingList.add("");
-		*/
 
 		add(table);
 	}

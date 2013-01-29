@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 
 public class AUpdate extends BackgroundPanel {
@@ -22,9 +23,10 @@ public class AUpdate extends BackgroundPanel {
 		initialize();
 	}
 	
-	public AUpdate(JFrame f){
+	public AUpdate(JFrame f, Member m){
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 	private void initialize(){
 		setSize(new Dimension(750, 500));
@@ -34,7 +36,7 @@ public class AUpdate extends BackgroundPanel {
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new AUpdateCourse(myFrame);
+				JPanel panel = new AUpdateCourse(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -53,7 +55,7 @@ public class AUpdate extends BackgroundPanel {
 		lblEvents.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AUpdateEvent(myFrame);
+				JPanel panel = new AUpdateEvent(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -76,6 +78,16 @@ public class AUpdate extends BackgroundPanel {
 		add(lblUpdate);
 		
 		JLabel lblJdayLogo = new JLabel("");
+		lblJdayLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				JPanel panel = new AMainpage(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
 		lblJdayLogo.setIcon(new ImageIcon(AUpdate.class.getResource("/images/110jday_logo.png")));
 		lblJdayLogo.setBounds(10, 27, 115, 125);
 		add(lblJdayLogo);

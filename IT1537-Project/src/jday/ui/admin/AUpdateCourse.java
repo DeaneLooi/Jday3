@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 
 import jday.entities.CourseBooking;
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import jday.util.ClassTableModel;
 
@@ -30,9 +31,10 @@ public class AUpdateCourse extends BackgroundPanel{
 		initialize();
 	}
 	
-	public AUpdateCourse(JFrame f){
+	public AUpdateCourse(JFrame f, Member m){
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 	
 	private void initialize(){
@@ -94,7 +96,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

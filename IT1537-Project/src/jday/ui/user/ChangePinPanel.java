@@ -15,6 +15,9 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 
 import jday.entities.Member;
+import jday.ui.admin.AMainpage;
+import jday.ui.admin.AdminMainframe;
+import jday.ui.admin.Kitchen;
 import jday.util.BackgroundPanel;
 
 public class ChangePinPanel extends BackgroundPanel {
@@ -90,11 +93,31 @@ public class ChangePinPanel extends BackgroundPanel {
 					}
 					
 					else if(myFrame instanceof MainFrame){
-						JPanel panel = new Courses(myFrame,m);
+						JPanel panel = new EventCalendar(myFrame,m);
 						myFrame.getContentPane().removeAll();
 						myFrame.getContentPane().add(panel);
 						myFrame.getContentPane().validate();
 						myFrame.getContentPane().repaint();
+					}
+					
+					else if(myFrame instanceof AdminMainframe){
+						if(m.getMemberid().contains("au")){
+							JPanel panel = new AMainpage(myFrame,m);
+							myFrame.getContentPane().removeAll();
+							myFrame.getContentPane().add(panel);
+							myFrame.getContentPane().validate();
+							myFrame.getContentPane().repaint();
+						}
+						
+						else if(m.getMemberid().contains("ar")){
+							JPanel panel = new Kitchen(myFrame);
+							myFrame.getContentPane().removeAll();
+							myFrame.setContentPane(panel);
+							myFrame.setVisible(false);
+							myFrame.getContentPane().validate();
+							myFrame.getContentPane().repaint();
+							myFrame.setVisible(true);
+						}
 					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

@@ -15,6 +15,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -37,9 +38,10 @@ public class AUpdateEvent extends BackgroundPanel {
 		initialize();
 	}
 
-	public AUpdateEvent(JFrame f) {
+	public AUpdateEvent(JFrame f, Member m) {
 		this();
 		myFrame = f;
+		this.m = m;
 		initialize();
 	}
 
@@ -54,7 +56,7 @@ public class AUpdateEvent extends BackgroundPanel {
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				JPanel panel = new AMainpage(myFrame);
+				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
@@ -74,7 +76,7 @@ public class AUpdateEvent extends BackgroundPanel {
 				// open next panel
 				JPanel panel = new JPanel();
 				try {
-					panel = new AUpdateEvent2(myFrame, date3);
+					panel = new AUpdateEvent2(myFrame, date3,m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();

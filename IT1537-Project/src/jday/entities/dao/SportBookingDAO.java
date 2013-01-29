@@ -1,4 +1,3 @@
-//yw's sport booking-C
 package jday.entities.dao;
 
 import java.sql.Connection;
@@ -37,7 +36,7 @@ public class SportBookingDAO {
         
         // inserting values
         pstmt.setInt(1,sportbooking.getBookingno());
-        pstmt.setString(2,sportbooking.getMemberid());
+        pstmt.setString(2,m.getMemberid());
         pstmt.setString(3,sportbooking.getTime());  
         pstmt.setString(4,sportbooking.getDate());
         pstmt.setInt(5,sportbooking.getCourt());
@@ -80,7 +79,7 @@ public class SportBookingDAO {
 	}
 	
 	
-	public static ArrayList<SportBooking> retrieveAll() {
+	public static ArrayList <SportBooking> retrieveAll() {
 		
 		SportBooking sportBooking = null;
 		Statement stmt = null;
@@ -108,7 +107,7 @@ public class SportBookingDAO {
                  sportBooking.setDate(SportBookingDate);
                  sportBooking.setCourt(SportBookingCourt);
                  sportBooking.setSport(SportBookingSport);
-                
+                 sportbookings.add(sportBooking);
             }
         } catch (Exception e) {
         	e.printStackTrace();
