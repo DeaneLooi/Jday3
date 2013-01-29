@@ -55,6 +55,7 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		this();
 		myFrame = f;
 		this.m = m;
+		this.m.retrieveMemberInfo();
 	}
 
 	private void initialize() {
