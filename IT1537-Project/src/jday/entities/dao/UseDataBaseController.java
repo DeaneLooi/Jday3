@@ -3,9 +3,13 @@ package jday.entities.dao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import jday.entities.Admin;
+import jday.entities.BasicMember;
 import jday.entities.CourseBooking;
 import jday.entities.FnB;
+import jday.entities.KitchenAdmin;
 import jday.entities.Member;
+import jday.entities.PremiumMember;
 import jday.entities.Register;
 
 
@@ -31,9 +35,10 @@ public class UseDataBaseController {
 		}
 	*/
 		
-		Member m = new Member("120923t");
-		m.setPin("1");
-		m.createMember();
+		Member m = new Member();
+		m.setMemberid("sdf");
+		m.retrieveMemberInfo();
+		System.out.println(m.getMemberid()+m.getAddress());
 		}
 		
 	public static void FnBOrder(ArrayList<FnB>list){

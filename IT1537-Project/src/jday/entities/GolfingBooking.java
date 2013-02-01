@@ -1,3 +1,4 @@
+//golf booking, store in database
 package jday.entities;
 
 public class GolfingBooking extends Booking {

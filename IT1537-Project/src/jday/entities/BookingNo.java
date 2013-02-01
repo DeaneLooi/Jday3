@@ -1,3 +1,4 @@
+//randomly generated booking no
 package jday.entities;
 
 import java.sql.ResultSet;
@@ -30,13 +31,14 @@ public class BookingNo {
 		return availability;
 	}
 
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+	
+	//by default, the availability is available
 	public String getDefaultAvailability() {
 		availability = "available";
 		return availability;
-	}
-
-	public void setAvailability(String availability) {
-		this.availability = availability;
 	}
 
 }

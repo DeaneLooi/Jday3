@@ -48,14 +48,14 @@ public class AUpdateCourse extends BackgroundPanel{
 				UpdateFrame frame = new UpdateFrame();
 				frame.setVisible(true);
 				
-				Timer timer = new Timer(10000, new ActionListener() {
+				Timer timer = new Timer(3000, new ActionListener() {
 					  @Override
 					  public void actionPerformed(ActionEvent arg0) {
 							ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
 							tableList.setModel(model);
 					  }
 					});
-					timer.setRepeats(false);
+					timer.setRepeats(true);
 					timer.start(); 
 			}
 		});

@@ -9,7 +9,8 @@ public class KaraokeBookingEntities {
 	
 	private String time; 
 	
-	private String rooms;
+	private String session;
+	//session refers to room
 	
 	private String memberId;
 	
@@ -52,12 +53,12 @@ public class KaraokeBookingEntities {
 		this.time = time;
 	}
 	
-	public String getRooms() {
-		return rooms;
+	public String getSession() {
+		return session;
 	}
 
-	public void setRooms(String rooms) {
-		this.rooms = rooms;
+	public void setSession(String session) {
+		this.session = session;
 	}
 	
 	public String getDate() {

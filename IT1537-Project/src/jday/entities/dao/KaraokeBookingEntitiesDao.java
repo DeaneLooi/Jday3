@@ -30,7 +30,7 @@ public class KaraokeBookingEntitiesDao {
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, session) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
             BookingNo bookNo = BookingNoDAO.createBookNo();
             kBooking.setBookingNo(bookNo.getBookingNo());
@@ -40,7 +40,7 @@ public class KaraokeBookingEntitiesDao {
             pstmt.setString(2, m.getMemberid());
             pstmt.setString(3, kBooking.getTime());  
             pstmt.setString(4, kBooking.getDate());
-            pstmt.setString(5, kBooking.getRooms());
+            pstmt.setString(5, kBooking.getSession());
 
             
             pstmt.executeUpdate();
@@ -96,17 +96,19 @@ public class KaraokeBookingEntitiesDao {
             stmt = currentCon.createStatement();
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
-                String bookingNo = rs.getString("bookingNo");
+                int bookingNo = rs.getInt("bookingNo");
                 String memberId = rs.getString("memberId");
                 String time = rs.getString("time");
                 String date = rs.getString("date");
-                String rooms = rs.getString("room");
+                String session = rs.getString("session");
                 
                 kBookings = new KaraokeBookingEntities();
                 kBookings.setMemberId(memberId);
+                kBookings.setBookingNo(bookingNo);
                 kBookings.setTime(time);
                 kBookings.setDate(date);
-                kBookings.setRooms(rooms);
+                kBookings.setSession(session);
+                karaokeBookingEntitiesList.add(kBookings);
             }
         } catch (Exception e) {
         	e.printStackTrace();

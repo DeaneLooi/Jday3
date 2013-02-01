@@ -9,13 +9,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import jday.entities.Admin;
+import jday.entities.BasicMember;
 import jday.entities.Member;
+import jday.entities.PremiumMember;
 import jday.util.BackgroundPanel;
 
 
@@ -83,12 +87,20 @@ public class GolfingInfo extends BackgroundPanel {
 		JButton btnbook = new JButton("Book");
 		btnbook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new GolfingInfoBooking(myFrame,m);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
+				
+					if(m instanceof PremiumMember ||m instanceof Admin){
+					JPanel panel = new GolfingInfoBooking(myFrame,m);
+					myFrame.getContentPane().removeAll();
+					myFrame.getContentPane().add(panel);
+					myFrame.getContentPane().validate();
+					myFrame.getContentPane().repaint();
+					}
+					
+					else if (m instanceof BasicMember){
+						JOptionPane.showMessageDialog(null, "Only premium members are allowed to book for golf");
+					}
 			}
+			
 		});
 		btnbook.setBounds(590, 395, 89, 23);
 		add(btnbook);

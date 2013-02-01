@@ -14,6 +14,8 @@ public class SpaBookingDetails {
 	private String memberId;
 
 	private int bookingNo;
+	
+	private String venue;
 
 	public SpaBookingDetails() {
 
@@ -86,6 +88,14 @@ public class SpaBookingDetails {
 	public void setBookingNo(int bookingNo) {
 		this.bookingNo = bookingNo;
 		
+	}
+
+	public String getVenue() {
+		return venue;
+	}
+
+	public void setVenue(String venue) {
+		this.venue = venue;
 	}
 
 }

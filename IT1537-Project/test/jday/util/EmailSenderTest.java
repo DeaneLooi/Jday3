@@ -14,8 +14,8 @@ public class EmailSenderTest {
 		m.setEmail("d.yuwen.yw@gmail.com");
 		BookingNo bookno =new BookingNo(); 
 		
-		EmailSender sender = new EmailSender(bookno.setBookingNo(),m);
-		
+		EmailSender sender = new EmailSender(m);
+		//sender.callMethod();
 		
 	}
 

@@ -1,4 +1,3 @@
-//yw's booking number
 package jday.entities.dao;
 
 import jday.entities.dao.DBConnectionManager;
@@ -40,9 +39,6 @@ public class BookingNoDAO {
 	           
 	            pstmt.executeUpdate();
 	            
-	            //String updateQuery = "UPDATE booking no SET availability ='not available' where bookingno ='"+bookingNo+"';";
-	            //pstmt1 = currentCon.prepareStatement(updateQuery);
-				//pstmt1.executeUpdate();
 	            
 			} catch (Exception ex) {
 
@@ -97,7 +93,6 @@ public class BookingNoDAO {
             
                  int bookingNumber= rs.getInt("bookingno");
                  String bookingNoAvailability = rs.getString("availability");
-                 //problem: should be 'bookingNo.setBookingno(bookingNobookingno);'
                  bookingNo.setBookingNo();
                  bookingNo.setAvailability(bookingNoAvailability);
             }

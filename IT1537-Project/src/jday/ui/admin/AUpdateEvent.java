@@ -35,7 +35,7 @@ public class AUpdateEvent extends BackgroundPanel {
 	 */
 	public AUpdateEvent() {
 		super();
-		initialize();
+	
 	}
 
 	public AUpdateEvent(JFrame f, Member m) {

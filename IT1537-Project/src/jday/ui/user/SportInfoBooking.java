@@ -99,7 +99,8 @@ public class SportInfoBooking extends BackgroundPanel{
 				SportBooking sportbk = new SportBooking();
 				sportbk=SportBookingDAO.sportbooking(sportbooking,m);
 				
-				EmailSender email = new EmailSender(bookno.getBookingNo(),m);
+				EmailSender email = new EmailSender(m);
+				email.sendBookingNumber(bookno.getBookingNo());
 				JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
 				
 
@@ -112,26 +113,6 @@ public class SportInfoBooking extends BackgroundPanel{
 		});
 		
 		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		/*button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				BookingNo bookno = new BookingNo();
-				bookno.setBookingNo();
-					sportbooking.setMemberid(m.getMemberid());
-					
-					sportbooking.setSport(comboBox_2.selectedTime);
-					sportbooking.setTime();
-					sportbooking.setTime();
-					sportbooking.setBookingno(bookno.getBookingNo());
-					
-					SportBookingDAO.CreateSportBooking(sportbooking);
-				
-					EmailSender email = new EmailSender(bookno.getBookingNo(),m);
-					JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
-				
-			}
-		});
-		*/
 		btnConfirm.setBounds(609, 446, 87, 23);
 		add(btnConfirm);
 	
@@ -159,14 +140,12 @@ public class SportInfoBooking extends BackgroundPanel{
 		time = new JComboBox();
 		time.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		time.setModel(new DefaultComboBoxModel(new String[] {"0900-1000", "1000-1100", "1100-1200", "1200-1300", "1300-1400", "1400-1500", "1500-1600", "1600-1700", "1700-1800", "1800-1900"}));
-		time.setToolTipText("");
 		time.setBounds(151, 418, 101, 20);
 		add(time);
 		
 		
 		court = new JComboBox();
 		court.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
-		court.setToolTipText("");
 		court.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		court.setBounds(441, 381, 70, 20);
 		add(court);
@@ -174,7 +153,6 @@ public class SportInfoBooking extends BackgroundPanel{
 		
 		sport = new JComboBox();
 		sport.setModel(new DefaultComboBoxModel(new String[] {"Basketball", "Tennis", "Bowling", "Badminton", "Volleyball", "Table Tennis"}));
-		sport.setToolTipText("");
 		sport.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		sport.setMaximumRowCount(7);
 		sport.setBounds(152, 380, 100, 20);

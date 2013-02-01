@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -21,6 +20,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import jday.entities.FnB;
+import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import jday.util.FnBViewTableModel;
 
@@ -41,14 +41,15 @@ public class Kitchen extends BackgroundPanel {
 	}
 
 	public Kitchen(JFrame f) {
-		super();
+		this();
 		myFrame = f;
-		initialize();
+
 	}
 
 	public Kitchen(JFrame f, Member m) {
 		this();
 		myFrame = f;
+		this.m = m;
 	}
 
 	private void initialize() {

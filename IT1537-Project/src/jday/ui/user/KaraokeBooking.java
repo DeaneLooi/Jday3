@@ -24,6 +24,8 @@ import jday.entities.KaraokeBookingEntities;
 import jday.entities.Member;
 import jday.entities.dao.KaraokeBookingEntitiesDao;
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
+
 import javax.swing.ButtonGroup;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
@@ -189,11 +191,13 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		
 		bookingDetails.setTime(selectedT);
 
-		bookingDetails.setRooms(selectedRoom);
+		bookingDetails.setSession(selectedRoom);
 
 		KaraokeBookingEntities bookDetails = new KaraokeBookingEntities();
 		bookDetails = KaraokeBookingEntitiesDao.karaokeBooking(bookingDetails, m);
 
+		EmailSender email = new EmailSender(m);
+		email.sendBookingNumber(bookDetails.getBookingNo());
 		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookDetails, m);
 
 		myFrame.getContentPane().removeAll();

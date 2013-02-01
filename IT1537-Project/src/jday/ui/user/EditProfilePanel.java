@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import jday.entities.Admin;
+import jday.entities.KitchenAdmin;
 import jday.entities.Member;
 import jday.ui.admin.AMainpage;
 import jday.ui.admin.AdminMainframe;
@@ -202,7 +204,7 @@ public class EditProfilePanel extends BackgroundPanel {
 				}
 				
 				else if(myFrame instanceof AdminMainframe){
-					if(m.getMemberid().contains("au")){
+					if(m instanceof Admin){
 						JPanel panel = new AMainpage(myFrame,m);
 						myFrame.getContentPane().removeAll();
 						myFrame.getContentPane().add(panel);
@@ -210,7 +212,7 @@ public class EditProfilePanel extends BackgroundPanel {
 						myFrame.getContentPane().repaint();
 					}
 					
-					else if(m.getMemberid().contains("ar")){
+					else if(m instanceof KitchenAdmin){
 						JPanel panel = new Kitchen(myFrame);
 						myFrame.getContentPane().removeAll();
 						myFrame.setContentPane(panel);

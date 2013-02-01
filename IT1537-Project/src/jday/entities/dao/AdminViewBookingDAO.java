@@ -5,6 +5,7 @@ import jday.entities.Booking;
 import jday.entities.BookingNo;
 import jday.entities.CourseBooking;
 import jday.entities.GolfingBooking;
+import jday.entities.KaraokeBookingEntities;
 import jday.entities.Member;
 import jday.entities.Register;
 import jday.entities.SpaBookingDetails;
@@ -32,7 +33,6 @@ public class AdminViewBookingDAO {
 		 	ArrayList<GolfingBooking> golfbookings = GolfingBookingDAO.retrieveAll();
 		 	ArrayList<SportBooking> sportbookings = SportBookingDAO.retrieveAll();
 		 	ArrayList<SpaBookingDetails> spaBookingDetailsList = SpaBookingDetailsDAO.retrieveAll();
-		 	
 		 		
 		    ArrayList<Booking> bookings = new ArrayList<Booking>();
 		    
@@ -66,17 +66,11 @@ public class AdminViewBookingDAO {
 		    	booking.setBookingno(spabooking.getBookingNo());
 		    	booking.setMemberid(spabooking.getMemberId());
 		    	
-		    	if (spabooking.getSession()==null) {
-		    		// then this is a karaoke booking
-		    		booking.setVenue("Karaoke room");
-		    	} 
-		    	else {
-		    		booking.setVenue("Spa");
-		    	}
+		    	booking.setVenue(spabooking.getSession());
 		    	booking.setTime(spabooking.getTime());
 		    	bookings.add(booking);
 		    }
-		   
+
 		    return bookings;
 		    
 		

@@ -17,7 +17,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
+import jday.entities.Admin;
+import jday.entities.BasicMember;
+import jday.entities.KitchenAdmin;
 import jday.entities.Member;
+import jday.entities.PremiumMember;
 import jday.entities.dao.MemberDAO;
 
 import javax.swing.JScrollPane;
@@ -28,6 +32,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class ARegister extends BackgroundPanel {
 	private JTextField tfname;
@@ -37,19 +43,19 @@ public class ARegister extends BackgroundPanel {
 	private JTextField tfmemberid;
 	private JTextField tfemail;
 	private JTextArea taaddress;
-	private Member memberregister = new Member();
+	private Member memberregister = null;
 	private JPasswordField pwdPin;
+	private JComboBox cbbmembertype;
 
 	/**
 	 * Create the panel.
 	 */
 	public ARegister() {
 		super();
-		setToolTipText("");
 		initialize();
 	}
 	
-	public ARegister(JFrame f, Member m){
+	public ARegister(JFrame f,Member m){
 		this();
 		myFrame = f;
 		this.m = m;
@@ -79,6 +85,17 @@ public class ARegister extends BackgroundPanel {
 		btnCreate.setBounds(540, 425, 132, 23);
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			
+				int memberSelected = cbbmembertype.getSelectedIndex();
+				
+				if(memberSelected == 1)
+				memberregister = new BasicMember();
+				if(memberSelected == 2)
+					memberregister = new PremiumMember();
+				if(memberSelected ==3)
+					memberregister= new Admin();
+				if(memberSelected ==4)
+					memberregister = new KitchenAdmin();
 				String name = tfname.getText();
 				String birthdate = tfbirthdate.getText();
 				int contactnoM = Integer.parseInt(tfnoM.getText());
@@ -87,6 +104,8 @@ public class ARegister extends BackgroundPanel {
 				String email = tfemail.getText();
 				String address = taaddress.getText();
 				String pin = pwdPin.getText();
+				
+				
 				
 				memberregister.setName(name);
 				memberregister.setBirthdate(birthdate);
@@ -106,7 +125,11 @@ public class ARegister extends BackgroundPanel {
 				}
 				
 				JOptionPane.showMessageDialog(null, "Member created");
-				
+				JPanel panel = new AMainpage(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
 			}
 		});
 		add(btnCreate);
@@ -172,12 +195,12 @@ public class ARegister extends BackgroundPanel {
 		tfbirthdate.setColumns(10);
 		add(tfbirthdate);
 		
-		tfnoh = new JTextField();
+		tfnoh = new JTextField("");
 		tfnoh.setBounds(226, 285, 140, 23);
 		tfnoh.setColumns(10);
 		add(tfnoh);
 		
-		tfnoM = new JTextField();
+		tfnoM = new JTextField("");
 		tfnoM.setBounds(226, 336, 140, 23);
 		tfnoM.setColumns(10);
 		add(tfnoM);
@@ -200,6 +223,17 @@ public class ARegister extends BackgroundPanel {
 		pwdPin = new JPasswordField();
 		pwdPin.setBounds(226, 384, 140, 23);
 		add(pwdPin);
+		
+		cbbmembertype = new JComboBox();
+		cbbmembertype.setModel(new DefaultComboBoxModel(new String[] {"Choose member type","Basic member", "Premium member", "Admin", "Kitchen admin"}));
+		cbbmembertype.setBounds(226, 426, 167, 23);
+		cbbmembertype.setMaximumRowCount(3);
+		add(cbbmembertype);
+		
+		JLabel lblmembertype = new JLabel("Member type:");
+		lblmembertype.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblmembertype.setBounds(113, 422, 140, 25);
+		add(lblmembertype);
 
 	}
 }

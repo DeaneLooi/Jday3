@@ -1,3 +1,5 @@
+//booking for SPA, sport, golf, karaoke
+//this is for admin to view booking 
 package jday.entities;
 
 public class Booking {

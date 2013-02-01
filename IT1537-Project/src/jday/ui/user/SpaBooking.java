@@ -197,7 +197,8 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		SpaBookingDetails bookDetails = new SpaBookingDetails();
 		bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
 
-		//EmailSender email = new EmailSender(bookDetails.getBookingNo(),m);
+		EmailSender email = new EmailSender(m);
+		email.sendBookingNumber(bookDetails.getBookingNo());
 		SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
 
 		myFrame.getContentPane().removeAll();

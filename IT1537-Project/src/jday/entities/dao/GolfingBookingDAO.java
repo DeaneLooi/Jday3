@@ -41,6 +41,11 @@ public class GolfingBookingDAO {
             pstmt.setDouble(6,golfbooking.getPrice());
             pstmt.executeUpdate();
             
+            String updateQuery = "UPDATE bookingno SET availability = 'not available' where bookingno ='"+golfbooking.getBookingno()+"';";
+            pstmt1 = currentCon.prepareStatement (updateQuery);
+            pstmt1.executeUpdate();
+            
+            //handle exception
 		} catch (Exception ex) {
 
 			System.out.println("Book fail" + ex);

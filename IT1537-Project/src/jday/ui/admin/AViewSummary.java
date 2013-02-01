@@ -103,7 +103,7 @@ public class AViewSummary extends BackgroundPanel{
 		JButton button = new JButton("Back");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new AProfile(myFrame);
+				JPanel panel = new AProfile(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

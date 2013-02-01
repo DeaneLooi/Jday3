@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Random;
 
+import jday.entities.dao.DBConnectionManager;
 import jday.entities.dao.DBController;
 
 public class Register {
@@ -110,4 +112,5 @@ public class Register {
 		db.terminate();
 		return registerno;
 	}
+	
 }

@@ -71,7 +71,7 @@ public class MainFrame extends JFrame{
 	private void initialize() {
 		this.setBounds(100, 100, 800, 600);
 		this.setJMenuBar(getJJMenuBar());
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("C:/Users/Deane/Desktop/JDAY logo.png"));
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/images/90logo.png")));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(getJContentPane());
 		this.setTitle("JDAY");
@@ -118,7 +118,7 @@ public class MainFrame extends JFrame{
 			jJMenuBar.add(getJMenuFacilities());
 			jJMenuBar.add(getJMenuLifestyle());
 			jJMenuBar.add(getJMenuGolf());
-			jJMenuBar.add(getJMenuBanquet());
+			//jJMenuBar.add(getJMenuBanquet());
 			jJMenuBar.add(getJMenuEvent());
 			jJMenuBar.add(getSeparator());
 			jJMenuBar.add(getJMenuMemberId());
@@ -137,9 +137,9 @@ public class MainFrame extends JFrame{
 			jMenuServices.setForeground(new Color(255, 255, 255));
 			jMenuServices.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuServices.setText("Services");
-			jMenuServices.add(getJMenuItemRoomService());
+			//jMenuServices.add(getJMenuItemRoomService());
 			jMenuServices.add(getJMenuItemFB());
-			jMenuServices.add(getJMenuItemDayCare());
+			//jMenuServices.add(getJMenuItemDayCare());
 			jMenuServices.add(getJMenuItemTaxi());
 		}
 		return jMenuServices;
@@ -285,7 +285,7 @@ public class MainFrame extends JFrame{
 			jMenuMemberId.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuMemberId.add(getMntmProfile());
 			jMenuMemberId.add(getJMenuItemChangePin());
-			jMenuMemberId.add(getMntmBooking());
+			//jMenuMemberId.add(getMntmBooking());
 		}
 		return jMenuMemberId;
 	}
@@ -304,7 +304,6 @@ public class MainFrame extends JFrame{
 	private JMenuItem getJMenuItemFB() {
 		if (jMenuItemFB == null) {
 			jMenuItemFB = new JMenuItem("F & B");
-			jMenuItemFB.setBackground(new Color(221, 160, 221));
 			jMenuItemFB.setForeground(new Color(0, 0, 0));
 			jMenuItemFB.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuItemFB.addActionListener(new ActionListener() {

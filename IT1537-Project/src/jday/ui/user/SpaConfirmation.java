@@ -78,7 +78,7 @@ public class SpaConfirmation extends BackgroundPanel {
 		
 		
 		
-		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is "+ spaBookingDetails.getBookingNo()+" \r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is "+ spaBookingDetails.getBookingNo()+" \r\n\r\n    Your booking number is sent to your Email.\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
 		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));

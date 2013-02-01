@@ -13,13 +13,14 @@ public class Member{
 	private int count = 0;
 	private String memberid;
 	private String pin;
+	private String membertype;
 	private String name;
 	private String birthdate;
 	private int contactnoH;
 	private int contactnoM;
 	private String email;
 	private String address;
-	
+
 
 
 	public int getCount() {
@@ -33,7 +34,7 @@ public class Member{
 			String query = "select * from user_aes where user_name = '"+memberid+"';";
 			rs = stmt.executeQuery(query);
 			while(rs.next())
-				count = rs.getInt(3);
+				count = rs.getInt(4);
 			
 		}catch(Exception e){
 				e.printStackTrace();
@@ -134,17 +135,33 @@ public class Member{
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
+	
+	public void setMembertype(String membertype){
+		this.membertype = membertype;
+	}
+	
+	public String getMembertype() throws SQLException{
+		DBController db = new DBController();
+		db.getConnection();
+		String dbQuery = "select membertype from user_aes where user_name ='"+memberid+"';";
+		ResultSet rs = db.readRequest(dbQuery);
+		while(rs.next()){
+			membertype = rs.getString(1);
+		}
+		return membertype;
+	}
 
 	
 	public boolean createMember() throws SQLException{
+		//why 'boolean success = false;'
 		boolean success = false;
 		DBController db = new DBController();
 		String dbQuery;	
 		db.getConnection();		
 
 		dbQuery = "INSERT INTO user_aes";
-	    dbQuery = dbQuery + " VALUES ('" + memberid + "',aes_encrypt('"+pin+"','keytoencrypt')"+",'"+count+"');";
-	    
+	    dbQuery = dbQuery + " VALUES ('" + memberid + "',aes_encrypt('"+pin+"','keytoencrypt')"+",'"+membertype+"'"+",'"+count+"');";
+	    System.out.println(dbQuery);
 
 
 	    if (db.updateRequest(dbQuery) == 1){
@@ -204,13 +221,10 @@ public class Member{
 		try{
 			while(rs.next()){
 				String username= rs.getString("user_name");
-
-				sql = "select aes_decrypt(pin,'keytoencrypt') as unencrypted from user_aes;";
-				rs = db.readRequest(sql);
 				
-				username.toUpperCase();
-				memberid.toUpperCase();
-				if(memberid.equals(username) && this.pin.equals(pin)){
+				//sql = "select aes_decrypt(pin,'keytoencrypt') as unencrypted from user_aes;";
+				
+				if(memberid.equalsIgnoreCase(username) && this.pin.equals(pin)){
 				success= true;
 				return success;
 				}

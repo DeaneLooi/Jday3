@@ -8,7 +8,7 @@ import jday.entities.Member;
 public class ProfileTableModel extends AbstractTableModel {
 	private final long serialVersionUID = 1L;
 	private int rowCount, colCount;
-	private String[] columnNames = {"memberid", "name", "birthdate" , "contactnoH", "contactnoM", "email" , "address"};
+	private String[] columnNames = {"Member ID", "Name", "Birthdate" , "Home No", "Moblie No", "Email" , "Address"};
 	private Object [] [] data;
 	
 	ArrayList<Member> memberList = new ArrayList<Member>();

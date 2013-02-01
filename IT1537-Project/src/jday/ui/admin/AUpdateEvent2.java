@@ -188,6 +188,22 @@ public class AUpdateEvent2 extends BackgroundPanel {
 		submitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		submitBtn.setBounds(562, 441, 106, 35);
 		add(submitBtn);
+		
+		//back button
+		JButton backBtn = new JButton("Back");
+		backBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JPanel panel = new AUpdateEvent(myFrame,m);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
+		backBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		backBtn.setBounds(400, 441, 106, 35);
+		add(backBtn);
 
 	}
 }

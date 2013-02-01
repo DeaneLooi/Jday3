@@ -17,8 +17,6 @@ public class SpaBookingDetailsDAO {
 	static ResultSet rs1 = null;
 	static PreparedStatement pstmt1 = null;
 	
-
-
 	
 	public static SpaBookingDetails spaBooking(SpaBookingDetails sBooking, Member m) {
 		DBController db = new DBController();
@@ -28,10 +26,11 @@ public class SpaBookingDetailsDAO {
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, session) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
             BookingNo bookNo = BookingNoDAO.createBookNo();
             sBooking.setBookingNo(bookNo.getBookingNo());
+            
             // inserting values
             pstmt.setInt(1, bookNo.getBookingNo());
             pstmt.setString(2, m.getMemberid());
@@ -105,7 +104,9 @@ public class SpaBookingDetailsDAO {
                 spaBookings.setTime(time);
                 spaBookings.setDate(date);
                 spaBookings.setSession(session);
+                spaBookingDetailsList.add(spaBookings);
             }
+      
         } catch (Exception e) {
         	e.printStackTrace();
         }

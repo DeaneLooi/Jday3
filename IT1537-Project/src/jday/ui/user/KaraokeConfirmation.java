@@ -66,11 +66,11 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
 		
 		String dateDetails = karaokeBookingEntities.getDay() + "." + karaokeBookingEntities.getMonth() + ". " + karaokeBookingEntities.getYear();
-		String roomsDetails = karaokeBookingEntities.getRooms();
+		String roomsDetails = karaokeBookingEntities.getSession();
 		String timeDetails = karaokeBookingEntities.getTime();
 		//String memberId = karaokeBookingEntities.getMemberId();
 		
-		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + roomsDetails + " \r\n\t\r\n\t\tYour booking No. is "+ karaokeBookingEntities.getBookingNo()+ "\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       0.<dynamic>. <dynamic>\r\n\tTime:       <dynamic>\r\n\tSession: <dynamic> \r\n\t\r\n\t\tYour booking No. is 0\r\n\r\n    Your booking number is sent to your Email.\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
 		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));

@@ -41,21 +41,21 @@ public class SportInfo extends BackgroundPanel {
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Badminton");
-		lblNewLabel.setBounds(457, 160, 73, 36);
-		add(lblNewLabel);
+		JLabel lblbadminton = new JLabel("Badminton");
+		lblbadminton.setBounds(457, 160, 73, 36);
+		add(lblbadminton);
 		
-		JLabel lblNewLabel_1 = new JLabel("Basketball");
-		lblNewLabel_1.setBounds(137, 168, 76, 21);
-		add(lblNewLabel_1);
+		JLabel lblbasketball = new JLabel("Basketball");
+		lblbasketball.setBounds(137, 168, 76, 21);
+		add(lblbasketball);
 		
-		JLabel lblNewLabel_2 = new JLabel("Bowling");
-		lblNewLabel_2.setBounds(149, 452, 46, 14);
-		add(lblNewLabel_2);
+		JLabel lblbowling = new JLabel("Bowling");
+		lblbowling.setBounds(149, 452, 46, 14);
+		add(lblbowling);
 		
-		JLabel lblNewLabel_3 = new JLabel("Tennis");
-		lblNewLabel_3.setBounds(149, 317, 46, 14);
-		add(lblNewLabel_3);
+		JLabel lbltennis = new JLabel("Tennis");
+		lbltennis.setBounds(149, 317, 46, 14);
+		add(lbltennis);
 		
 		JLabel lblVolleyball = new JLabel("Volleyball");
 		lblVolleyball.setBounds(457, 313, 56, 14);
