@@ -27,6 +27,7 @@ import jday.util.BackgroundPanel;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class LoginPage extends BackgroundPanel {
 
@@ -38,6 +39,7 @@ public class LoginPage extends BackgroundPanel {
 	private JPasswordField jPasswordFieldPin = null;
 	private JFrame myFrame = null;
 	private JLabel lblForgotPassword;
+	private JLabel lblLogo;
 
 	/**
 	 * This is the default constructor
@@ -45,14 +47,9 @@ public class LoginPage extends BackgroundPanel {
 	public LoginPage() {
 		super();
 	}
+	
+	private void initialize(){
 
-
-	/**
-	 * This method initializes this
-	 * 
-	 * @return void
-	 */
-	private void initialize() {
 		jLabelPin = new JLabel();
 		jLabelPin.setForeground(new Color(0, 0, 0));
 		jLabelPin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,6 +66,7 @@ public class LoginPage extends BackgroundPanel {
 		this.add(getJButtonLogin(), null);
 		this.add(getJPasswordFieldPin(), null);
 		add(getLblForgotPassword());
+		add(getLblLogo());
 	}
 
 	/**
@@ -239,5 +237,14 @@ public class LoginPage extends BackgroundPanel {
 			lblForgotPassword.setBounds(240, 296, 150, 19);
 		}
 		return lblForgotPassword;
+	}
+	private JLabel getLblLogo() {
+		if (lblLogo == null) {
+			lblLogo = new JLabel("");
+			lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+			lblLogo.setIcon(new ImageIcon(LoginPage.class.getResource("/images/90logo.png")));
+			lblLogo.setBounds(272, 11, 194, 132);
+		}
+		return lblLogo;
 	}
 }

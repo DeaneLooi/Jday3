@@ -21,10 +21,12 @@ public class EmailSender {
 	private final String jdayPW = "jdayjday";
 	private String email = "";
 	private Session session = null;
+	private Member m = null;
 	
 		public EmailSender(Member member) {
 		super();
 		member.retrieveMemberInfo();
+		this.m = member;
 		this.email = member.getEmail() ;
 		
 		Properties props = new Properties();
@@ -81,6 +83,32 @@ public class EmailSender {
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(JdayTo));
 				message.setSubject(subject);
 				message.setText("Dear member," + "\n" + "your register number is: "+ i);
+	 
+				Transport.send(message);
+				System.out.print("send");
+	 
+			} catch (MessagingException e) {
+				throw new RuntimeException(e);
+			}
+	}
+		
+		public void sendMemberId(){
+
+			String subject="Jday new member id";
+			
+			//get from database
+			String JdayTo = email;
+			
+	 
+			try {
+	 
+				Message message = new MimeMessage(session);
+
+				message.setFrom(new InternetAddress(jdaySend));
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(JdayTo));
+				message.setSubject(subject);
+				message.setText("Dear member," + "\n" + "your new member Id is: "+ m.getMemberid()+"\n " +
+						"your new pin is :"+m.getPin());
 	 
 				Transport.send(message);
 				System.out.print("send");

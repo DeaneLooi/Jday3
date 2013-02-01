@@ -19,7 +19,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
+import jday.entities.Admin;
 import jday.entities.Member;
+import jday.ui.admin.AdminMainframe;
 
 public class MainFrame extends JFrame{
 
@@ -285,6 +287,27 @@ public class MainFrame extends JFrame{
 			jMenuMemberId.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuMemberId.add(getMntmProfile());
 			jMenuMemberId.add(getJMenuItemChangePin());
+			jMenuMemberId.addMenuListener(new MenuListener(){
+				public void menuSelected(MenuEvent e){
+					if(m instanceof Admin){
+					myFrame.setVisible(false);
+					myFrame = new AdminMainframe(m);
+					myFrame.setVisible(true);
+					}
+				}
+				@Override
+				public void menuCanceled(MenuEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void menuDeselected(MenuEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			
 			//jMenuMemberId.add(getMntmBooking());
 		}
 		return jMenuMemberId;

@@ -13,9 +13,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.util.Random;
 
 import jday.entities.Admin;
 import jday.entities.BasicMember;
@@ -119,8 +122,10 @@ public class ARegister extends BackgroundPanel {
 				try {
 					memberregister.createMember();
 					memberregister.createMemberInfo();
+					EmailSender emailSender = new EmailSender(memberregister);
+					emailSender.sendMemberId();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null,"Registration failed");
 					e.printStackTrace();
 				}
 				
@@ -205,7 +210,7 @@ public class ARegister extends BackgroundPanel {
 		tfnoM.setColumns(10);
 		add(tfnoM);
 		
-		tfmemberid = new JTextField();
+		tfmemberid = new JTextField(getMemberid());
 		tfmemberid.setBounds(531, 192, 141, 23);
 		tfmemberid.setColumns(10);
 		add(tfmemberid);
@@ -220,7 +225,7 @@ public class ARegister extends BackgroundPanel {
 		taaddress.setBounds(531, 286, 141, 75);
 		add(taaddress);
 
-		pwdPin = new JPasswordField();
+		pwdPin = new JPasswordField(Integer.toString(getPin()));
 		pwdPin.setBounds(226, 384, 140, 23);
 		add(pwdPin);
 		
@@ -235,5 +240,19 @@ public class ARegister extends BackgroundPanel {
 		lblmembertype.setBounds(113, 422, 140, 25);
 		add(lblmembertype);
 
+	}
+	
+	public String getMemberid(){
+		Random randomNumber = new Random();
+		int randomNo = (int)randomNumber.nextInt(9999999);
+		char c = (char)(randomNumber.nextInt(26) + 'a');
+		String memberid = Integer.toString(randomNo) + Character.toUpperCase(c);
+		return memberid;
+	}
+	
+	public int getPin(){
+		Random random = new Random();
+		int pin = (int)random.nextInt(999999);
+		return pin;
 	}
 }

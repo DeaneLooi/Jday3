@@ -19,6 +19,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.Random;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ForgotPasswordPanel extends BackgroundPanel{
 	private JTextField tfMemberId;
@@ -118,6 +121,22 @@ public class ForgotPasswordPanel extends BackgroundPanel{
 		btnReset.setFont(new Font("Candara", Font.PLAIN, 16));
 		btnReset.setBounds(261, 321, 89, 23);
 		add(btnReset);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				JPanel panel = new LoginPage(myFrame);
+				myFrame.getContentPane().removeAll();
+				myFrame.getContentPane().add(panel);
+				myFrame.getContentPane().validate();
+				myFrame.getContentPane().repaint();
+			}
+		});
+		lblLogo.setIcon(new ImageIcon(ForgotPasswordPanel.class.getResource("/images/90logo.png")));
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setBounds(24, 27, 168, 122);
+		add(lblLogo);
 		
 
 		
