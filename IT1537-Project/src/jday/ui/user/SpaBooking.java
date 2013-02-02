@@ -50,6 +50,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 	private String time; 
 	
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private SpaBookingDetails spaBookingDetails;
 	
 
 	public SpaBooking() {
