@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -38,6 +39,7 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 	private JRadioButton rdbtnNoonPm;
 
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private KaraokeBookingEntities karaokeBookingEntities;
 	// private final Action action = new SwingAction();
 
 	private JSpinner day;
@@ -196,10 +198,19 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		KaraokeBookingEntities bookDetails = new KaraokeBookingEntities();
 		bookDetails = KaraokeBookingEntitiesDao.karaokeBooking(bookingDetails, m);
 
-		EmailSender email = new EmailSender(m);
-		email.sendBookingNumber(bookDetails.getBookingNo());
+		//EmailSender email = new EmailSender(m);
+		//email.sendBookingNumber(bookDetails.getBookingNo());
+		
 		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookDetails, m);
 
+		String dateDetails = karaokeBookingEntities.getDay() + "." + karaokeBookingEntities.getMonth() + ". " + karaokeBookingEntities.getYear();
+		String roomsDetails = karaokeBookingEntities.getSession();
+		String timeDetails = karaokeBookingEntities.getTime();
+		
+		setSize((int)100, (int)100);
+		JOptionPane.showMessageDialog(null, "Dear member, you have booked the following:Date: " + dateDetails + "Time:" + timeDetails + "Session: " + roomsDetails + "Your booking No. is"+ karaokeBookingEntities.getBookingNo()+ "Your booking number has been sent to your email. Please present it upon arrival, Thank you!");
+		
+		
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
 		myFrame.getContentPane().validate();

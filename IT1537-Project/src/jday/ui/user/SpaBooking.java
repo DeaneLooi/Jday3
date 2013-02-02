@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -197,10 +198,18 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		SpaBookingDetails bookDetails = new SpaBookingDetails();
 		bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
 
-		EmailSender email = new EmailSender(m);
-		email.sendBookingNumber(bookDetails.getBookingNo());
+		/*EmailSender email = new EmailSender(m);
+		email.sendBookingNumber(bookDetails.getBookingNo());*/
+		
 		SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
 
+		String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
+		String roomsDetails = spaBookingDetails.getSession();
+		String timeDetails = spaBookingDetails.getTime();
+		
+		setSize((int)100, (int)100);
+		JOptionPane.showMessageDialog(null, "Dear member, you have booked the following:Date: " + dateDetails + "Time:" + timeDetails + "Session: " + roomsDetails + "Your booking No. is"+ spaBookingDetails.getBookingNo()+ "Your booking number has been sent to your email. Please present it upon arrival, Thank you!");
+		
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
 		myFrame.getContentPane().validate();
