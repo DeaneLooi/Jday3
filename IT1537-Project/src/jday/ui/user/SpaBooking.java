@@ -1,6 +1,7 @@
 package jday.ui.user;
 
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.SystemColor;
 
@@ -14,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextPane;
 import javax.swing.SpinnerListModel;
@@ -140,7 +142,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.addActionListener(this);
 		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnConfirm.setBounds(607, 423, 89, 23);
+		btnConfirm.setBounds(607, 419, 89, 23);
 		add(btnConfirm);
 
 		JLabel lblSpaBooking = new JLabel("   SPA BOOKING");
@@ -207,8 +209,8 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		String roomsDetails = spaBookingDetails.getSession();
 		String timeDetails = spaBookingDetails.getTime();*/
 		
-		
-		JOptionPane.showMessageDialog(null, "Booking is successful! Booking No. :"+ spaBookingDetails.getBookingNo()+ "Your booking number has been sent to your email. Please present it upon arrival, Thank you!");
+	
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number"/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
 		
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);

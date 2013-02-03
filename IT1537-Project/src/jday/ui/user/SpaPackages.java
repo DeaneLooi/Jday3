@@ -133,7 +133,7 @@ public class SpaPackages extends BackgroundPanel {
 		add(textPane_5);
 		btnBookNow.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBookNow.setOpaque(false);
-		btnBookNow.setBounds(609, 418, 103, 35);
+		btnBookNow.setBounds(601, 419, 103, 35);
 		add(btnBookNow);
 		
 		JLabel lblJdaysJourneyIndex = new JLabel("JDAY's Journey Index");
@@ -261,7 +261,7 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JLabel label_1 = new JLabel("   SPA PACKAGES\r\n");
 		label_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label_1.setBounds(475, -39, 265, 121);
+		label_1.setBounds(487, -39, 253, 121);
 		add(label_1);
 
 	}

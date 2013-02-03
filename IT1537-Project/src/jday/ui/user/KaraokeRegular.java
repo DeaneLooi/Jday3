@@ -161,7 +161,7 @@ public class KaraokeRegular extends BackgroundPanel {
 		
 		JLabel label = new JLabel("KARAOKE ROOMS");
 		label.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label.setBounds(476, -25, 233, 95);
+		label.setBounds(489, 0, 214, 47);
 		add(label);
 	}
 

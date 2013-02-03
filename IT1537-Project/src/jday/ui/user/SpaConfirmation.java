@@ -20,6 +20,7 @@ import jday.util.BackgroundPanel;
 import jday.util.EmailSender;
 
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class SpaConfirmation extends BackgroundPanel {
 
@@ -64,13 +65,13 @@ public class SpaConfirmation extends BackgroundPanel {
 			}
 		});
 		btnNewButton.setOpaque(false);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnNewButton.setFont(new Font("Candara", Font.PLAIN, 17));
 		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(316, 309, 89, 23);
+		btnNewButton.setBounds(599, 406, 73, 29);
 		add(btnNewButton);
 		
 		JTextPane txtpnDearMemberYou = new JTextPane();
-		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
+		txtpnDearMemberYou.setBorder(new LineBorder(new Color(153, 0, 102), 4));
 		
 		String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
 		String sessionDetails = spaBookingDetails.getSession();
@@ -78,16 +79,21 @@ public class SpaConfirmation extends BackgroundPanel {
 		
 		
 		
-		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is "+ spaBookingDetails.getBookingNo()+" \r\n\r\n    Your booking number is sent to your Email.\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\r\n\tDate:      "+dateDetails+"\r\n\tTime:       "+timeDetails+"\r\n\tSession:"+sessionDetails+"\r\n\r\n\t\r\n\r\n                                             \t\t         Your booking No. is "+spaBookingDetails.getBookingNo()+" \r\n\r\n\r\n   Please present your booking number upon arrival, thank you!");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
-		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		txtpnDearMemberYou.setFont(new Font("Candara", Font.PLAIN, 17));
 		txtpnDearMemberYou.setForeground(new Color(0, 0, 0));
-		txtpnDearMemberYou.setBounds(53, 32, 387, 341);
+		txtpnDearMemberYou.setBounds(106, 86, 598, 386);
 		add(txtpnDearMemberYou);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(58, 233, 382, 2);
+		separator.setBounds(106, 381, 594, 2);
 		add(separator);
+		
+		JLabel lblSummary = new JLabel("BOOKING SUMMARY");
+		lblSummary.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		lblSummary.setBounds(472, 11, 162, 28);
+		add(lblSummary);
 	}
 }

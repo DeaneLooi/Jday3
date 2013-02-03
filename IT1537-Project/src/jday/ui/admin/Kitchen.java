@@ -76,6 +76,7 @@ public class Kitchen extends BackgroundPanel {
 		lblMembersParticular.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Timer timer = new Timer(3000, new ActionListener(){
@@ -94,6 +95,7 @@ public class Kitchen extends BackgroundPanel {
 		panel.add(btnRefresh);
 
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {

@@ -253,7 +253,7 @@ public class TaxiBooking  extends BackgroundPanel{
 		lblTaxiInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTaxiInformation.setForeground(Color.BLACK);
 		lblTaxiInformation.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblTaxiInformation.setBounds(422, 11, 268, 36);
+		lblTaxiInformation.setBounds(422, 0, 268, 47);
 		add(lblTaxiInformation);
 
 	}

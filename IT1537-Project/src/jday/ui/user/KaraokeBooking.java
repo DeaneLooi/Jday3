@@ -206,7 +206,7 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		String roomsDetails = karaokeBookingEntities.getSession();
 		String timeDetails = karaokeBookingEntities.getTime();*/
 		
-		JOptionPane.showMessageDialog(null, "Booking is successful! Booking No. :"+ karaokeBookingEntities.getBookingNo()+ "Your booking number has been sent to your email. Please present it upon arrival, Thank you!");
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number"/*+ bookDetails.getBookingNo()*/+ " has been sent to your email.");
 		
 		
 		myFrame.getContentPane().removeAll();
