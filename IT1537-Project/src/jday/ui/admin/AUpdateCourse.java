@@ -25,7 +25,14 @@ import jday.util.ClassTableModel;
 public class AUpdateCourse extends BackgroundPanel{
 	
 	final JTable tableList = new JTable();
-	
+	Timer timer = new Timer(3000, new ActionListener() {
+		  @Override
+		  public void actionPerformed(ActionEvent arg0) {
+				ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
+				tableList.setModel(model);
+		  }
+		});
+
 	public AUpdateCourse(){
 		super();
 		initialize();
@@ -47,14 +54,6 @@ public class AUpdateCourse extends BackgroundPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				UpdateFrame frame = new UpdateFrame();
 				frame.setVisible(true);
-				
-				Timer timer = new Timer(3000, new ActionListener() {
-					  @Override
-					  public void actionPerformed(ActionEvent arg0) {
-							ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
-							tableList.setModel(model);
-					  }
-					});
 					timer.setRepeats(true);
 					timer.start(); 
 			}
@@ -83,19 +82,20 @@ public class AUpdateCourse extends BackgroundPanel{
 		tableList.setModel(model);
 		tableList.setBounds(0,0,850,165);
 		tableList.getColumnModel().getColumn(0).setPreferredWidth(75);
-		tableList.getColumnModel().getColumn(1).setPreferredWidth(300);
+		tableList.getColumnModel().getColumn(1).setPreferredWidth(150);
 		tableList.getColumnModel().getColumn(2).setPreferredWidth(300);
 		tableList.getColumnModel().getColumn(3).setPreferredWidth(200);
 		tableList.getColumnModel().getColumn(4).setPreferredWidth(300);
 		
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(10, 133, 750, 165);
+		scrollPane.setBounds(0, 133, 750, 165);
 		add(scrollPane);
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				timer.stop();
 				JPanel panel = new AMainpage(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);

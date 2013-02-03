@@ -47,6 +47,7 @@ public class AMainpage extends BackgroundPanel {
 		add(label);
 		
 		JLabel lblWelcomeToJday = new JLabel("Welcome to JDAY Admin");
+		lblWelcomeToJday.setForeground(new Color(0, 0, 0));
 		lblWelcomeToJday.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		lblWelcomeToJday.setBounds(195, 116, 386, 42);
 		add(lblWelcomeToJday);
@@ -74,6 +75,7 @@ public class AMainpage extends BackgroundPanel {
 		add(lblProfile);
 		
 		JLabel lblUpdate = new JLabel("Update");
+		lblUpdate.setForeground(new Color(0, 0, 0));
 		lblUpdate.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -97,6 +99,7 @@ public class AMainpage extends BackgroundPanel {
 		add(lblUpdate);
 		
 		JLabel lblBooking = new JLabel("Booking");
+		lblBooking.setForeground(new Color(0, 0, 0));
 		lblBooking.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -141,6 +144,7 @@ public class AMainpage extends BackgroundPanel {
 		add(lblMi);
 		
 		JLabel lblRestaurant_1 = new JLabel("Register");
+		lblRestaurant_1.setForeground(new Color(0, 0, 0));
 		lblRestaurant_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblRestaurant_1.addMouseListener(new MouseAdapter() {
 			@Override

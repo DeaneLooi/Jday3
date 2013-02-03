@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -21,6 +23,9 @@ import jday.ui.admin.AMainpage;
 import jday.ui.admin.AdminMainframe;
 import jday.ui.admin.Kitchen;
 import jday.util.BackgroundPanel;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class EditProfilePanel extends BackgroundPanel {
 	
@@ -32,7 +37,11 @@ public class EditProfilePanel extends BackgroundPanel {
 	private JTextField tfEmail;
 	private JTextField tfMemberID;
 	private JTextField tfAddress;
-	
+	private JLabel lblNameError;
+	private JLabel lblContactError;
+	private JLabel lblEmailError;
+	private JLabel lblErrorMessage;
+	private JLabel label;
 	public EditProfilePanel(){
 		super();
 		initialize();
@@ -60,49 +69,73 @@ public class EditProfilePanel extends BackgroundPanel {
 		JLabel lblName = new JLabel("Name:");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblName.setBounds(10, 70, 178, 36);
+		lblName.setBounds(20, 210, 178, 36);
 		add(lblName);
 		
 		JLabel lblBirthdate = new JLabel("Birthdate:");
 		lblBirthdate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBirthdate.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblBirthdate.setBounds(10, 117, 178, 36);
+		lblBirthdate.setBounds(20, 257, 178, 36);
 		add(lblBirthdate);
 		
 		JLabel lblContactNoh = new JLabel("Contact No (H):");
 		lblContactNoh.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContactNoh.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblContactNoh.setBounds(10, 164, 178, 36);
+		lblContactNoh.setBounds(20, 351, 178, 36);
 		add(lblContactNoh);
 		
 		JLabel lblContactNom = new JLabel("Contact No (M):");
 		lblContactNom.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContactNom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblContactNom.setBounds(10, 211, 178, 36);
+		lblContactNom.setBounds(20, 304, 178, 36);
 		add(lblContactNom);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmail.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblEmail.setBounds(10, 258, 178, 36);
+		lblEmail.setBounds(369, 257, 178, 36);
 		add(lblEmail);
 		
 		JLabel lblMemberId = new JLabel("Member ID:");
 		lblMemberId.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMemberId.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblMemberId.setBounds(359, 67, 178, 36);
+		lblMemberId.setBounds(369, 207, 178, 36);
 		add(lblMemberId);
 		
 		JLabel lblAddress = new JLabel("Address:");
 		lblAddress.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAddress.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblAddress.setBounds(359, 128, 178, 36);
+		lblAddress.setBounds(369, 304, 178, 36);
 		add(lblAddress);
+		
+		lblNameError = new JLabel("");
+		lblNameError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblNameError.setForeground(new Color(255, 0, 0));
+		lblNameError.setBounds(316, 92, 330, 20);
+		add(lblNameError);
+		
+		lblContactError = new JLabel("");
+		lblContactError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblContactError.setForeground(new Color(255, 0, 0));
+		lblContactError.setBounds(316, 123, 330, 20);
+		add(lblContactError);
+		
+		lblEmailError = new JLabel("");
+		lblEmailError.setForeground(new Color(255, 0, 0));
+		lblEmailError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblEmailError.setBounds(316, 154, 330, 20);
+		add(lblEmailError);
+		
+		lblErrorMessage = new JLabel("");
+		lblErrorMessage.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblErrorMessage.setForeground(new Color(255, 0, 0));
+		lblErrorMessage.setBounds(316, 61, 330, 20);
+		add(lblErrorMessage);
 		
 		tfName = new JTextField();
 		tfName.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfName.setForeground(new Color(0, 0, 0));
-		tfName.setBounds(162, 70, 198, 36);
+		tfName.setBounds(172, 210, 198, 36);
 		tfName.setColumns(10);
 		tfName.setText(m.getName());
 		add(tfName);
@@ -113,7 +146,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfBirthdate.setForeground(Color.BLACK);
 		tfBirthdate.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfBirthdate.setColumns(10);
-		tfBirthdate.setBounds(162, 117, 198, 36);
+		tfBirthdate.setBounds(172, 257, 198, 36);
 		tfBirthdate.setText(m.getBirthdate());
 		add(tfBirthdate);
 		
@@ -121,23 +154,49 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfContactNoH.setForeground(Color.BLACK);
 		tfContactNoH.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfContactNoH.setColumns(10);
-		tfContactNoH.setBounds(162, 164, 198, 36);
+		tfContactNoH.setBounds(172, 352, 198, 36);
 		tfContactNoH.setText(Integer.toString(m.getContactnoH()));
+        tfContactNoH.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                    char ch = e.getKeyChar();
+                    if ((ch >= '0' && ch <= '9')|| ch =='\b') {
+                            tfContactNoH.setEditable(true);
+                    } else {
+                            tfContactNoH.setEditable(false);
+                            tfContactNoH.setText("0");
+                            lblErrorMessage.setText("Only numbers can be input");
+                            
+                    }
+            }
+    });
 		add(tfContactNoH);
 		
 		tfContactNoM = new JTextField();
 		tfContactNoM.setForeground(Color.BLACK);
 		tfContactNoM.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfContactNoM.setColumns(10);
-		tfContactNoM.setBounds(162, 211, 198, 36);
+		tfContactNoM.setBounds(172, 304, 198, 36);
 		tfContactNoM.setText(Integer.toString(m.getContactnoM()));
+        tfContactNoM.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                    char ch = e.getKeyChar();
+                    if ((ch >= '0' && ch <= '9')|| ch =='\b') {
+                            tfContactNoM.setEditable(true);
+                    } else {
+                            tfContactNoM.setEditable(false);
+                            tfContactNoM.setText("0");
+                            lblErrorMessage.setText("Only numbers can be input");
+                            
+                    }
+            }
+    });
 		add(tfContactNoM);
 		
 		tfEmail = new JTextField();
 		tfEmail.setForeground(Color.BLACK);
 		tfEmail.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfEmail.setColumns(10);
-		tfEmail.setBounds(162, 258, 198, 36);
+		tfEmail.setBounds(512, 258, 198, 36);
 		tfEmail.setText(m.getEmail());
 		add(tfEmail);
 		
@@ -146,7 +205,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfMemberID.setForeground(Color.BLACK);
 		tfMemberID.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfMemberID.setColumns(10);
-		tfMemberID.setBounds(502, 70, 198, 36);
+		tfMemberID.setBounds(512, 210, 198, 36);
 		tfMemberID.setText(m.getMemberid());
 		add(tfMemberID);
 		
@@ -154,7 +213,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfAddress.setForeground(Color.BLACK);
 		tfAddress.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfAddress.setColumns(10);
-		tfAddress.setBounds(502, 125, 198, 56);
+		tfAddress.setBounds(512, 312, 198, 56);
 		tfAddress.setText(m.getAddress());
 		add(tfAddress);
 		
@@ -162,12 +221,20 @@ public class EditProfilePanel extends BackgroundPanel {
 		JButton btnEdit = new JButton("edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(tfName.getText().equals(""))
+					lblNameError.setText("Name cannot be blank");
+				if(Integer.parseInt(tfContactNoH.getText()) == 0)
+					lblContactError.setText("Contact number cannot be blank");
+				if(tfEmail.getText().equals(""))
+					lblEmailError.setText("Email cannot be blank");
+
 				m.setName(tfName.getText());
 				m.setBirthdate(tfBirthdate.getText());
 				m.setContactnoH(Integer.parseInt(tfContactNoH.getText()));
 				m.setContactnoM(Integer.parseInt(tfContactNoM.getText()));
 				m.setEmail(tfEmail.getText());
 				m.setAddress(tfAddress.getText());
+				if(tfName.getText()!="" && Integer.parseInt(tfContactNoH.getText())!=0 && tfEmail.getText()!=""){
 				try {
 					boolean b = m.updateMemberInfo();
 					if(b = false)
@@ -178,12 +245,13 @@ public class EditProfilePanel extends BackgroundPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				}
 			}
 		});
 		btnEdit.setOpaque(false);
 		btnEdit.setFont(new Font("Candara", Font.PLAIN, 16));
 		btnEdit.setForeground(new Color(0, 0, 0));
-		btnEdit.setBounds(448, 265, 89, 23);
+		btnEdit.setBounds(458, 405, 89, 23);
 		add(btnEdit);
 		
 		JButton btnConfirm = new JButton("Confirm");
@@ -228,8 +296,56 @@ public class EditProfilePanel extends BackgroundPanel {
 		btnConfirm.setOpaque(false);
 		btnConfirm.setForeground(Color.BLACK);
 		btnConfirm.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnConfirm.setBounds(547, 265, 89, 23);
+		btnConfirm.setBounds(557, 405, 89, 23);
 		add(btnConfirm);
+		
+		label = new JLabel("");
+		label.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(myFrame instanceof LoginFrame){
+					JPanel panel = new LoginPage(myFrame);
+					myFrame.getContentPane().removeAll();
+					myFrame.getContentPane().add(panel);
+					myFrame.getContentPane().validate();
+					myFrame.getContentPane().repaint();
+				}
+				else if(myFrame instanceof MainFrame){
+					JPanel panel = new EventCalendar(myFrame,m);
+					myFrame.getContentPane().removeAll();
+					myFrame.getContentPane().add(panel);
+					myFrame.getContentPane().validate();
+					myFrame.getContentPane().repaint();
+				}
+				
+				else if(myFrame instanceof AdminMainframe){
+					if(m instanceof Admin){
+					JPanel panel = new AMainpage(myFrame,m);
+					myFrame.getContentPane().removeAll();
+					myFrame.getContentPane().add(panel);
+					myFrame.getContentPane().validate();
+					myFrame.getContentPane().repaint();
+					}
+					
+					else if(m instanceof KitchenAdmin){
+						JPanel panel = new Kitchen(myFrame);
+						myFrame.getContentPane().removeAll();
+						myFrame.setContentPane(panel);
+						myFrame.setVisible(false);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+						myFrame.setVisible(true);
+					}
+				}
+					
+
+			}
+		});
+		label.setIcon(new ImageIcon(EditProfilePanel.class.getResource("/images/110jday_logo.png")));
+		label.setBounds(77, 39, 132, 127);
+		add(label);
+		
+
 		
 		
 	}

@@ -1,7 +1,11 @@
 package jday.ui.admin;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.HeadlessException;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -37,6 +44,7 @@ import javax.swing.UIManager;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.SwingConstants;
 
 public class ARegister extends BackgroundPanel {
 	private JTextField tfname;
@@ -49,6 +57,11 @@ public class ARegister extends BackgroundPanel {
 	private Member memberregister = null;
 	private JPasswordField pwdPin;
 	private JComboBox cbbmembertype;
+	private JLabel lblErrorMessage;
+	private JLabel lblNameError;
+	private JLabel lblEmailError;
+	private JLabel lblContactError;
+	private JLabel lblMemberTypeError;
 
 	/**
 	 * Create the panel.
@@ -89,6 +102,9 @@ public class ARegister extends BackgroundPanel {
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
+
+				
+				
 				int memberSelected = cbbmembertype.getSelectedIndex();
 				
 				if(memberSelected == 1)
@@ -101,15 +117,47 @@ public class ARegister extends BackgroundPanel {
 					memberregister = new KitchenAdmin();
 				String name = tfname.getText();
 				String birthdate = tfbirthdate.getText();
-				int contactnoM = Integer.parseInt(tfnoM.getText());
-				int contactnoH = Integer.parseInt(tfnoh.getText());
+				int contactnoM = 0;
+				int contactnoH = 0;
 				String memberid = tfmemberid.getText();
 				String email = tfemail.getText();
 				String address = taaddress.getText();
 				String pin = pwdPin.getText();
+				if(tfnoM.getText().equals("") || tfnoh.getText().equals("")){
+					lblErrorMessage.setText("<html><p>Contact numbers cannot be blank</p></html>");
+				}
+
+				else if(tfnoM.getText()!="" || tfnoh.getText()!=""){
+				contactnoM = Integer.parseInt(tfnoM.getText());
+				contactnoH = Integer.parseInt(tfnoh.getText());
+				}
+
+
+				if(name.equals(""))
+					lblNameError.setText("<html><p>Please fill in name.</p></html>");
 				
+				if(name.length() != 0)
+					lblNameError.setText("");
 				
+				if(email.equals(""))
+					lblEmailError.setText("<html><p>Please fill in Email.</p></html>");
 				
+				if(email.length() != 0)
+					lblEmailError.setText("");
+				
+				if(contactnoM == 0)
+					lblContactError.setText("<html><p>Please fill in contact number.</p></html>");
+				
+				else if(contactnoM != 0)
+					lblContactError.setText("");
+				
+				if(memberSelected == 0)
+					lblMemberTypeError.setText("<html><p>Please choose member type.</p></html>");
+				
+				else if(memberSelected != 0)
+					lblMemberTypeError.setText("");
+				
+				if(name != null && email != null && contactnoM != 0 && memberSelected != 0){
 				memberregister.setName(name);
 				memberregister.setBirthdate(birthdate);
 				memberregister.setContactnoM(contactnoM);
@@ -119,22 +167,44 @@ public class ARegister extends BackgroundPanel {
 				memberregister.setAddress(address);
 				memberregister.setPin(pin);
 				
-				try {
-					memberregister.createMember();
-					memberregister.createMemberInfo();
-					EmailSender emailSender = new EmailSender(memberregister);
-					emailSender.sendMemberId();
-				} catch (SQLException e) {
-					JOptionPane.showMessageDialog(null,"Registration failed");
-					e.printStackTrace();
-				}
 				
-				JOptionPane.showMessageDialog(null, "Member created");
-				JPanel panel = new AMainpage(myFrame,m);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
+					EmailSender emailSender = new EmailSender(memberregister);
+					try {
+						boolean valid = emailSender.sendValidation();
+						System.out.println(valid);
+						if(valid == false)
+							lblEmailError.setText("<html><p>Email address is not valid</p></html>");
+						else if(valid){
+
+							try {
+						memberregister.createMember();
+						memberregister.createMemberInfo();
+						emailSender.sendMemberId();
+							} catch (SQLException e) {
+						JOptionPane.showMessageDialog(null,"Registration failed");
+						e.printStackTrace();
+							}
+							JOptionPane.showMessageDialog(null, "Member created");
+							JPanel panel = new AMainpage(myFrame,m);
+							myFrame.getContentPane().removeAll();
+							myFrame.getContentPane().add(panel);
+							myFrame.getContentPane().validate();
+							myFrame.getContentPane().repaint();
+						}
+						
+
+							
+					} catch (AddressException e) {
+						lblEmailError.setText("<html><p>Email address is not valid</p></html>");
+						e.printStackTrace();
+					} catch (HeadlessException e) {
+						lblEmailError.setText("<html><p>Email address is not valid</p></html>");
+						e.printStackTrace();
+					} catch (MessagingException e) {
+						lblEmailError.setText("<html><p>Email address is not valid</p></html>");
+						e.printStackTrace();
+					}
+				}
 			}
 		});
 		add(btnCreate);
@@ -144,7 +214,7 @@ public class ARegister extends BackgroundPanel {
 		lblJdayRegister.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
 		add(lblJdayRegister);
 		
-		JLabel lblName = new JLabel("Name:");
+		JLabel lblName = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Name:\r\n</html>");
 		lblName.setBounds(162, 192, 54, 23);
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblName);
@@ -164,12 +234,12 @@ public class ARegister extends BackgroundPanel {
 		lblContactNumberh.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblContactNumberh);
 		
-		JLabel lblContactNumberm = new JLabel("Contact number (M):");
+		JLabel lblContactNumberm = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Contact number (M):\r\n</html>");
 		lblContactNumberm.setBounds(64, 282, 158, 29);
 		lblContactNumberm.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblContactNumberm);
 		
-		JLabel lblEmail = new JLabel("E-mail:");
+		JLabel lblEmail = new JLabel("<html>\r\n<span style=\"color:red\">*</span>E-mail:\r\n</html>");
 		lblEmail.setBounds(454, 237, 54, 22);
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblEmail);
@@ -200,15 +270,43 @@ public class ARegister extends BackgroundPanel {
 		tfbirthdate.setColumns(10);
 		add(tfbirthdate);
 		
-		tfnoh = new JTextField("");
-		tfnoh.setBounds(226, 285, 140, 23);
-		tfnoh.setColumns(10);
-		add(tfnoh);
-		
-		tfnoM = new JTextField("");
-		tfnoM.setBounds(226, 336, 140, 23);
+		tfnoM = new JTextField("0");
+		tfnoM.setBounds(226, 285, 140, 23);
 		tfnoM.setColumns(10);
 		add(tfnoM);
+        tfnoM.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                    char ch = e.getKeyChar();
+                    if ((ch >= '0' && ch <= '9')|| ch =='\b') {
+                           tfnoM.setEditable(true);
+                    } else {
+                    		tfnoM.setText("0");
+                    		tfnoM.setEditable(false);
+                            lblErrorMessage.setText("<html><p>Only numbers can be input</p></html>");
+ 
+                            
+                    }
+            }
+    });
+		
+		tfnoh = new JTextField("0");
+		tfnoh.setBounds(226, 336, 140, 23);
+		tfnoh.setColumns(10);
+		add(tfnoh);
+        tfnoh.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                    char ch = e.getKeyChar();
+                    if ((ch >= '0' && ch <= '9')|| ch =='\b') {
+                           tfnoh.setEditable(true);
+                    } else {
+                    		tfnoh.setText("0");
+                    		tfnoh.setEditable(false);
+                            lblErrorMessage.setText("<html><p>Only numbers can be input</p></html>");
+ 
+                            
+                    }
+            }
+    });
 		
 		tfmemberid = new JTextField(getMemberid());
 		tfmemberid.setBounds(531, 192, 141, 23);
@@ -226,7 +324,9 @@ public class ARegister extends BackgroundPanel {
 		add(taaddress);
 
 		pwdPin = new JPasswordField(Integer.toString(getPin()));
+		pwdPin.setEchoChar('*');
 		pwdPin.setBounds(226, 384, 140, 23);
+		pwdPin.setEditable(false);
 		add(pwdPin);
 		
 		cbbmembertype = new JComboBox();
@@ -235,12 +335,48 @@ public class ARegister extends BackgroundPanel {
 		cbbmembertype.setMaximumRowCount(3);
 		add(cbbmembertype);
 		
-		JLabel lblmembertype = new JLabel("Member type:");
+		JLabel lblmembertype = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Member type:\r\n</html>");
 		lblmembertype.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblmembertype.setBounds(113, 422, 140, 25);
 		add(lblmembertype);
+		
+		lblErrorMessage = new JLabel("<html>\r\n<p>All fields with * cannot be blank</p>\r\n</html>");
+		lblErrorMessage.setVerticalAlignment(SwingConstants.TOP);
+		lblErrorMessage.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblErrorMessage.setForeground(Color.RED);
+		lblErrorMessage.setBounds(361, 27, 360, 29);
+		add(lblErrorMessage);
+		
+		lblNameError = new JLabel();
+		lblNameError.setVerticalAlignment(SwingConstants.TOP);
+		lblNameError.setForeground(Color.RED);
+		lblNameError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblNameError.setBounds(361, 55, 360, 29);
+		add(lblNameError);
+		
+		lblEmailError = new JLabel();
+		lblEmailError.setVerticalAlignment(SwingConstants.TOP);
+		lblEmailError.setForeground(Color.RED);
+		lblEmailError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblEmailError.setBounds(361, 84, 360, 29);
+		add(lblEmailError);
+		
+		lblContactError = new JLabel();
+		lblContactError.setVerticalAlignment(SwingConstants.TOP);
+		lblContactError.setForeground(Color.RED);
+		lblContactError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblContactError.setBounds(361, 112, 360, 29);
+		add(lblContactError);
+		
+		lblMemberTypeError = new JLabel();
+		lblMemberTypeError.setVerticalAlignment(SwingConstants.TOP);
+		lblMemberTypeError.setForeground(Color.RED);
+		lblMemberTypeError.setFont(new Font("Candara", Font.PLAIN, 16));
+		lblMemberTypeError.setBounds(361, 135, 360, 29);
+		add(lblMemberTypeError);
 
 	}
+	
 	
 	public String getMemberid(){
 		Random randomNumber = new Random();

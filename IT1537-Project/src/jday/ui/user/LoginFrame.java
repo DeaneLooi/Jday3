@@ -41,7 +41,7 @@ public class LoginFrame extends JFrame{
 
 
 	private void initialize() {
-		this.setBounds(100, 100, 750, 500);
+		this.setBounds(25, 50, 750, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("/images/90logo.png")));
 		this.setContentPane(getJContentPane());

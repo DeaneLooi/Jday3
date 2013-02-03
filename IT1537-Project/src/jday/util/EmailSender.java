@@ -6,8 +6,10 @@ import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
+import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -141,6 +143,33 @@ public class EmailSender {
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
+	}
+		
+		public boolean sendValidation() throws AddressException, MessagingException{
+			boolean valid = false;
+			String subject="Jday Email Verification";
+			
+			//get from database
+			String JdayTo = email;
+			
+	 
+			try {
+	 
+				Message message = new MimeMessage(session);
+
+				message.setFrom(new InternetAddress(jdaySend));
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(JdayTo));
+				message.setSubject(subject);
+				message.setText("Dear "+m.getName()+"," + "\n" + "this is sent to verify your email address. \nYou would receive your Jday account information shortly.");
+	 
+				Transport.send(message);
+				valid = true;
+			} catch (SendFailedException e) {
+				valid = false;
+				
+			}
+			
+			return valid;
 	}
 		
 	}
