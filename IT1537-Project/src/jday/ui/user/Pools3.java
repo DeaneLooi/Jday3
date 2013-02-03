@@ -44,15 +44,15 @@ public class Pools3 extends BackgroundPanel {
 		label.setIcon(new ImageIcon(Pools3.class.getResource("/images/pool.png")));
 		label.setBorder(new LineBorder(new Color(0, 0, 0)));
 		label.setBackground(Color.WHITE);
-		label.setBounds(91, 75, 582, 260);
+		label.setBounds(91, 75, 582, 259);
 		add(label);
 		
 		JTextArea txtrDescriptionTheLength = new JTextArea();
 		txtrDescriptionTheLength.setOpaque(false);
 		txtrDescriptionTheLength.setFont(new Font("Candara", Font.PLAIN, 16));
-		txtrDescriptionTheLength.setText("The length of the swimming pool is 50m (164 ft) and the width is 25m \r\n(82ft). This is a standard Olympic size swimming pool. ");
+		txtrDescriptionTheLength.setText("The length of the swimming pool is 50m (164 ft) and the width is 25m (82ft). \r\nThis is a standard Olympic size swimming pool. ");
 		txtrDescriptionTheLength.setEditable(false);
-		txtrDescriptionTheLength.setBounds(91, 362, 582, 55);
+		txtrDescriptionTheLength.setBounds(91, 379, 582, 55);
 		add(txtrDescriptionTheLength);
 		
 		JButton button = new JButton("Previous");
@@ -65,12 +65,12 @@ public class Pools3 extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		button.setBounds(91, 416, 89, 23);
+		button.setBounds(91, 445, 89, 23);
 		add(button);
 		
 		JLabel lblPool = new JLabel("Pool");
-		lblPool.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lblPool.setBounds(94, 43, 55, 27);
+		lblPool.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblPool.setBounds(519, 0, 80, 38);
 		add(lblPool);
 		
 		JLabel label_1 = new JLabel("Description");
@@ -79,7 +79,7 @@ public class Pools3 extends BackgroundPanel {
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		label_1.setBackground(new Color(153, 51, 153));
-		label_1.setBounds(91, 338, 157, 23);
+		label_1.setBounds(91, 345, 157, 23);
 		add(label_1);
 
 	}

@@ -77,12 +77,12 @@ public class AdminMainframe extends JFrame {
 		
 		JSeparator separator_5 = new JSeparator();
 		separator_5.setForeground(new Color(128, 0, 128));
-		separator_5.setBackground(new Color(128, 0, 128));
+		separator_5.setBackground(Color.DARK_GRAY);
 		separator_5.setOpaque(true);
 		menuBar.add(separator_5);
 		
 		JMenu mnNewMenu = new JMenu(m.getMemberid());
-		mnNewMenu.setBackground(new Color(128, 0, 128));
+		mnNewMenu.setBackground(Color.DARK_GRAY);
 		mnNewMenu.setForeground(new Color(255, 255, 255));
 		mnNewMenu.setOpaque(true);
 		mnNewMenu.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
@@ -141,7 +141,7 @@ public class AdminMainframe extends JFrame {
 		});
 		mnLogout.setOpaque(true);
 		mnLogout.setForeground(new Color(255, 255, 255));
-		mnLogout.setBackground(new Color(128, 0, 128));
+		mnLogout.setBackground(Color.DARK_GRAY);
 		mnLogout.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		menuBar.add(mnLogout);
 		contentPane = new AMainpage(myFrame,m);

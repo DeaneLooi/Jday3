@@ -42,7 +42,7 @@ public class Pools2 extends BackgroundPanel {
 		label.setIcon(new ImageIcon(Pools2.class.getResource("/images/pooldiving.png")));
 		label.setBorder(new LineBorder(new Color(0, 0, 0)));
 		label.setBackground(Color.WHITE);
-		label.setBounds(97, 93, 582, 262);
+		label.setBounds(97, 81, 582, 262);
 		add(label);
 		
 		JTextArea txtrDescription = new JTextArea();
@@ -50,7 +50,7 @@ public class Pools2 extends BackgroundPanel {
 		txtrDescription.setFont(new Font("Candara", Font.PLAIN, 16));
 		txtrDescription.setText("This is a pool with diving board. the height between the springboard and \r\nthe water surface is 1m (3.3 ft).");
 		txtrDescription.setEditable(false);
-		txtrDescription.setBounds(97, 379, 582, 55);
+		txtrDescription.setBounds(97, 390, 582, 55);
 		add(txtrDescription);
 		
 		JButton button = new JButton("Previous");
@@ -63,7 +63,7 @@ public class Pools2 extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		button.setBounds(97, 432, 89, 23);
+		button.setBounds(97, 443, 89, 23);
 		add(button);
 		
 		JButton button_1 = new JButton("Next");
@@ -76,12 +76,12 @@ public class Pools2 extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		button_1.setBounds(590, 432, 89, 23);
+		button_1.setBounds(590, 443, 89, 23);
 		add(button_1);
 		
 		JLabel lblPoolDiving = new JLabel("Pool - Diving");
-		lblPoolDiving.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lblPoolDiving.setBounds(97, 55, 126, 27);
+		lblPoolDiving.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblPoolDiving.setBounds(465, 0, 181, 38);
 		add(lblPoolDiving);
 		
 		JLabel label_1 = new JLabel("Description");

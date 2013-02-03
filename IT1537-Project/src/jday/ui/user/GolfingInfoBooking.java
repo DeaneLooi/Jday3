@@ -98,22 +98,17 @@ public class GolfingInfoBooking extends BackgroundPanel {
 
 			}
 		});
-		btnBack.setBounds(598, 466, 89, 23);
+		btnBack.setBounds(612, 455, 89, 23);
 		add(btnBack);
 
-		JLabel lbldate = new JLabel("Please  choose your date");
-		lbldate.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lbldate.setBounds(89, 25, 246, 23);
-		add(lbldate);
-
-		JLabel lbltimeGreenfee = new JLabel("Please choose the time and Green fees");
-		lbltimeGreenfee.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lbltimeGreenfee.setBounds(89, 321, 329, 23);
+		JLabel lbltimeGreenfee = new JLabel("Golf Booking");
+		lbltimeGreenfee.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lbltimeGreenfee.setBounds(466, 0, 187, 37);
 		add(lbltimeGreenfee);
 
 		JLabel lbltime = new JLabel("Time:");
 		lbltime.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lbltime.setBounds(92, 366, 57, 23);
+		lbltime.setBounds(96, 355, 57, 23);
 		add(lbltime);
 
 		// time
@@ -122,7 +117,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		buttonGroupTime.add(rbtnmorning);
 		rbtnmorning.setOpaque(false);
 		rbtnmorning.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		rbtnmorning.setBounds(143, 398, 109, 23);
+		rbtnmorning.setBounds(147, 387, 109, 23);
 		add(rbtnmorning);
 
 		JRadioButton rbtnafternoon = new JRadioButton("Afternoon");
@@ -130,7 +125,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		buttonGroupTime.add(rbtnafternoon);
 		rbtnafternoon.setOpaque(false);
 		rbtnafternoon.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		rbtnafternoon.setBounds(143, 426, 109, 23);
+		rbtnafternoon.setBounds(147, 415, 109, 23);
 		add(rbtnafternoon);
 
 		JRadioButton rbtnevening = new JRadioButton("Evening");
@@ -138,13 +133,13 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		buttonGroupTime.add(rbtnevening);
 		rbtnevening.setOpaque(false);
 		rbtnevening.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		rbtnevening.setBounds(143, 454, 109, 23);
+		rbtnevening.setBounds(147, 443, 109, 23);
 		add(rbtnevening);
 
 		// green fees
 		JLabel label_2 = new JLabel("Green Fees:");
 		label_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		label_2.setBounds(380, 362, 102, 31);
+		label_2.setBounds(384, 351, 102, 31);
 		add(label_2);
 
 		JRadioButton rbtnnine = new JRadioButton("9 Holes");
@@ -152,7 +147,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		buttonGroupGreenfee.add(rbtnnine);
 		rbtnnine.setOpaque(false);
 		rbtnnine.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		rbtnnine.setBounds(466, 398, 102, 23);
+		rbtnnine.setBounds(470, 387, 102, 23);
 		add(rbtnnine);
 
 		JRadioButton rbtneight = new JRadioButton("18 Holes");
@@ -160,7 +155,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		buttonGroupGreenfee.add(rbtneight);
 		rbtneight.setOpaque(false);
 		rbtneight.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		rbtneight.setBounds(466, 426, 102, 23);
+		rbtneight.setBounds(470, 415, 102, 23);
 		add(rbtneight);
 
 		final JCalendar calendar = new JCalendar();
@@ -190,7 +185,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		});
 
 		calendar.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		calendar.setBounds(57, 59, 630, 251);
+		calendar.setBounds(86, 84, 615, 251);
 		add(calendar);
 
 	}

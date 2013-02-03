@@ -57,14 +57,8 @@ public class AMainpage extends BackgroundPanel {
 		
 		JLabel label = new JLabel("logo");
 		label.setIcon(new ImageIcon(AMainpage.class.getResource("/images/110jday_logo.png")));
-		label.setBounds(303, 11, 112, 118);
+		label.setBounds(329, 50, 112, 118);
 		add(label);
-		
-		JLabel lblWelcomeToJday = new JLabel("Welcome to JDAY Admin");
-		lblWelcomeToJday.setForeground(new Color(0, 0, 0));
-		lblWelcomeToJday.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
-		lblWelcomeToJday.setBounds(195, 116, 386, 42);
-		add(lblWelcomeToJday);
 		
 		JLabel lblProfile = new JLabel("Profile");
 		lblProfile.addMouseListener(new MouseAdapter() {
@@ -85,7 +79,7 @@ public class AMainpage extends BackgroundPanel {
 		lblProfile.setVerticalAlignment(SwingConstants.TOP);
 		lblProfile.setHorizontalAlignment(SwingConstants.LEFT);
 		lblProfile.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_profile.png")));
-		lblProfile.setBounds(303, 169, 135, 118);
+		lblProfile.setBounds(318, 194, 135, 118);
 		add(lblProfile);
 		
 		JLabel lblUpdate = new JLabel("Update");
@@ -109,7 +103,7 @@ public class AMainpage extends BackgroundPanel {
 		lblUpdate.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUpdate.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdate.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_update.png")));
-		lblUpdate.setBounds(192, 315, 139, 113);
+		lblUpdate.setBounds(200, 352, 139, 113);
 		add(lblUpdate);
 		
 		JLabel lblBooking = new JLabel("Booking");
@@ -131,7 +125,7 @@ public class AMainpage extends BackgroundPanel {
 		lblBooking.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblBooking.setHorizontalAlignment(SwingConstants.LEFT);
 		lblBooking.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_r2.png")));
-		lblBooking.setBounds(419, 315, 135, 113);
+		lblBooking.setBounds(430, 352, 135, 113);
 		add(lblBooking);
 		
 		JLabel lblMi = new JLabel("Member Interface");
@@ -154,7 +148,7 @@ public class AMainpage extends BackgroundPanel {
 		lblMi.setVerticalAlignment(SwingConstants.TOP);
 		lblMi.setHorizontalAlignment(SwingConstants.LEFT);
 		lblMi.setIcon(new ImageIcon(AMainpage.class.getResource("/images/_group.png")));
-		lblMi.setBounds(511, 169, 139, 112);
+		lblMi.setBounds(523, 194, 139, 118);
 		add(lblMi);
 		
 		JLabel lblRestaurant_1 = new JLabel("Register");
@@ -176,7 +170,7 @@ public class AMainpage extends BackgroundPanel {
 		lblRestaurant_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblRestaurant_1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblRestaurant_1.setIcon(new ImageIcon(AMainpage.class.getResource("/images/rsz_mdsvbmb.png")));
-		lblRestaurant_1.setBounds(100, 169, 139, 112);
+		lblRestaurant_1.setBounds(112, 194, 139, 118);
 		add(lblRestaurant_1);
 
 	}

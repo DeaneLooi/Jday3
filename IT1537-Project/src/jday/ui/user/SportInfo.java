@@ -42,23 +42,23 @@ public class SportInfo extends BackgroundPanel {
 		setLayout(null);
 		
 		JLabel lblbadminton = new JLabel("Badminton");
-		lblbadminton.setBounds(457, 160, 73, 36);
+		lblbadminton.setBounds(519, 165, 73, 36);
 		add(lblbadminton);
 		
 		JLabel lblbasketball = new JLabel("Basketball");
-		lblbasketball.setBounds(137, 168, 76, 21);
+		lblbasketball.setBounds(189, 173, 76, 21);
 		add(lblbasketball);
 		
 		JLabel lblbowling = new JLabel("Bowling");
-		lblbowling.setBounds(149, 452, 46, 14);
+		lblbowling.setBounds(201, 457, 46, 14);
 		add(lblbowling);
 		
 		JLabel lbltennis = new JLabel("Tennis");
-		lbltennis.setBounds(149, 317, 46, 14);
+		lbltennis.setBounds(201, 322, 46, 14);
 		add(lbltennis);
 		
 		JLabel lblVolleyball = new JLabel("Volleyball");
-		lblVolleyball.setBounds(457, 313, 56, 14);
+		lblVolleyball.setBounds(519, 318, 56, 14);
 		add(lblVolleyball);
 		
 		JLabel lblIcon = new JLabel("iconbadminton");
@@ -74,7 +74,7 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblIcon.setIcon(new ImageIcon(SportInfo.class.getResource("/images/badminton.png")));
-		lblIcon.setBounds(427, 64, 103, 101);
+		lblIcon.setBounds(489, 69, 103, 101);
 		add(lblIcon);
 		
 		JLabel lblNewLabel_4 = new JLabel("iconBasketball");
@@ -90,7 +90,7 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblNewLabel_4.setIcon(new ImageIcon(SportInfo.class.getResource("/images/basketball.png")));
-		lblNewLabel_4.setBounds(117, 64, 103, 108);
+		lblNewLabel_4.setBounds(169, 69, 103, 108);
 		add(lblNewLabel_4);
 		
 		JLabel lblIcontennis = new JLabel("iconTennis");
@@ -106,7 +106,7 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblIcontennis.setIcon(new ImageIcon(SportInfo.class.getResource("/images/tennis.png")));
-		lblIcontennis.setBounds(117, 214, 103, 102);
+		lblIcontennis.setBounds(169, 219, 103, 102);
 		add(lblIcontennis);
 		
 		JLabel lblIconvolley = new JLabel("iconVolley");
@@ -122,7 +122,7 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblIconvolley.setIcon(new ImageIcon(SportInfo.class.getResource("/images/volleyball.png")));
-		lblIconvolley.setBounds(427, 211, 103, 101);
+		lblIconvolley.setBounds(489, 216, 103, 101);
 		add(lblIconvolley);
 		
 		JLabel lblIconbowling = new JLabel("iconBowling");
@@ -138,10 +138,10 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblIconbowling.setIcon(new ImageIcon(SportInfo.class.getResource("/images/bowling.png")));
-		lblIconbowling.setBounds(117, 342, 103, 108);
+		lblIconbowling.setBounds(169, 347, 103, 108);
 		add(lblIconbowling);
 		
-		JButton btnViewDetails_1 = new JButton("View Details");
+		JButton btnViewDetails_1 = new JButton("Details");
 		btnViewDetails_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnViewDetails_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,11 +153,11 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		btnViewDetails_1.setOpaque(false);
-		btnViewDetails_1.setBounds(577, 477, 114, 23);
+		btnViewDetails_1.setBounds(621, 453, 76, 23);
 		add(btnViewDetails_1);
 		
 		JLabel lblTableTennis = new JLabel("Table tennis");
-		lblTableTennis.setBounds(457, 436, 76, 14);
+		lblTableTennis.setBounds(519, 441, 76, 14);
 		add(lblTableTennis);
 		
 		JLabel lblNewLabel_5 = new JLabel("iconTTennis");
@@ -173,12 +173,12 @@ public class SportInfo extends BackgroundPanel {
 			}
 		});
 		lblNewLabel_5.setIcon(new ImageIcon(SportInfo.class.getResource("/images/ttennis.png")));
-		lblNewLabel_5.setBounds(427, 343, 103, 106);
+		lblNewLabel_5.setBounds(489, 348, 103, 106);
 		add(lblNewLabel_5);
 		
-		JLabel lblTheseAreThe = new JLabel("Available courts:");
-		lblTheseAreThe.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
-		lblTheseAreThe.setBounds(61, 21, 188, 28);
+		JLabel lblTheseAreThe = new JLabel("Available Court");
+		lblTheseAreThe.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblTheseAreThe.setBounds(457, 0, 207, 39);
 		add(lblTheseAreThe);
 
 	}

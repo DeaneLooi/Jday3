@@ -42,37 +42,37 @@ public class SportViewDetail extends BackgroundPanel {
 		JLabel lblBadminton = new JLabel("badminton");
 		lblBadminton.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblBadminton.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/badminton.png")));
-		lblBadminton.setBounds(394, 74, 100, 100);
+		lblBadminton.setBounds(412, 88, 100, 100);
 		add(lblBadminton);
 		
 		JLabel lblTennis = new JLabel("tennis");
 		lblTennis.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblTennis.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/tennis.png")));
-		lblTennis.setBounds(53, 197, 100, 100);
+		lblTennis.setBounds(71, 211, 100, 100);
 		add(lblTennis);
 		
 		JLabel lblBasketball = new JLabel("basketball");
 		lblBasketball.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblBasketball.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/basketball.png")));
-		lblBasketball.setBounds(53, 74, 100, 100);
+		lblBasketball.setBounds(71, 88, 100, 100);
 		add(lblBasketball);
 		
 		JLabel lblTtennis = new JLabel("ttennis");
 		lblTtennis.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblTtennis.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/ttennis.png")));
-		lblTtennis.setBounds(394, 323, 100, 100);
+		lblTtennis.setBounds(412, 337, 100, 100);
 		add(lblTtennis);
 		
 		JLabel lblBowling = new JLabel("volleyball");
 		lblBowling.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblBowling.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/volleyball.png")));
-		lblBowling.setBounds(394, 197, 100, 100);
+		lblBowling.setBounds(412, 211, 100, 100);
 		add(lblBowling);
 		
 		JLabel lblVolleyball = new JLabel("bowling");
 		lblVolleyball.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblVolleyball.setIcon(new ImageIcon(SportViewDetail.class.getResource("/images/bowling.png")));
-		lblVolleyball.setBounds(53, 323, 100, 100);
+		lblVolleyball.setBounds(71, 337, 100, 100);
 		add(lblVolleyball);
 		
 		JButton btnBack = new JButton("Back");
@@ -87,7 +87,7 @@ public class SportViewDetail extends BackgroundPanel {
 		});
 		btnBack.setOpaque(false);
 		btnBack.setBorder(new LineBorder(new Color(0, 0, 0)));
-		btnBack.setBounds(606, 448, 89, 23);
+		btnBack.setBounds(624, 448, 89, 23);
 		add(btnBack);
 		
 		JTextArea txtrBasketball = new JTextArea();
@@ -95,7 +95,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrBasketball.setOpaque(false);
 		txtrBasketball.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrBasketball.setText("Basketball court\r\nSurface: concrete\r\nArea: 28.65m X 15.24m\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3\r\n\r\n");
-		txtrBasketball.setBounds(152, 74, 200, 100);
+		txtrBasketball.setBounds(170, 88, 200, 100);
 		add(txtrBasketball);
 		
 		JTextArea txtrTennis = new JTextArea();
@@ -104,7 +104,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrTennis.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrTennis.setName("");
 		txtrTennis.setText("Tennis court\r\nSurface: Concrete\r\nArea: 23.78m X 10.97\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3");
-		txtrTennis.setBounds(152, 197, 200, 100);
+		txtrTennis.setBounds(170, 211, 200, 100);
 		add(txtrTennis);
 		
 		JTextArea txtrBadminton = new JTextArea();
@@ -112,7 +112,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrBadminton.setOpaque(false);
 		txtrBadminton.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrBadminton.setText("Badminton court\r\nSurface: Concrete\r\nArea: 13m X 6m\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3");
-		txtrBadminton.setBounds(493, 74, 202, 100);
+		txtrBadminton.setBounds(511, 88, 202, 100);
 		add(txtrBadminton);
 		
 		JTextArea txtrVolleyball = new JTextArea();
@@ -120,7 +120,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrVolleyball.setOpaque(false);
 		txtrVolleyball.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrVolleyball.setText("Volleyball court\r\nSurface: Concrete\r\nArea: 18m X 9m\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3");
-		txtrVolleyball.setBounds(493, 197, 202, 100);
+		txtrVolleyball.setBounds(511, 211, 202, 100);
 		add(txtrVolleyball);
 		
 		JTextArea txtrTtennis = new JTextArea();
@@ -128,7 +128,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrTtennis.setOpaque(false);
 		txtrTtennis.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrTtennis.setText("Bowling court\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3");
-		txtrTtennis.setBounds(152, 323, 200, 100);
+		txtrTtennis.setBounds(170, 337, 200, 100);
 		add(txtrTtennis);
 		
 		JTextArea txtrBowling = new JTextArea();
@@ -136,7 +136,7 @@ public class SportViewDetail extends BackgroundPanel {
 		txtrBowling.setOpaque(false);
 		txtrBowling.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtrBowling.setText("Table tennis room\r\nArea: 10m X 5m\r\nOpen Hours: 0900-1900\r\nConditions: Booking is require\r\nAvailable Court: 3");
-		txtrBowling.setBounds(493, 323, 202, 100);
+		txtrBowling.setBounds(511, 337, 202, 100);
 		add(txtrBowling);
 		
 		JButton button = new JButton("Book Now");
@@ -151,8 +151,13 @@ public class SportViewDetail extends BackgroundPanel {
 		});
 		button.setOpaque(false);
 		button.setBounds(new Rectangle(0, 0, 117, 0));
-		button.setBounds(475, 448, 100, 23);
+		button.setBounds(493, 448, 100, 23);
 		add(button);
+		
+		JLabel lblSportdetail = new JLabel("Sport Details");
+		lblSportdetail.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblSportdetail.setBounds(459, 0, 191, 37);
+		add(lblSportdetail);
 
 	}
 }
