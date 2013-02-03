@@ -3,6 +3,8 @@ package jday.ui.user;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.sql.SQLException;
@@ -28,8 +30,9 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
-public class LoginPage extends BackgroundPanel {
+public class LoginPage extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel jLabelMemberID = null;
@@ -40,33 +43,56 @@ public class LoginPage extends BackgroundPanel {
 	private JFrame myFrame = null;
 	private JLabel lblForgotPassword;
 	private JLabel lblLogo;
+	private JLabel lblBgcolor;
+	private JLabel lblBg;
+	  private ImageIcon	imageicon = new ImageIcon(getClass().getResource("/images/purplebg.jpg"));
+	  private Image backgroundImage;
 
+	  public void paintComponent(Graphics g) {
+		  backgroundImage = imageicon.getImage();
+	    super.paintComponent(g);
+
+	    // Draw the background image.
+	    g.drawImage(backgroundImage, 0, 0, null);
+	    setOpaque(false);
+	  }
+	  
 	/**
 	 * This is the default constructor
 	 */
+	  
+	 
 	public LoginPage() {
 		super();
 	}
 	
 	private void initialize(){
-
-		jLabelPin = new JLabel();
-		jLabelPin.setForeground(new Color(0, 0, 0));
-		jLabelPin.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelPin.setFont(new Font("Candara", Font.BOLD, 16));
-		jLabelPin.setLocation(new Point(139, 225));
-		jLabelPin.setSize(new Dimension(150, 60));
-		jLabelPin.setText("Pin:");
 		this.setSize(750,500);
 		this.setLayout(null);
 		this.setFont(new Font("Arial", Font.BOLD, 18));
-		this.add(getJLabelMemberID(), null);
-		this.add(jLabelPin, null);
-		this.add(getJTextFieldMemberID(), null);
-		this.add(getJButtonLogin(), null);
-		this.add(getJPasswordFieldPin(), null);
-		add(getLblForgotPassword());
 		add(getLblLogo());
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(298, 27, 361, 415);
+		add(panel);
+		panel.setLayout(null);
+		
+		
+				jLabelPin = new JLabel();
+				jLabelPin.setBounds(27, 230, 150, 60);
+				panel.add(jLabelPin);
+				jLabelPin.setForeground(new Color(112, 128, 144));
+				jLabelPin.setHorizontalAlignment(SwingConstants.CENTER);
+				jLabelPin.setFont(new Font("Candara", Font.BOLD, 16));
+				jLabelPin.setText("Pin:");
+		panel.add(getLblForgotPassword());
+		panel.add(getJPasswordFieldPin());
+		panel.add(getJTextFieldMemberID());
+		panel.add(getJButtonLogin());
+		panel.add(getJLabelMemberID());
+		panel.add(getLblBgcolor());
+		panel.add(getLblBg());
 	}
 
 	/**
@@ -77,11 +103,10 @@ public class LoginPage extends BackgroundPanel {
 	private JLabel getJLabelMemberID() {
 		if (jLabelMemberID == null) {
 			jLabelMemberID = new JLabel();
-			jLabelMemberID.setForeground(new Color(0, 0, 0));
+			jLabelMemberID.setBounds(0, 189, 150, 60);
+			jLabelMemberID.setForeground(new Color(112, 128, 144));
 			jLabelMemberID.setText("Member ID:");
 			jLabelMemberID.setFont(new Font("Candara", Font.BOLD, 16));
-			jLabelMemberID.setLocation(new Point(139, 154));
-			jLabelMemberID.setSize(new Dimension(150, 60));
 			jLabelMemberID.setHorizontalAlignment(SwingConstants.CENTER);
 		}
 		return jLabelMemberID;
@@ -95,8 +120,7 @@ public class LoginPage extends BackgroundPanel {
 	private JTextField getJTextFieldMemberID() {
 		if (jTextFieldMemberID == null) {
 			jTextFieldMemberID = new JTextField();
-			jTextFieldMemberID.setLocation(new Point(299, 164));
-			jTextFieldMemberID.setSize(new Dimension(200, 40));
+			jTextFieldMemberID.setBounds(146, 209, 200, 20);
 		}
 		return jTextFieldMemberID;
 	}
@@ -104,8 +128,8 @@ public class LoginPage extends BackgroundPanel {
 	private JPasswordField getJPasswordFieldPin() {
 		if (jPasswordFieldPin == null) {
 			jPasswordFieldPin = new JPasswordField();
-			jPasswordFieldPin.setSize(200,40);
-			jPasswordFieldPin.setLocation(new Point(299, 235));
+			jPasswordFieldPin.setEchoChar('*');
+			jPasswordFieldPin.setBounds(146, 250, 200, 20);
 		}
 		return jPasswordFieldPin;
 	}
@@ -123,13 +147,16 @@ public class LoginPage extends BackgroundPanel {
 	private JButton getJButtonLogin() {
 		if (jButtonLogin == null) {
 			jButtonLogin = new JButton();
-			jButtonLogin.setOpaque(false);
+			jButtonLogin.setBounds(242, 294, 104, 29);
+			jButtonLogin.setBackground(new Color(128, 0, 128));
 			jButtonLogin.setForeground(new Color(0, 0, 0));
-			jButtonLogin.setBounds(new Rectangle(399, 286, 100, 40));
+			jButtonLogin.setFocusPainted(false);
+			jButtonLogin.setContentAreaFilled(false);
 			jButtonLogin.setText("Log In");
 			jButtonLogin.setFont(new Font("Candara", Font.BOLD, 16));
 			jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
+
 
 					boolean check = authenticateMember();
 					System.out.println("Check is "+check);
@@ -220,6 +247,7 @@ public class LoginPage extends BackgroundPanel {
 	private JLabel getLblForgotPassword() {
 		if (lblForgotPassword == null) {
 			lblForgotPassword = new JLabel("Forgot password?");
+			lblForgotPassword.setBounds(89, 298, 123, 21);
 			lblForgotPassword.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
@@ -234,17 +262,38 @@ public class LoginPage extends BackgroundPanel {
 			lblForgotPassword.setForeground(new Color(0, 0, 255));
 			lblForgotPassword.setHorizontalAlignment(SwingConstants.CENTER);
 			lblForgotPassword.setFont(new Font("Candara", Font.PLAIN, 16));
-			lblForgotPassword.setBounds(240, 296, 150, 19);
 		}
 		return lblForgotPassword;
 	}
 	private JLabel getLblLogo() {
 		if (lblLogo == null) {
 			lblLogo = new JLabel("");
+			lblLogo.setBackground(new Color(255, 255, 255));
 			lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
-			lblLogo.setIcon(new ImageIcon(LoginPage.class.getResource("/images/90logo.png")));
-			lblLogo.setBounds(272, 11, 194, 132);
+			lblLogo.setIcon(new ImageIcon(LoginPage.class.getResource("/images/newlogo.png")));
+			lblLogo.setBounds(45, 113, 217, 200);
 		}
 		return lblLogo;
+	}
+	private JLabel getLblBgcolor() {
+		if (lblBgcolor == null) {
+			lblBgcolor = new JLabel("");
+			lblBgcolor.setBounds(7, 391, 342, 13);
+			lblBgcolor.setOpaque(true);
+			lblBgcolor.setBackground(SystemColor.inactiveCaptionText);
+		}
+		return lblBgcolor;
+	}
+	private JLabel getLblBg() {
+		if (lblBg == null) {
+			lblBg = new JLabel("Welcome!");
+			lblBg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblBg.setFont(new Font("Candara", Font.BOLD, 26));
+			lblBg.setForeground(new Color(255, 255, 255));
+			lblBg.setBackground(SystemColor.inactiveCaptionText);
+			lblBg.setOpaque(true);
+			lblBg.setBounds(10, 11, 339, 146);
+		}
+		return lblBg;
 	}
 }

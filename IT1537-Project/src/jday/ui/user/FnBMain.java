@@ -77,7 +77,7 @@ public class FnBMain extends BackgroundPanel{
 		lblFoodAndBeverages.setBounds(81, 22, 574, 39);
 		add(lblFoodAndBeverages);
 		
-		JLabel lblPromotions = new JLabel("Chef Specials:");
+		JLabel lblPromotions = new JLabel("Promotions:");
 		lblPromotions.setForeground(new Color(0, 0, 0));
 		lblPromotions.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		lblPromotions.setHorizontalAlignment(SwingConstants.CENTER);
@@ -85,7 +85,7 @@ public class FnBMain extends BackgroundPanel{
 		add(lblPromotions);
 		
 		
-		JLabel lblpekingDuckbefore = new JLabel("<html>Peking Duck<br>\r\n<u>Before: $32.00<br>\r\nAfter: <b>$27.00</b></u>\r\n</html>");
+		JLabel lblpekingDuckbefore = new JLabel("<html>\r\n<style>\r\nspan{\r\ncolor :blue;\r\n}\r\n</style>\r\n<p>Peking Duck</p>\r\n<u>Before: $32.00<br>\r\n<p><span>After: <b>$27.00</b></u></p\r\n</html>");
 		lblpekingDuckbefore.setForeground(new Color(0, 0, 0));
 		lblpekingDuckbefore.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblpekingDuckbefore.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -250,41 +250,17 @@ public class FnBMain extends BackgroundPanel{
 		btnViewMyOrder.setBounds(552, 30, 160, 23);
 		add(btnViewMyOrder);
 		
-		All = new JPanel();
-		All.setOpaque(false);
-		All.setVisible(true);
-		All.setBackground(new Color(255, 255, 255));
-		All.setBounds(272, 232, 356, 201);
-		add(All);
-		All.setLayout(null);
-		
 		Vegetarian = new JPanel();
 		Vegetarian.setOpaque(false);
 		Vegetarian.setVisible(false);
-		Vegetarian.setBounds(272, 232, 356, 201);
-		add(Vegetarian);
-		Vegetarian.setLayout(null);
-
-		Beef = new JPanel();
-		Beef.setOpaque(false);
-		Beef.setVisible(false);
-		Beef.setBounds(272, 232, 356, 201);
-		add(Beef);
-		Beef.setLayout(null);
-	
-		Chicken = new JPanel();
-		Chicken.setOpaque(false);
-		Chicken.setVisible(false);
-		Chicken.setBounds(272, 232, 356, 201);
-		add(Chicken);
-		Chicken.setLayout(null);
-
-		Fish = new JPanel();
-		Fish.setVisible(false);
-		Fish.setOpaque(false);
-		Fish.setBounds(272, 232, 356, 201);
-		add(Fish);
-		Fish.setLayout(null);
+		
+		All = new JPanel();
+		All.setBounds(272, 232, 356, 201);
+		add(All);
+		All.setOpaque(false);
+		All.setVisible(true);
+		All.setBackground(new Color(255, 255, 255));
+		All.setLayout(null);
 		
 		chckbxMushroomSoup.setOpaque(false);
 		chckbxChickenSoup.setOpaque(false);
@@ -323,6 +299,30 @@ public class FnBMain extends BackgroundPanel{
 		All.add(chckbxFriedRice);
 		All.add(chckbxCoke);
 		All.add(chckbxCheesecake);
+		Vegetarian.setBounds(272, 232, 356, 201);
+		add(Vegetarian);
+		Vegetarian.setLayout(null);
+
+		Beef = new JPanel();
+		Beef.setOpaque(false);
+		Beef.setVisible(false);
+		Beef.setBounds(272, 232, 356, 201);
+		add(Beef);
+		Beef.setLayout(null);
+	
+		Chicken = new JPanel();
+		Chicken.setOpaque(false);
+		Chicken.setVisible(false);
+		Chicken.setBounds(272, 232, 356, 201);
+		add(Chicken);
+		Chicken.setLayout(null);
+
+		Fish = new JPanel();
+		Fish.setVisible(false);
+		Fish.setOpaque(false);
+		Fish.setBounds(272, 232, 356, 201);
+		add(Fish);
+		Fish.setLayout(null);
 
 		list.addListSelectionListener(
 				new ListSelectionListener(){

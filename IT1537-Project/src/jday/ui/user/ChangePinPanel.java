@@ -21,6 +21,9 @@ import jday.ui.admin.AMainpage;
 import jday.ui.admin.AdminMainframe;
 import jday.ui.admin.Kitchen;
 import jday.util.BackgroundPanel;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ChangePinPanel extends BackgroundPanel {
 	
@@ -28,6 +31,11 @@ public class ChangePinPanel extends BackgroundPanel {
 	private JPasswordField pfCurrent;
 	private JPasswordField pfNew;
 	private JPasswordField pfConfirm;
+	private JLabel lblChangePin;
+	private JLabel lblCurrentError;
+	private JLabel lblConfirmError;
+	private JLabel lblErrorMessage;
+
 	
 	public ChangePinPanel(){
 		super();
@@ -45,28 +53,29 @@ public class ChangePinPanel extends BackgroundPanel {
 		setSize(750,500);
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Dear member, please change your pin");
-		lblNewLabel.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 16));
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setBounds(161, 11, 343, 77);
-		add(lblNewLabel);
+		lblChangePin = new JLabel("Changing Of Pin");
+		lblChangePin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblChangePin.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblChangePin.setForeground(new Color(0, 0, 0));
+		lblChangePin.setBounds(211, 24, 343, 77);
+		add(lblChangePin);
 		
 		JLabel lblNewPin = new JLabel("New Pin:");
 		lblNewPin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewPin.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblNewPin.setBounds(121, 128, 157, 41);
+		lblNewPin.setBounds(192, 268, 157, 41);
 		add(lblNewPin);
 		
 		JLabel lblConfirmpin = new JLabel("Confirm Pin:");
 		lblConfirmpin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblConfirmpin.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblConfirmpin.setBounds(121, 180, 157, 41);
+		lblConfirmpin.setBounds(192, 320, 157, 41);
 		add(lblConfirmpin);
 		
 		JLabel lblCurrentPin = new JLabel("Current Pin:");
 		lblCurrentPin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCurrentPin.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblCurrentPin.setBounds(121, 76, 157, 41);
+		lblCurrentPin.setBounds(192, 216, 157, 41);
 		add(lblCurrentPin);
 		
 		JButton btnConfirm = new JButton("Confirm");
@@ -76,8 +85,27 @@ public class ChangePinPanel extends BackgroundPanel {
 				boolean authenticate;
 				boolean authenticate1;
 				authenticate = authenticateMember(pfCurrent.getText());
-				authenticate1 = authenticateMember(pfNew.getText());
-				if(pfNew.getText().equals(pfConfirm.getText()) && authenticate == true && authenticate1 == false){
+				String pin  = pfNew.getText();
+				String pin2 = pfConfirm.getText();
+				if(authenticate == false)
+					lblCurrentError.setText("Current pin is wrong");
+				
+				else if(authenticate == true)
+					lblCurrentError.setText("");
+				
+				if(!pin.equals(pin2))
+					lblConfirmError.setText("The passwords do not match");
+				
+				else if(pin.equals(pin2))
+					lblConfirmError.setText("");
+				
+				if(pin.equals(pfCurrent.getText()))
+					lblErrorMessage.setText("New pin should not be the same as current pin");
+				
+				else if(pin!=pfCurrent.getText())
+					lblErrorMessage.setText("");
+				
+				if(pfNew.getText().equals(pfConfirm.getText()) && authenticate == true && pfNew.getText()!=pfCurrent.getText()){
 
 				try {
 					String newpin = pfNew.getText();
@@ -128,32 +156,100 @@ public class ChangePinPanel extends BackgroundPanel {
 
 
 				}
-				else
-					JOptionPane.showMessageDialog(null, "Incorrect pin entered");
+					
 			}
 		});
 		btnConfirm.setForeground(new Color(0, 0, 0));
 		btnConfirm.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnConfirm.setBounds(438, 232, 89, 23);
+		btnConfirm.setBounds(465, 377, 89, 23);
 		add(btnConfirm);
 		
 		pfCurrent = new JPasswordField();
+		pfCurrent.setEchoChar('*');
 		pfCurrent.setForeground(new Color(0, 0, 0));
 		pfCurrent.setFont(new Font("Candara", Font.PLAIN, 16));
-		pfCurrent.setBounds(274, 86, 209, 20);
+		pfCurrent.setBounds(345, 226, 209, 20);
 		add(pfCurrent);
 		
 		pfNew = new JPasswordField();
+		pfNew.setEchoChar('*');
 		pfNew.setForeground(Color.BLACK);
 		pfNew.setFont(new Font("Candara", Font.PLAIN, 16));
-		pfNew.setBounds(274, 138, 209, 20);
+		pfNew.setBounds(345, 278, 209, 20);
 		add(pfNew);
 		
 		pfConfirm = new JPasswordField();
+		pfConfirm.setEchoChar('*');
 		pfConfirm.setForeground(Color.BLACK);
 		pfConfirm.setFont(new Font("Candara", Font.PLAIN, 16));
-		pfConfirm.setBounds(274, 190, 209, 20);
+		pfConfirm.setBounds(345, 330, 209, 20);
 		add(pfConfirm);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+					if(myFrame instanceof LoginFrame){
+						JPanel panel = new LoginPage(myFrame);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+					}
+					else if(myFrame instanceof MainFrame){
+						JPanel panel = new EventCalendar(myFrame,m);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+					}
+					
+					else if(myFrame instanceof AdminMainframe){
+						if(m instanceof Admin){
+						JPanel panel = new AMainpage(myFrame,m);
+						myFrame.getContentPane().removeAll();
+						myFrame.getContentPane().add(panel);
+						myFrame.getContentPane().validate();
+						myFrame.getContentPane().repaint();
+						}
+						
+						else if(m instanceof KitchenAdmin){
+							JPanel panel = new Kitchen(myFrame);
+							myFrame.getContentPane().removeAll();
+							myFrame.setContentPane(panel);
+							myFrame.setVisible(false);
+							myFrame.getContentPane().validate();
+							myFrame.getContentPane().repaint();
+							myFrame.setVisible(true);
+						}
+					}
+						
+
+				
+				
+			}
+		});
+		lblLogo.setIcon(new ImageIcon(ChangePinPanel.class.getResource("/images/110jday_logo.png")));
+		lblLogo.setBounds(56, 51, 132, 127);
+		add(lblLogo);
+
+		lblCurrentError = new JLabel("");
+		lblCurrentError.setForeground(Color.RED);
+		lblCurrentError.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCurrentError.setBounds(294, 127, 411, 20);
+		add(lblCurrentError);
+		
+		lblConfirmError = new JLabel("");
+		lblConfirmError.setForeground(Color.RED);
+		lblConfirmError.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblConfirmError.setBounds(294, 158, 411, 20);
+		add(lblConfirmError);
+		
+		lblErrorMessage = new JLabel("");
+		lblErrorMessage.setForeground(Color.RED);
+		lblErrorMessage.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblErrorMessage.setBounds(294, 91, 411, 20);
+		add(lblErrorMessage);
 		
 	}
 	

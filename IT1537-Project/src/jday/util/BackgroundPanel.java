@@ -21,7 +21,7 @@ public class BackgroundPanel extends JPanel {
 	  protected Member m = null;
 	  protected JFrame myFrame = null;
 	  private ImageIcon	imageicon =
-	  new ImageIcon(getClass().getResource("/images/backgroundLines.jpg"));
+	  new ImageIcon(getClass().getResource("/images/bg3.png"));
 	  private Image backgroundImage;
 
 	  public BackgroundPanel()  {

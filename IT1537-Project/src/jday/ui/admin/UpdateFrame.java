@@ -44,7 +44,7 @@ public class UpdateFrame extends JFrame{
 
 	
 	private void initialize(){
-		setBounds(100, 100, 450, 400);
+		setBounds(175, 100, 450, 400);
 		contentPane = new AddCourse(myFrame);
 		contentPane.setSize(new Dimension(750, 500));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

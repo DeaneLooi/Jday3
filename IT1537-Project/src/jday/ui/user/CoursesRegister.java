@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -17,6 +18,7 @@ import jday.entities.CourseBooking;
 import jday.entities.Member;
 import jday.entities.Register;
 import jday.util.BackgroundPanel;
+import jday.util.EmailSender;
 
 public class CoursesRegister extends BackgroundPanel{
 
@@ -198,16 +200,21 @@ public class CoursesRegister extends BackgroundPanel{
 				r.setEventclass(c.getCoursetype());
 				try {
 					r.register(r);
+					EmailSender email = new EmailSender(m);
+					email.sendRegisterNumber(r.getRegisterno());
 				} catch (SQLException e2) {
 					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null,"Register failed");
 					e2.printStackTrace();
 				}
-				
+				JOptionPane.showMessageDialog(null, "Register successfull. An email has been sent containing your register number.");
+				/*
 				JPanel panel = new CoursesConfirmation(myFrame,m,c,r);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
 				myFrame.getContentPane().repaint();
+				*/
 			}
 		});
 		btnConfirm.setBounds(369, 303, 89, 23);

@@ -23,6 +23,7 @@ import jday.ui.user.EditProfilePanel;
 import jday.ui.user.LoginFrame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 
 public class AdminMainframe extends JFrame {
@@ -67,7 +68,7 @@ public class AdminMainframe extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(AdminMainframe.class.getResource("/images/jday_logo.png")));
 		setTitle("Admin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 550);
+		setBounds(0, 0, 800, 600);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(128, 0, 128));
