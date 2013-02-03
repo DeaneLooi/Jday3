@@ -71,7 +71,7 @@ public class Kitchen extends BackgroundPanel {
 		JLabel lblMembersParticular = new JLabel("RESTAURANT ORDER SUMMARY");
 		lblMembersParticular.setForeground(new Color(0, 0, 0));
 		lblMembersParticular.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblMembersParticular.setBounds(225, 30, 268, 46);
+		lblMembersParticular.setBounds(419, 21, 268, 36);
 		panel.add(lblMembersParticular);
 		lblMembersParticular.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -80,9 +80,7 @@ public class Kitchen extends BackgroundPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				Timer timer = new Timer(3000, new ActionListener(){
 					public void actionPerformed (ActionEvent arg0) {
-						FnBViewTableModel model = new 
-
-FnBViewTableModel(FnB.searchFnbOrder(null));
+						FnBViewTableModel model = new FnBViewTableModel(FnB.searchFnbOrder(null));
 						tableList.setModel(model);
 					}
 				});
@@ -92,7 +90,7 @@ FnBViewTableModel(FnB.searchFnbOrder(null));
 		});
 		btnRefresh.setOpaque(false);
 		btnRefresh.setFont(new Font("Candara", Font.PLAIN, 12));
-		btnRefresh.setBounds(52, 444, 86, 23);
+		btnRefresh.setBounds(90, 453, 86, 23);
 		panel.add(btnRefresh);
 
 		JButton btnDelete = new JButton("Delete");
@@ -108,14 +106,14 @@ FnBViewTableModel(FnB.searchFnbOrder(null));
 		});
 		btnDelete.setOpaque(false);
 		btnDelete.setFont(new Font("Candara", Font.PLAIN, 12));
-		btnDelete.setBounds(153, 444, 86, 23);
+		btnDelete.setBounds(186, 453, 86, 23);
 		panel.add(btnDelete);
 
 
 		tableList.setModel(model);
 		tableList.setBounds(0, 0, 600, 400);
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(52, 100, 653, 319);
+		scrollPane.setBounds(78, 109, 642, 319);
 		panel.add(scrollPane);
 	}
 
@@ -133,9 +131,7 @@ FnBViewTableModel(FnB.searchFnbOrder(null));
 			else
 				orders = null;
 
-			FnBViewTableModel model = new FnBViewTableModel
-
-(FnB.searchFnbOrder(null));
+			FnBViewTableModel model = new FnBViewTableModel(FnB.searchFnbOrder(null));
 			tableList.setModel(model);
 
 		}
