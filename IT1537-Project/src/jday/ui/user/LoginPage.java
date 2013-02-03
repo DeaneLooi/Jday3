@@ -41,7 +41,7 @@ public class LoginPage extends JPanel {
 	private JButton jButtonLogin = null;
 	private JPasswordField jPasswordFieldPin = null;
 	private JFrame myFrame = null;
-	private JLabel lblForgotPassword;
+	private JLabel lblForgotPin;
 	private JLabel lblLogo;
 	private JLabel lblBgcolor;
 	private JLabel lblBg;
@@ -86,7 +86,7 @@ public class LoginPage extends JPanel {
 				jLabelPin.setHorizontalAlignment(SwingConstants.CENTER);
 				jLabelPin.setFont(new Font("Candara", Font.BOLD, 16));
 				jLabelPin.setText("Pin:");
-		panel.add(getLblForgotPassword());
+		panel.add(getLblForgotPin());
 		panel.add(getJPasswordFieldPin());
 		panel.add(getJTextFieldMemberID());
 		panel.add(getJButtonLogin());
@@ -244,11 +244,11 @@ public class LoginPage extends JPanel {
 		else
 			return true;
 	}
-	private JLabel getLblForgotPassword() {
-		if (lblForgotPassword == null) {
-			lblForgotPassword = new JLabel("Forgot password?");
-			lblForgotPassword.setBounds(89, 298, 123, 21);
-			lblForgotPassword.addMouseListener(new MouseAdapter() {
+	private JLabel getLblForgotPin() {
+		if (lblForgotPin == null) {
+			lblForgotPin = new JLabel("Forgot pin?");
+			lblForgotPin.setBounds(89, 298, 123, 21);
+			lblForgotPin.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
 					JPanel panel = new ForgotPasswordPanel(myFrame);
@@ -258,12 +258,12 @@ public class LoginPage extends JPanel {
 					myFrame.getContentPane().repaint();
 				}
 			});
-			lblForgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			lblForgotPassword.setForeground(new Color(0, 0, 255));
-			lblForgotPassword.setHorizontalAlignment(SwingConstants.CENTER);
-			lblForgotPassword.setFont(new Font("Candara", Font.PLAIN, 16));
+			lblForgotPin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			lblForgotPin.setForeground(new Color(0, 0, 255));
+			lblForgotPin.setHorizontalAlignment(SwingConstants.CENTER);
+			lblForgotPin.setFont(new Font("Candara", Font.PLAIN, 16));
 		}
-		return lblForgotPassword;
+		return lblForgotPin;
 	}
 	private JLabel getLblLogo() {
 		if (lblLogo == null) {

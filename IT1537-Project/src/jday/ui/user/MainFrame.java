@@ -114,7 +114,7 @@ public class MainFrame extends JFrame{
 	private JMenuBar getJJMenuBar() {
 		if (jJMenuBar == null) {
 			jJMenuBar = new JMenuBar();
-			jJMenuBar.setBackground(new Color(128, 0, 128));
+			jJMenuBar.setBackground(Color.DARK_GRAY);
 			jJMenuBar.setMargin(new Insets(5, 50, 5, 50));
 			jJMenuBar.add(getJMenuServices());
 			jJMenuBar.add(getJMenuFacilities());

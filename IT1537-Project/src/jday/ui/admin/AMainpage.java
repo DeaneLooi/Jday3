@@ -3,6 +3,8 @@ package jday.ui.admin;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -22,6 +24,18 @@ public class AMainpage extends BackgroundPanel {
 	/**
 	 * Create the panel.
 	 */
+	  private ImageIcon	imageicon = new ImageIcon(getClass().getResource("/images/adminbg2.png"));
+	  private Image backgroundImage;
+
+	  public void paintComponent(Graphics g) {
+		  backgroundImage = imageicon.getImage();
+	    super.paintComponent(g);
+
+	    // Draw the background image.
+	    g.drawImage(backgroundImage, 0, 0, null);
+	    setOpaque(false);
+	  }
+	  
 	public AMainpage() {
 		super();
 		initialize();

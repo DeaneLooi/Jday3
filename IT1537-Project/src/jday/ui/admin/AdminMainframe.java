@@ -72,7 +72,7 @@ public class AdminMainframe extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(128, 0, 128));
-		menuBar.setBackground(new Color(128, 0, 128));
+		menuBar.setBackground(Color.DARK_GRAY);
 		setJMenuBar(menuBar);
 		
 		JSeparator separator_5 = new JSeparator();
