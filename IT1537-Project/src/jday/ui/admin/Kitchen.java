@@ -68,9 +68,9 @@ public class Kitchen extends BackgroundPanel {
 		ArrayList<FnB> list = FnB.searchFnbOrder(null);
 		FnBViewTableModel model = new FnBViewTableModel(list);
 
-		JLabel lblMembersParticular = new JLabel("RESTAURANT ORDER SUMMARY");
+		JLabel lblMembersParticular = new JLabel("Restaurant Order Summary");
 		lblMembersParticular.setForeground(new Color(0, 0, 0));
-		lblMembersParticular.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
+		lblMembersParticular.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMembersParticular.setBounds(419, 21, 268, 36);
 		panel.add(lblMembersParticular);
 		lblMembersParticular.setHorizontalAlignment(SwingConstants.CENTER);

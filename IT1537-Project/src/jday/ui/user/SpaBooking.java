@@ -145,8 +145,8 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		btnConfirm.setBounds(607, 419, 89, 23);
 		add(btnConfirm);
 
-		JLabel lblSpaBooking = new JLabel("   SPA BOOKING");
-		lblSpaBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		JLabel lblSpaBooking = new JLabel("   Spa Booking");
+		lblSpaBooking.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblSpaBooking.setBounds(483, -36, 173, 121);
 		add(lblSpaBooking);
 		
@@ -210,7 +210,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		String timeDetails = spaBookingDetails.getTime();*/
 		
 	
-		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number"/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
 		
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);

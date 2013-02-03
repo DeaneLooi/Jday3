@@ -249,10 +249,10 @@ public class TaxiBooking  extends BackgroundPanel{
 		label_1.setBounds(82, 477, 46, 14);
 		add(label_1);
 		
-		JLabel lblTaxiInformation = new JLabel("TAXI INFORMATION");
+		JLabel lblTaxiInformation = new JLabel("Taxi Information");
 		lblTaxiInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTaxiInformation.setForeground(Color.BLACK);
-		lblTaxiInformation.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
+		lblTaxiInformation.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTaxiInformation.setBounds(422, 0, 268, 47);
 		add(lblTaxiInformation);
 

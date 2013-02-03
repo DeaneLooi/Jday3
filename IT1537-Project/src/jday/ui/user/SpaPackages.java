@@ -259,10 +259,10 @@ public class SpaPackages extends BackgroundPanel {
 		rdbtnBestOfFriends.setBounds(115, 401, 232, 29);
 		add(rdbtnBestOfFriends);
 		
-		JLabel label_1 = new JLabel("   SPA PACKAGES\r\n");
-		label_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label_1.setBounds(487, -39, 253, 121);
-		add(label_1);
+		JLabel lblSpaPackages_1 = new JLabel("   Spa Packages\r\n");
+		lblSpaPackages_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSpaPackages_1.setBounds(468, -41, 253, 121);
+		add(lblSpaPackages_1);
 
 	}
 }

@@ -21,6 +21,7 @@ import jday.util.EmailSender;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Cursor;
 
 public class SpaConfirmation extends BackgroundPanel {
 
@@ -49,6 +50,7 @@ public class SpaConfirmation extends BackgroundPanel {
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -91,9 +93,9 @@ public class SpaConfirmation extends BackgroundPanel {
 		separator.setBounds(106, 381, 594, 2);
 		add(separator);
 		
-		JLabel lblSummary = new JLabel("BOOKING SUMMARY");
-		lblSummary.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		lblSummary.setBounds(472, 11, 162, 28);
+		JLabel lblSummary = new JLabel("Booking Summary");
+		lblSummary.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSummary.setBounds(475, 11, 167, 28);
 		add(lblSummary);
 	}
 }

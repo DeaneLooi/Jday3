@@ -145,10 +145,10 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		btnConfirm.setBounds(586, 412, 89, 23);
 		add(btnConfirm);
 		
-		JLabel label = new JLabel("KARAOKE BOOKING");
-		label.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label.setBounds(466, -55, 297, 155);
-		add(label);
+		JLabel lblKaraokeBooking = new JLabel("Karaoke Booking");
+		lblKaraokeBooking.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblKaraokeBooking.setBounds(488, -55, 275, 155);
+		add(lblKaraokeBooking);
 		
 				JLabel lblTermsCondition = new JLabel("Terms & Condition :");
 				lblTermsCondition.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
@@ -206,7 +206,7 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		String roomsDetails = karaokeBookingEntities.getSession();
 		String timeDetails = karaokeBookingEntities.getTime();*/
 		
-		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number"/*+ bookDetails.getBookingNo()*/+ " has been sent to your email.");
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
 		
 		
 		myFrame.getContentPane().removeAll();

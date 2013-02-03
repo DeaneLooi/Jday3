@@ -16,6 +16,7 @@ import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Cursor;
 
 public class KaraokeConfirmation extends BackgroundPanel {
 
@@ -45,6 +46,7 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -83,9 +85,9 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		separator.setBounds(104, 381, 592, 2);
 		add(separator);
 		
-		JLabel label = new JLabel("BOOKING SUMMARY");
-		label.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label.setBounds(482, 11, 162, 28);
-		add(label);
+		JLabel lblBookingSummary = new JLabel("Booking Summary");
+		lblBookingSummary.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblBookingSummary.setBounds(482, 11, 167, 28);
+		add(lblBookingSummary);
 	}
 }

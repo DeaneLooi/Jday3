@@ -159,10 +159,10 @@ public class KaraokeRegular extends BackgroundPanel {
 		rdbtnFriendsRoom.setBounds(359, 362, 366, 125);
 		add(rdbtnFriendsRoom);
 		
-		JLabel label = new JLabel("KARAOKE ROOMS");
-		label.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		label.setBounds(489, 0, 214, 47);
-		add(label);
+		JLabel lblKaraokeRooms_1 = new JLabel("Karaoke Rooms");
+		lblKaraokeRooms_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblKaraokeRooms_1.setBounds(490, 0, 196, 47);
+		add(lblKaraokeRooms_1);
 	}
 
 }
