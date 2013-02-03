@@ -49,7 +49,7 @@ public class TaxiBooking  extends BackgroundPanel{
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.cdgtaxi.com.sg/commuters_service_rates.mvn");
+					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.cdgtaxi.com.sg/commuters_services_rates.mvn?cid=1581115");
 				} catch (IOException e) {
 					
 					e.printStackTrace();
@@ -250,10 +250,8 @@ public class TaxiBooking  extends BackgroundPanel{
 		add(label_1);
 		
 		JLabel lblTaxiInformation = new JLabel("Taxi Information");
-		lblTaxiInformation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTaxiInformation.setForeground(Color.BLACK);
-		lblTaxiInformation.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblTaxiInformation.setBounds(422, 0, 268, 47);
+		lblTaxiInformation.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTaxiInformation.setBounds(457, 0, 205, 44);
 		add(lblTaxiInformation);
 
 	}

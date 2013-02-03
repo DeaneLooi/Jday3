@@ -80,6 +80,13 @@ public class SpaConfirmation extends BackgroundPanel {
 		String timeDetails = spaBookingDetails.getTime();
 		
 		
+		/* EMAIL
+		 * SpaBookingDetails bookingDetails = new SpaBookingDetails();
+		 * SpaBookingDetails bookDetails = new SpaBookingDetails();
+		 * bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
+		 * EmailSender email = new EmailSender(m);
+		 * email.sendBookingNumber(bookDetails.getBookingNo());
+		 */
 		
 		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\r\n\tDate:      "+dateDetails+"\r\n\tTime:       "+timeDetails+"\r\n\tSession:"+sessionDetails+"\r\n\r\n\t\r\n\r\n                                             \t\t         Your booking No. is "+spaBookingDetails.getBookingNo()+" \r\n\r\n\r\n   Please present your booking number upon arrival, thank you!");
 		txtpnDearMemberYou.setOpaque(false);

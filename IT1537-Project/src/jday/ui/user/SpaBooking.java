@@ -113,12 +113,14 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 
 		/*************************** Select Day ****************************/
 		day = new JSpinner();
+		day.setOpaque(false);
 		day.setModel(new SpinnerNumberModel(1, 1, 30, 1));
 		day.setBounds(523, 240, 46, 22);
 		add(day);
 
 		/*************************** Select Month ****************************/
 		month = new JComboBox();
+		month.setOpaque(false);
 		month.setFont(new Font("Candara", Font.PLAIN, 14));
 		month.setModel(new DefaultComboBoxModel(new String[] { "  Jan","  Feb", "  Mar", "  Apr", "  May", "  Jun", "  Jul", "  Aug","  Sep", "  Oct", "  Nov", "  Dec" }));
 		month.setToolTipText("");
@@ -127,12 +129,14 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 
 		/*************************** Select Year ****************************/
 		year = new JSpinner();
+		year.setOpaque(false);
 		year.setModel(new SpinnerListModel(new String[] { "2012", "2013","2014", "2015" }));
 		year.setBounds(640, 240, 56, 22);
 		add(year);
 
 		/*************************** Select Session****************************/
 		session = new JComboBox();
+		session.setOpaque(false);
 		session.setFont(new Font("Candara", Font.PLAIN, 14));
 		session.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package","  Healing Spa Package", "  JDAY Experience", "  Berdua-Dua","  Best of Friends" }));
 		session.setToolTipText("");
@@ -140,28 +144,30 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		add(session);
 
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setOpaque(false);
 		btnConfirm.addActionListener(this);
 		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConfirm.setBounds(607, 419, 89, 23);
 		add(btnConfirm);
-
-		JLabel lblSpaBooking = new JLabel("   Spa Booking");
-		lblSpaBooking.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblSpaBooking.setBounds(445, -36, 211, 121);
-		add(lblSpaBooking);
-		
-				JLabel lblTermsCondition = new JLabel("Terms & Condition :");
-				lblTermsCondition.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-				lblTermsCondition.setBounds(109, 71, 163, 14);
-				add(lblTermsCondition);
-				JTextPane txtpnAvailableForGroup = new JTextPane();
-				txtpnAvailableForGroup.setFont(new Font("Candara", Font.PLAIN, 15));
-				txtpnAvailableForGroup.setEditable(false);
-				txtpnAvailableForGroup.setBackground(SystemColor.menu);
-				txtpnAvailableForGroup.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-				txtpnAvailableForGroup.setText("All charges are subject to 10% service charge and 7% GST*.\r\n\r\nRooms are subject to availability.\r\n\r\nPlease adhere to the timing generated from the booking system to avoid any inconvenience.\r\n\r\nA grace period of 15 minutes is given from the timing of your booked session.\r\n\r\nAll bookings made cannot be cancelled.\r\n\r\nAll payments made are non refundable.\r\n\r\nAll transactions are in Singapore Dollars (SGD).");
-				txtpnAvailableForGroup.setBounds(109, 105, 261, 360);
-				add(txtpnAvailableForGroup);
+				
+				JTextPane textPane = new JTextPane();
+				textPane.setText("All charges are subject to 10% service charge and 7% GST*.\r\n\r\nRooms are subject to availability.\r\n\r\nPlease adhere to the timing generated from the booking system to avoid any inconvenience.\r\n\r\nA grace period of 15 minutes is given from the timing of your booked session.\r\n\r\nAll bookings made cannot be cancelled.\r\n\r\nAll payments made are non refundable.\r\n\r\nAll transactions are in Singapore Dollars (SGD).\r\n\r\nBooking number is sent to your email, present them upon arrival. ");
+				textPane.setFont(new Font("Candara", Font.PLAIN, 15));
+				textPane.setEditable(false);
+				textPane.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+				textPane.setBackground(SystemColor.menu);
+				textPane.setBounds(84, 84, 275, 405);
+				add(textPane);
+				
+				JLabel label = new JLabel("Terms & Condition :");
+				label.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+				label.setBounds(84, 59, 163, 14);
+				add(label);
+				
+				JLabel lblSpaBooking = new JLabel("Spa Booking");
+				lblSpaBooking.setFont(new Font("Tahoma", Font.PLAIN, 25));
+				lblSpaBooking.setBounds(488, 0, 180, 44);
+				add(lblSpaBooking);
 
 	}
 
@@ -218,6 +224,4 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		myFrame.getContentPane().repaint();
 		*/
 	}
-
-
 }

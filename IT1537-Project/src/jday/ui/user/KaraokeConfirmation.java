@@ -73,6 +73,14 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		String timeDetails = karaokeBookingEntities.getTime();
 		//String memberId = karaokeBookingEntities.getMemberId();
 		
+		/* EMAIL
+		 * KaraokeBookingEntities bookingDetails = new KaraokeBookingEntities();
+		 * KaraokeBookingEntities bookDetails = new KaraokeBookingEntities();
+		 * bookDetails = KaraokeBookingEntitiesDAO.karaokeBooking(bookingDetails, m);
+		 * EmailSender email = new EmailSender(m);
+		 * email.sendBookingNumber(bookDetails.getBookingNo());
+		 */
+		
 		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\r\n\tDate:      "+dateDetails+"\r\n\tTime:       "+timeDetails+"\r\n\tSession:"+roomsDetails+"\r\n\r\n\t\r\n\r\n                                             \t\t         Your booking No. is "+karaokeBookingEntities.getBookingNo()+" \r\n\r\n\r\n   Please present your booking number upon arrival, thank you!");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
