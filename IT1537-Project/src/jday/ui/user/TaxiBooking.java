@@ -17,6 +17,7 @@ import java.awt.Dimension;
 import java.io.IOException;
 
 import jday.util.BackgroundPanel;
+import javax.swing.SwingConstants;
 
 public class TaxiBooking  extends BackgroundPanel{
 	
@@ -247,6 +248,13 @@ public class TaxiBooking  extends BackgroundPanel{
 		label_1.setBackground(Color.BLUE);
 		label_1.setBounds(82, 477, 46, 14);
 		add(label_1);
+		
+		JLabel lblTaxiInformation = new JLabel("TAXI INFORMATION");
+		lblTaxiInformation.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTaxiInformation.setForeground(Color.BLACK);
+		lblTaxiInformation.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
+		lblTaxiInformation.setBounds(422, 11, 268, 36);
+		add(lblTaxiInformation);
 
 	}
 }
