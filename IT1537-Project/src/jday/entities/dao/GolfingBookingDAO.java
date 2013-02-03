@@ -116,5 +116,23 @@ public class GolfingBookingDAO {
 		
 		return golfbookings;
 	}
+	
+/*public boolean deleteGolfBooking() throws SQLException{
+		
+		boolean success = false;
+		DBController db = new DBController();
+		String dbQuery;	
+		db.getConnection();
+		
+		
+		dbQuery = "delete from golf where memberid = '" + memberid +"';";
 
+		if (db.updateRequest(dbQuery) == 1){
+			success = true;
+		}
+
+		db.terminate();
+		return success;
+	}
+*/
 }

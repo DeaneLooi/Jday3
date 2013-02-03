@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import java.awt.Font;
@@ -16,6 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import jday.util.BackgroundPanel;
 import jday.util.BookingTableModel;
+import jday.util.ClassTableModel;
 import jday.util.ProfileTableModel;
 import jday.entities.*;
 import jday.entities.dao.AdminViewBookingDAO;
@@ -23,6 +25,9 @@ import jday.entities.dao.MemberDAO;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 public class ABooking extends BackgroundPanel {
 	private JTable table = new JTable();
@@ -44,7 +49,7 @@ public class ABooking extends BackgroundPanel {
 		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setRowHeight(30);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(80, 120, 580, 250);
+        scrollPane.setBounds(100, 140, 600, 320);
 		
 		add(scrollPane);
 		
@@ -67,15 +72,51 @@ public class ABooking extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		label.setBounds(10, 11, 94, 102);
+		label.setBounds(50, 31, 94, 102);
 		label.setIcon(new ImageIcon(ABooking.class.getResource("/images/90logo.png")));
 		add(label);
 		
-		JLabel lblJdayBooking = new JLabel("JDAY View Booking");
-		lblJdayBooking.setBounds(125, 42, 277, 42);
-		lblJdayBooking.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
+		JLabel lblJdayBooking = new JLabel("View Booking");
+		lblJdayBooking.setBounds(454, 0, 204, 42);
+		lblJdayBooking.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		add(lblJdayBooking);
 
 		add(table);
+		
+		/*JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+					deleteBooking();
+				}catch (SQLException e){
+					e.printStackTrace();
+			}
+			}
+		});
+		btnDelete.setBounds(572, 448, 89, 23);
+		add(btnDelete);
 	}
-}
+	///////////////////
+	public void deleteBooking() throws SQLException{
+		int rowSelected = table.getSelectedRow();
+		System.out.println(rowSelected);
+		if(rowSelected>=0){
+		String book = table.getValueAt(rowSelected, 3).toString();
+		Booking bookings = new Booking(Integer.parseInt(book));
+		int dialog = JOptionPane.showConfirmDialog(null,"Are you sure to remove this booking?");
+		if(dialog == JOptionPane.YES_OPTION)
+		bookings.deleteBooking();
+		else
+			bookings = null;
+		
+		
+		BookingTableModel model = new BookingTableModel(AdminViewBookingDAO.retrieveAll());
+		table.setModel(model);
+		
+		}
+		
+		else 
+			JOptionPane.showMessageDialog(null,"No record Selected", "Alert",
+					JOptionPane.ERROR_MESSAGE);
+	}*/
+}}

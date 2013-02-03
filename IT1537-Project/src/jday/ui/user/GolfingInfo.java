@@ -21,6 +21,7 @@ import jday.entities.BasicMember;
 import jday.entities.Member;
 import jday.entities.PremiumMember;
 import jday.util.BackgroundPanel;
+import javax.swing.ImageIcon;
 
 
 public class GolfingInfo extends BackgroundPanel {
@@ -52,7 +53,7 @@ public class GolfingInfo extends BackgroundPanel {
 		tblweekday.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"9 Holes", "S$75.00", "Morning, Afternoon, Evening"},
-				{"18 Holes", "S$60.00", "Morning, Afternoon, Evening"},
+				{"18 Holes", "S$85.00", "Morning, Afternoon, Evening"},
 			},
 			new String[] {
 				"New column", "New column", "New column"
@@ -61,7 +62,7 @@ public class GolfingInfo extends BackgroundPanel {
 		tblweekday.getColumnModel().getColumn(0).setPreferredWidth(155);
 		tblweekday.getColumnModel().getColumn(1).setPreferredWidth(155);
 		tblweekday.getColumnModel().getColumn(2).setPreferredWidth(155);
-		tblweekday.setBounds(60, 200, 619, 60);
+		tblweekday.setBounds(85, 290, 619, 60);
 		add(tblweekday);
 		
 		tblweekend = new JTable();
@@ -69,7 +70,7 @@ public class GolfingInfo extends BackgroundPanel {
 		tblweekend.setBackground(new Color(216, 191, 216));
 		tblweekend.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"9 Holes", "S$70.00", "Morning, Afternoon,Evening"},
+				{"9 Holes", "S$80.00", "Morning, Afternoon,Evening"},
 				{"18 Holes", "S$100.00", "Morning, Afternoon ,Evening "},
 			},
 			new String[] {
@@ -81,7 +82,7 @@ public class GolfingInfo extends BackgroundPanel {
 		tblweekend.getColumnModel().getColumn(2).setPreferredWidth(115);
 		tblweekend.setRowHeight(30);
 		tblweekend.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tblweekend.setBounds(60, 283, 619, 60);
+		tblweekend.setBounds(85, 373, 619, 60);
 		add(tblweekend);
 	
 		JButton btnbook = new JButton("Book");
@@ -102,12 +103,12 @@ public class GolfingInfo extends BackgroundPanel {
 			}
 			
 		});
-		btnbook.setBounds(590, 395, 89, 23);
+		btnbook.setBounds(615, 455, 89, 23);
 		add(btnbook);
 		
-		JLabel lblNewLabel = new JLabel("Green Fees:");
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblNewLabel.setBounds(60, 136, 109, 24);
+		JLabel lblNewLabel = new JLabel("Green Fees");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNewLabel.setBounds(468, 0, 181, 42);
 		add(lblNewLabel);
 		
 		lblWeekdays = new JLabel("Weekdays");
@@ -115,7 +116,7 @@ public class GolfingInfo extends BackgroundPanel {
 		lblWeekdays.setBackground(new Color(199, 21, 133));
 		lblWeekdays.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWeekdays.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblWeekdays.setBounds(60, 177, 619, 24);
+		lblWeekdays.setBounds(85, 267, 619, 24);
 		add(lblWeekdays);
 		
 		lblWeekends = new JLabel("Weekends");
@@ -123,8 +124,13 @@ public class GolfingInfo extends BackgroundPanel {
 		lblWeekends.setBackground(new Color(199, 21, 133));
 		lblWeekends.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblWeekends.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWeekends.setBounds(60, 259, 619, 24);
+		lblWeekends.setBounds(85, 349, 619, 24);
 		add(lblWeekends);
+		
+		JLabel lblPic = new JLabel("pic");
+		lblPic.setIcon(new ImageIcon(GolfingInfo.class.getResource("/images/Picture1.png")));
+		lblPic.setBounds(85, 74, 625, 182);
+		add(lblPic);
 		
 				 
 	}
