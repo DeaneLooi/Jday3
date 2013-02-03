@@ -197,8 +197,8 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		KaraokeBookingEntities bookDetails = new KaraokeBookingEntities();
 		bookDetails = KaraokeBookingEntitiesDao.karaokeBooking(bookingDetails, m);
 
-		//EmailSender email = new EmailSender(m);
-		//email.sendBookingNumber(bookDetails.getBookingNo());
+		EmailSender email = new EmailSender(m);
+		email.sendBookingNumber(bookDetails.getBookingNo());
 		
 		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookDetails, m);
 
@@ -206,14 +206,14 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 		String roomsDetails = karaokeBookingEntities.getSession();
 		String timeDetails = karaokeBookingEntities.getTime();*/
 		
-		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "+ bookDetails.getBookingNo());
 		
-		
+		/*
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
 		myFrame.getContentPane().validate();
 		myFrame.getContentPane().repaint();
-
+*/
 	}
 	
 }

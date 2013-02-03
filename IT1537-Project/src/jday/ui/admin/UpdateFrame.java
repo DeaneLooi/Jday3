@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import jday.entities.Member;
+import javax.swing.JLabel;
+import java.awt.Toolkit;
 
 public class UpdateFrame extends JFrame{
 	
@@ -37,6 +39,7 @@ public class UpdateFrame extends JFrame{
 	 */
 	public UpdateFrame() {
 		super();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UpdateFrame.class.getResource("/images/110jday_logo.png")));
 		myFrame = this;
 		initialize();
 	}
@@ -51,6 +54,4 @@ public class UpdateFrame extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 	}
-	
-
 }

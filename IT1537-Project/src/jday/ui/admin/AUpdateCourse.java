@@ -49,7 +49,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		setSize(750,500);
 		
 		JButton btnAddCourse = new JButton("Add Course");
-		btnAddCourse.setBounds(70, 391, 130, 37);
+		btnAddCourse.setBounds(364, 433, 130, 29);
 		btnAddCourse.setOpaque(false);
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -60,11 +60,11 @@ public class AUpdateCourse extends BackgroundPanel{
 			}
 		});
 		setLayout(null);
-		btnAddCourse.setFont(new Font("Candara", Font.PLAIN, 16));
+		btnAddCourse.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(btnAddCourse);
 		
 		JButton btnRemoveCourse = new JButton("Remove Course");
-		btnRemoveCourse.setBounds(229, 391, 161, 37);
+		btnRemoveCourse.setBounds(551, 433, 161, 29);
 		btnRemoveCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -75,7 +75,7 @@ public class AUpdateCourse extends BackgroundPanel{
 				}
 			}});
 		btnRemoveCourse.setOpaque(false);
-		btnRemoveCourse.setFont(new Font("Candara", Font.PLAIN, 16));
+		btnRemoveCourse.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(btnRemoveCourse);
 		
 
@@ -91,7 +91,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		tableList.getColumnModel().getColumn(4).setPreferredWidth(300);
 		
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(70, 204, 670, 165);
+		scrollPane.setBounds(70, 204, 650, 165);
 		add(scrollPane);
 		
 		JLabel lblLogo = new JLabel("");
@@ -107,7 +107,7 @@ public class AUpdateCourse extends BackgroundPanel{
 			}
 		});
 		lblLogo.setIcon(new ImageIcon(AUpdateCourse.class.getResource("/images/90logo.png")));
-		lblLogo.setBounds(58, 26, 130, 97);
+		lblLogo.setBounds(58, 38, 99, 97);
 		add(lblLogo);
 		
 		JLabel lblUpdateCourse = new JLabel("Update Course");

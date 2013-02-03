@@ -88,7 +88,7 @@ public class GolfingInfoBooking extends BackgroundPanel {
 				
 				EmailSender email = new EmailSender(m);
 				email.sendBookingNumber(bookno.getBookingNo());
-				JOptionPane.showMessageDialog(null, "Booking number is "+bookno.getBookingNo());
+				JOptionPane.showMessageDialog(null, "Booking is successful ! Your booking number is "+bookno.getBookingNo());
 				
 				JPanel panel = new GolfingInfo(myFrame, m);
 				myFrame.getContentPane().removeAll();

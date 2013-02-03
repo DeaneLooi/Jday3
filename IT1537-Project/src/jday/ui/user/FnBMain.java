@@ -73,8 +73,8 @@ public class FnBMain extends BackgroundPanel{
 		JLabel lblFoodAndBeverages = new JLabel("Food and Beverages");
 		lblFoodAndBeverages.setForeground(new Color(0, 0, 0));
 		lblFoodAndBeverages.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoodAndBeverages.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblFoodAndBeverages.setBounds(393, 11, 222, 39);
+		lblFoodAndBeverages.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblFoodAndBeverages.setBounds(416, 0, 264, 50);
 		add(lblFoodAndBeverages);
 		
 		JLabel lblPromotions = new JLabel("Promotions:");
@@ -115,7 +115,7 @@ public class FnBMain extends BackgroundPanel{
 		list.setBounds(59, 233, 168, 186);
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setOpaque(false);
-		scrollPane.setLocation(76, 270);
+		scrollPane.setLocation(76, 298);
 		scrollPane.setSize(160, 100);
 		add(scrollPane);
 
@@ -124,7 +124,7 @@ public class FnBMain extends BackgroundPanel{
 		lblMainMenu.setForeground(new Color(0, 0, 0));
 		lblMainMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainMenu.setFont(new Font("Candara", Font.BOLD, 16));
-		lblMainMenu.setBounds(66, 239, 174, 32);
+		lblMainMenu.setBounds(65, 255, 174, 32);
 		add(lblMainMenu);
 		
 		final JButton btnNext = new JButton("Next");
@@ -231,7 +231,7 @@ public class FnBMain extends BackgroundPanel{
 		btnNext.setOpaque(false);
 		btnNext.setForeground(new Color(0, 0, 0));
 		btnNext.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnNext.setBounds(638, 347, 89, 23);
+		btnNext.setBounds(625, 444, 89, 23);
 		add(btnNext);
 		
 		JButton btnViewMyOrder = new JButton("View my order");
@@ -247,7 +247,7 @@ public class FnBMain extends BackgroundPanel{
 		btnViewMyOrder.setOpaque(false);
 		btnViewMyOrder.setForeground(new Color(0, 0, 0));
 		btnViewMyOrder.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnViewMyOrder.setBounds(552, 59, 160, 23);
+		btnViewMyOrder.setBounds(554, 77, 160, 23);
 		add(btnViewMyOrder);
 		
 		Vegetarian = new JPanel();

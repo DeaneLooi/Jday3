@@ -94,8 +94,8 @@ public class SpaConfirmation extends BackgroundPanel {
 		add(separator);
 		
 		JLabel lblSummary = new JLabel("Booking Summary");
-		lblSummary.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSummary.setBounds(475, 11, 167, 28);
+		lblSummary.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblSummary.setBounds(428, 0, 244, 39);
 		add(lblSummary);
 	}
 }

@@ -146,8 +146,8 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		add(btnConfirm);
 
 		JLabel lblSpaBooking = new JLabel("   Spa Booking");
-		lblSpaBooking.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblSpaBooking.setBounds(483, -36, 173, 121);
+		lblSpaBooking.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblSpaBooking.setBounds(445, -36, 211, 121);
 		add(lblSpaBooking);
 		
 				JLabel lblTermsCondition = new JLabel("Terms & Condition :");
@@ -200,22 +200,23 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		SpaBookingDetails bookDetails = new SpaBookingDetails();
 		bookDetails = SpaBookingDetailsDAO.spaBooking(bookingDetails, m);
 
-		/*EmailSender email = new EmailSender(m);
-		email.sendBookingNumber(bookDetails.getBookingNo());*/
+		EmailSender email = new EmailSender(m);
+		email.sendBookingNumber(bookDetails.getBookingNo());
 		
-		SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
+		//SpaConfirmation panel = new SpaConfirmation(myFrame, bookDetails,m);
 
-		/*String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
-		String roomsDetails = spaBookingDetails.getSession();
-		String timeDetails = spaBookingDetails.getTime();*/
+		//String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
+		//String roomsDetails = spaBookingDetails.getSession();
+		//String timeDetails = spaBookingDetails.getTime();
 		
 	
-		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "/*+ bookDetails.getBookingNo()*/+ "has been sent to your email.");
-		
+		JOptionPane.showMessageDialog(null, "Booking is successful! Your booking number "+ bookDetails.getBookingNo());
+		/*
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
 		myFrame.getContentPane().validate();
 		myFrame.getContentPane().repaint();
+		*/
 	}
 
 
