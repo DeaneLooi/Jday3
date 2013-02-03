@@ -45,39 +45,40 @@ public class ForgotPasswordPanel extends BackgroundPanel{
 		JLabel lblForgotYourPassword = new JLabel("Forgot your password?");
 		lblForgotYourPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		lblForgotYourPassword.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblForgotYourPassword.setBounds(150, 37, 417, 61);
+		lblForgotYourPassword.setBounds(308, 0, 417, 61);
 		add(lblForgotYourPassword);
 		
 		JLabel lblMemberId = new JLabel("Member Id:");
 		lblMemberId.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblMemberId.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblMemberId.setBounds(-97, 160, 202, 47);
+		lblMemberId.setBounds(-18, 188, 202, 47);
 		add(lblMemberId);
 		
 		JLabel lblEmailAddress = new JLabel("Email Address:");
 		lblEmailAddress.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblEmailAddress.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblEmailAddress.setBounds(-97, 243, 202, 47);
+		lblEmailAddress.setBounds(-18, 238, 202, 47);
 		add(lblEmailAddress);
 		
 		tfMemberId = new JTextField();
-		tfMemberId.setBounds(115, 167, 235, 32);
+		tfMemberId.setBounds(194, 195, 235, 32);
 		add(tfMemberId);
 		tfMemberId.setColumns(10);
 		
 		tfEmailAddress = new JTextField();
 		tfEmailAddress.setColumns(10);
-		tfEmailAddress.setBounds(115, 250, 235, 32);
+		tfEmailAddress.setBounds(194, 245, 235, 32);
 		add(tfEmailAddress);
 		
 		lblErrorMessage = new JLabel("");
 		lblErrorMessage.setForeground(Color.RED);
 		lblErrorMessage.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblErrorMessage.setBounds(373, 167, 352, 40);
+		lblErrorMessage.setBounds(439, 195, 286, 104);
 		add(lblErrorMessage);
 		
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.setOpaque(false);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -119,7 +120,7 @@ public class ForgotPasswordPanel extends BackgroundPanel{
 			}
 		});
 		btnReset.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnReset.setBounds(261, 321, 89, 23);
+		btnReset.setBounds(340, 304, 89, 23);
 		add(btnReset);
 		
 		JLabel lblLogo = new JLabel("");

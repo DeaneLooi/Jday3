@@ -26,8 +26,7 @@ public class FnBDelivery extends BackgroundPanel{
 
 	public FnBDelivery() {
 		super();
-
-	}
+}
 
 	
 	public FnBDelivery(JFrame f, final ArrayList<FnB> fnb, Member mem){
@@ -35,6 +34,7 @@ public class FnBDelivery extends BackgroundPanel{
 		myFrame = f;
 		final ArrayList<FnB>Fnb = new ArrayList<FnB>();
 		this.m = mem;
+	
 		
 		setSize(750,500);
 		setLayout(null);
@@ -42,7 +42,7 @@ public class FnBDelivery extends BackgroundPanel{
 		JLabel lbl = new JLabel("Please choose the venue for us to deliver your food.");
 		lbl.setFont(new Font("Candara", Font.BOLD, 16));
 		lbl.setForeground(new Color(0, 0, 0));
-		lbl.setBounds(12, 24, 706, 53);
+		lbl.setBounds(98, 63, 706, 53);
 		add(lbl);
 		
 		final JRadioButton rdbtnRoom = new JRadioButton("Room");
@@ -57,7 +57,7 @@ public class FnBDelivery extends BackgroundPanel{
 		rdbtnRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnRoom.setForeground(new Color(0, 0, 0));
 		rdbtnRoom.setOpaque(false);
-		rdbtnRoom.setBounds(30, 122, 143, 41);
+		rdbtnRoom.setBounds(116, 161, 143, 41);
 		add(rdbtnRoom);
 		
 		final JRadioButton rdbtnKaraokeRoom = new JRadioButton("Karaoke Room");
@@ -72,7 +72,7 @@ public class FnBDelivery extends BackgroundPanel{
 		rdbtnKaraokeRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnKaraokeRoom.setForeground(new Color(0, 0, 0));
 		rdbtnKaraokeRoom.setOpaque(false);
-		rdbtnKaraokeRoom.setBounds(30, 188, 143, 41);
+		rdbtnKaraokeRoom.setBounds(116, 227, 143, 41);
 		add(rdbtnKaraokeRoom);
 		
 		final JRadioButton rdbtnPool = new JRadioButton("Pool");
@@ -88,7 +88,7 @@ public class FnBDelivery extends BackgroundPanel{
 		rdbtnPool.setOpaque(false);
 		rdbtnPool.setForeground(Color.BLACK);
 		rdbtnPool.setFont(new Font("Candara", Font.PLAIN, 16));
-		rdbtnPool.setBounds(30, 255, 143, 41);
+		rdbtnPool.setBounds(116, 294, 143, 41);
 		add(rdbtnPool);
 		
 		final ButtonGroup btnGrp = new ButtonGroup();
@@ -97,6 +97,7 @@ public class FnBDelivery extends BackgroundPanel{
 		btnGrp.add(rdbtnPool);
 		
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setOpaque(false);
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -128,14 +129,14 @@ public class FnBDelivery extends BackgroundPanel{
 		});
 		btnConfirm.setForeground(new Color(0, 0, 0));
 		btnConfirm.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnConfirm.setBounds(244, 325, 95, 41);
+		btnConfirm.setBounds(330, 364, 95, 41);
 		add(btnConfirm);
 		
 		tfRoom = new JTextField();
 		tfRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfRoom.setForeground(new Color(0, 0, 0));
 		tfRoom.setEditable(false);
-		tfRoom.setBounds(175, 130, 116, 22);
+		tfRoom.setBounds(261, 169, 116, 22);
 		add(tfRoom);
 		tfRoom.setColumns(10);
 		
@@ -144,10 +145,11 @@ public class FnBDelivery extends BackgroundPanel{
 		tfKRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfKRoom.setEditable(false);
 		tfKRoom.setColumns(10);
-		tfKRoom.setBounds(175, 196, 116, 22);
+		tfKRoom.setBounds(261, 235, 116, 22);
 		add(tfKRoom);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.setOpaque(false);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JPanel panel = new FnBMain(myFrame,m);
@@ -159,8 +161,14 @@ public class FnBDelivery extends BackgroundPanel{
 		});
 		btnBack.setForeground(Color.BLACK);
 		btnBack.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnBack.setBounds(30, 325, 95, 41);
+		btnBack.setBounds(116, 364, 95, 41);
 		add(btnBack);
+		
+		JLabel lblDelivery = new JLabel("Delivery");
+		lblDelivery.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblDelivery.setForeground(new Color(0, 0, 0));
+		lblDelivery.setBounds(404, 11, 235, 28);
+		add(lblDelivery);
 
 		
 		

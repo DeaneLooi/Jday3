@@ -73,8 +73,8 @@ public class FnBMain extends BackgroundPanel{
 		JLabel lblFoodAndBeverages = new JLabel("Food and Beverages");
 		lblFoodAndBeverages.setForeground(new Color(0, 0, 0));
 		lblFoodAndBeverages.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoodAndBeverages.setFont(new Font("Trebuchet MS", Font.ITALIC, 18));
-		lblFoodAndBeverages.setBounds(81, 22, 574, 39);
+		lblFoodAndBeverages.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblFoodAndBeverages.setBounds(393, 11, 222, 39);
 		add(lblFoodAndBeverages);
 		
 		JLabel lblPromotions = new JLabel("Promotions:");
@@ -93,7 +93,7 @@ public class FnBMain extends BackgroundPanel{
 		lblpekingDuckbefore.setHorizontalAlignment(SwingConstants.LEFT);
 		lblpekingDuckbefore.setVerticalAlignment(SwingConstants.TOP);
 		lblpekingDuckbefore.setIcon(new ImageIcon(FnBMain.class.getResource("/images/pekingduck.jpg")));
-		lblpekingDuckbefore.setBounds(34, 72, 206, 167);
+		lblpekingDuckbefore.setBounds(91, 72, 206, 167);
 		add(lblpekingDuckbefore);
 		
 		list = new JList();
@@ -115,7 +115,7 @@ public class FnBMain extends BackgroundPanel{
 		list.setBounds(59, 233, 168, 186);
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setOpaque(false);
-		scrollPane.setLocation(48, 270);
+		scrollPane.setLocation(76, 270);
 		scrollPane.setSize(160, 100);
 		add(scrollPane);
 
@@ -124,7 +124,7 @@ public class FnBMain extends BackgroundPanel{
 		lblMainMenu.setForeground(new Color(0, 0, 0));
 		lblMainMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMainMenu.setFont(new Font("Candara", Font.BOLD, 16));
-		lblMainMenu.setBounds(34, 238, 174, 32);
+		lblMainMenu.setBounds(66, 239, 174, 32);
 		add(lblMainMenu);
 		
 		final JButton btnNext = new JButton("Next");
@@ -247,7 +247,7 @@ public class FnBMain extends BackgroundPanel{
 		btnViewMyOrder.setOpaque(false);
 		btnViewMyOrder.setForeground(new Color(0, 0, 0));
 		btnViewMyOrder.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnViewMyOrder.setBounds(552, 30, 160, 23);
+		btnViewMyOrder.setBounds(552, 59, 160, 23);
 		add(btnViewMyOrder);
 		
 		Vegetarian = new JPanel();
