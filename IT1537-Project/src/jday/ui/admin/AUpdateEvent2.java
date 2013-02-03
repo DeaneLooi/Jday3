@@ -136,7 +136,7 @@ public class AUpdateEvent2 extends BackgroundPanel {
 		infoTxtA.setText(info);
 
 		JLabel lblNewLabel_1 = new JLabel("Edit Events");
-		lblNewLabel_1.setForeground(new Color(102, 0, 102));
+		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNewLabel_1.setBounds(399, 0, 300, 45);

@@ -93,7 +93,7 @@ public class AUpdateEvent extends BackgroundPanel {
 		add(calendar);
 
 		JLabel lblNewLabel = new JLabel("Edit Events");
-		lblNewLabel.setForeground(new Color(102, 0, 102));
+		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(399, 0, 300, 45);

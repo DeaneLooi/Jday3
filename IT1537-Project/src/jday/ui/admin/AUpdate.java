@@ -15,6 +15,9 @@ import javax.swing.SwingConstants;
 
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.SoftBevelBorder;
 
 public class AUpdate extends BackgroundPanel {
 	
@@ -33,6 +36,10 @@ public class AUpdate extends BackgroundPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Courses");
+		lblNewLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		lblNewLabel.setForeground(new Color(255, 204, 204));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(153, 51, 102));
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -48,10 +55,13 @@ public class AUpdate extends BackgroundPanel {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(131, 234, 133, 110);
+		lblNewLabel.setBounds(145, 253, 164, 73);
 		add(lblNewLabel);
 		
 		JLabel lblEvents = new JLabel("Events");
+		lblEvents.setOpaque(true);
+		lblEvents.setBackground(new Color(153, 51, 102));
+		lblEvents.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblEvents.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -62,19 +72,19 @@ public class AUpdate extends BackgroundPanel {
 				myFrame.getContentPane().repaint();
 			}
 		});
-		lblEvents.setForeground(new Color(0, 0, 0));
+		lblEvents.setForeground(new Color(255, 204, 204));
 		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblEvents.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEvents.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblEvents.setBounds(472, 234, 133, 110);
+		lblEvents.setBounds(483, 253, 164, 73);
 		add(lblEvents);
 		
 		JLabel lblUpdate = new JLabel("Update");
-		lblUpdate.setForeground(new Color(102, 0, 102));
+		lblUpdate.setForeground(Color.BLACK);
 		lblUpdate.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblUpdate.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblUpdate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUpdate.setBounds(131, 60, 133, 61);
+		lblUpdate.setBounds(401, 0, 299, 47);
 		add(lblUpdate);
 		
 		JLabel lblJdayLogo = new JLabel("");
@@ -89,7 +99,7 @@ public class AUpdate extends BackgroundPanel {
 			}
 		});
 		lblJdayLogo.setIcon(new ImageIcon(AUpdate.class.getResource("/images/110jday_logo.png")));
-		lblJdayLogo.setBounds(10, 27, 115, 125);
+		lblJdayLogo.setBounds(55, 31, 115, 125);
 		add(lblJdayLogo);
 		
 	}
