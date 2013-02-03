@@ -94,7 +94,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		txtpnRoomTypeFamily.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeFamily.setEditable(false);
 		txtpnRoomTypeFamily.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
-		txtpnRoomTypeFamily.setBackground(new Color(250, 235, 215));
+		txtpnRoomTypeFamily.setBackground(new Color(255, 204, 255));
 		txtpnRoomTypeFamily.setAlignmentY(5.0f);
 		txtpnRoomTypeFamily.setAlignmentX(3.0f);
 		txtpnRoomTypeFamily.setBounds(12, 125, 286, 312);
