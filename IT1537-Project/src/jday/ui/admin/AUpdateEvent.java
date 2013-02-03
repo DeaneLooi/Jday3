@@ -65,7 +65,7 @@ public class AUpdateEvent extends BackgroundPanel {
 			}
 		});
 		label.setIcon(new ImageIcon(AUpdateEvent.class.getResource("/images/90logo.png")));
-		label.setBounds(10, 11, 94, 102);
+		label.setBounds(45, 25, 94, 102);
 		add(label);
 
 		final JCalendar calendar = new JCalendar();
@@ -89,14 +89,14 @@ public class AUpdateEvent extends BackgroundPanel {
 			}
 		});
 		calendar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(128, 128, 128)));
-		calendar.setBounds(10, 124, 714, 353);
+		calendar.setBounds(61, 135, 666, 360);
 		add(calendar);
 
 		JLabel lblNewLabel = new JLabel("Edit Events");
 		lblNewLabel.setForeground(new Color(102, 0, 102));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(114, 33, 167, 47);
+		lblNewLabel.setBounds(399, 0, 300, 45);
 		add(lblNewLabel);
 
 	}
