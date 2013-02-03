@@ -51,13 +51,13 @@ public class CourseBooking{
 		return fees;
 	}
 
-
+	public void setTiming(String timing){
+		this.timing=timing;
+	}
 
 	public String getTiming() {
 		return timing;
 	}
-
-
 
 	public String getVenue() {
 		return venue;
@@ -180,5 +180,33 @@ public class CourseBooking{
 		}
 		db.terminate();
 		return success;
+	}
+	//////////
+	public static ArrayList <CourseBooking> retrieveAll(){
+		CourseBooking courseBooking = null;
+		ResultSet rs = null;
+		DBController db = new DBController();
+		Connection con = db.getConnection();	
+		Statement stmt = null;
+		ArrayList<CourseBooking> courseBookings = new ArrayList<CourseBooking>();
+		
+		try{
+			stmt = con.createStatement();
+			String dbQuery = "select * from class";
+			rs = stmt.executeQuery(dbQuery);
+		
+			while(rs.next()){
+				String timing = rs.getString("timing");
+				
+				courseBooking = new CourseBooking();
+				courseBooking.setTiming(timing);
+				courseBookings.add(courseBooking);
+	
+		}
+				
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return courseBookings;
 	}
 }

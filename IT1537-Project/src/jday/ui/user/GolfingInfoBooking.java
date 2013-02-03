@@ -174,10 +174,16 @@ public class GolfingInfoBooking extends BackgroundPanel {
 		calendar.addDateListener(new DateListener() {
 			public void dateChanged(DateEvent arg0) {
 				// save date into a variable
+				Date date1 = new Date();
+				date1 = calendar.getDate();
+				
 				Date date = new Date();
-				date = calendar.getDate();
-				golfingbooking.setDate((date.toString()));
-				System.out.println(date);
+				/////////////////
+				if (date1.before(date)){
+					JOptionPane.showMessageDialog(null, "You are unable to book on this day");
+				}
+				golfingbooking.setDate((date1.toString()));
+				System.out.println(date1);
 
 			}
 

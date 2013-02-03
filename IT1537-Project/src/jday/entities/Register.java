@@ -2,6 +2,7 @@ package jday.entities;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class Register {
 	private String eventclass;
 	private String memberid;
 	private String availability;
-	
+	private String time;
 	
 	public Register(Member m){
 		memberid = m.getMemberid();
@@ -60,7 +61,15 @@ public class Register {
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
-	
+	//
+	public String getTime() {
+		return time;
+	}
+	//
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	public Register register(Register r) throws SQLException{
 
 		DBController db = new DBController();
@@ -111,6 +120,38 @@ public class Register {
 		}
 		db.terminate();
 		return registerno;
+	}
+	
+	public static ArrayList <Register> retrieveAll(){
+		Register register = null;
+		ResultSet rs = null;
+		DBController db = new DBController();
+		Connection con = db.getConnection();	
+		Statement stmt = null;
+		ArrayList<Register> registers = new ArrayList<Register>();
+		
+		try{
+			stmt = con.createStatement();
+			String dbQuery = "select * from register";
+			rs = stmt.executeQuery(dbQuery);
+		
+			while(rs.next()){
+				String memberid = rs.getString("memberid");
+				int registerno = rs.getInt("registerno");
+				String venue = rs.getString("eventclass");
+				
+				register = new Register();
+				register.setMemberid(memberid);
+				register.setRegisterno();
+				register.setEventclass(venue);
+				registers.add(register);
+	
+		}
+				
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return registers;
 	}
 	
 }

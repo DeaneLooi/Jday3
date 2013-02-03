@@ -12,6 +12,10 @@ public class Booking {
     	
     }
     
+    public Booking(int bookingno){
+    	this.bookingno=bookingno;
+    }
+    
     public Booking(String memberid, int bookingno, String venue, String time){
     	this.memberid=memberid;
     	this.bookingno=bookingno;

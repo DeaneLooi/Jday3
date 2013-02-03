@@ -6,10 +6,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -163,21 +165,27 @@ public class SportInfoBooking extends BackgroundPanel{
 		calendar.setBackground(new Color(221, 160, 221));
 		//current date is selected if no data had been selected
 		Date date = new Date();
+		
 		date = calendar.getDate();
 		sportbooking.setDate(date.toString());
-
+		
 		calendar.addDateListener(new DateListener() {
 			public void dateChanged(DateEvent arg0) {
 				// save date into a variable
+				Date date1 = new Date();
+				date1 = calendar.getDate();	
 				Date date = new Date();
-				date = calendar.getDate();
-				sportbooking.setDate((date.toString()));
-				System.out.println(date);
-
-			}
-
+				/////////////////
+				if (date1.before(date)){
+					JOptionPane.showMessageDialog(null, "You are unable to book on this day");
+				}
+			
+				sportbooking.setDate((date1.toString()));
+				System.out.println(date1);
+			}	
 		});
-
+		
+		
 		calendar.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		calendar.setBounds(66, 81, 630, 251);
 		add(calendar);
