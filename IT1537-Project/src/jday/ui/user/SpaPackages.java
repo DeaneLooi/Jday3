@@ -75,7 +75,7 @@ public class SpaPackages extends BackgroundPanel {
 		label.setForeground(Color.BLACK);
 		label.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		label.setBackground(Color.BLACK);
-		label.setBounds(461, 130, 103, 14);
+		label.setBounds(487, 139, 103, 14);
 		add(label);
 		
 		final JTextPane textPane_1 = new JTextPane();
@@ -86,7 +86,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_1.setBackground(new Color(250, 235, 215));
 		textPane_1.setAlignmentY(5.0f);
 		textPane_1.setAlignmentX(3.0f);
-		textPane_1.setBounds(358, 167, 320, 208);
+		textPane_1.setBounds(384, 176, 320, 208);
 		add(textPane_1);
 		
 		final JTextPane textPane_2 = new JTextPane();
@@ -97,7 +97,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_2.setBackground(new Color(255, 204, 204));
 		textPane_2.setAlignmentY(5.0f);
 		textPane_2.setAlignmentX(3.0f);
-		textPane_2.setBounds(358, 167, 320, 208);
+		textPane_2.setBounds(384, 176, 320, 208);
 		add(textPane_2);
 		
 		final JTextPane textPane_3 = new JTextPane();
@@ -107,7 +107,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_3.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		textPane_3.setBackground(new Color(250, 235, 215));
 		textPane_3.setAlignmentX(3.0f);
-		textPane_3.setBounds(359, 167, 319, 208);
+		textPane_3.setBounds(385, 176, 319, 208);
 		add(textPane_3);
 		
 		final JTextPane textPane_4 = new JTextPane();
@@ -118,7 +118,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_4.setBackground(new Color(255, 204, 204));
 		textPane_4.setAlignmentY(5.0f);
 		textPane_4.setAlignmentX(3.0f);
-		textPane_4.setBounds(358, 167, 320, 208);
+		textPane_4.setBounds(384, 176, 320, 208);
 		add(textPane_4);
 		
 		final JTextPane textPane_5 = new JTextPane();
@@ -129,29 +129,29 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_5.setBackground(new Color(250, 235, 215));
 		textPane_5.setAlignmentY(5.0f);
 		textPane_5.setAlignmentX(3.0f);
-		textPane_5.setBounds(359, 167, 319, 208);
+		textPane_5.setBounds(385, 176, 319, 208);
 		add(textPane_5);
 		btnBookNow.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBookNow.setOpaque(false);
-		btnBookNow.setBounds(580, 431, 103, 35);
+		btnBookNow.setBounds(609, 418, 103, 35);
 		add(btnBookNow);
 		
 		JLabel lblJdaysJourneyIndex = new JLabel("JDAY's Journey Index");
 		lblJdaysJourneyIndex.setForeground(Color.BLACK);
 		lblJdaysJourneyIndex.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblJdaysJourneyIndex.setBounds(37, 154, 173, 19);
+		lblJdaysJourneyIndex.setBounds(79, 188, 173, 19);
 		add(lblJdaysJourneyIndex);
 		
 		JLabel lblJdaysCoupleJourney = new JLabel("JDAY's Couple Journey Index");
 		lblJdaysCoupleJourney.setForeground(Color.BLACK);
 		lblJdaysCoupleJourney.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblJdaysCoupleJourney.setBounds(37, 298, 220, 19);
+		lblJdaysCoupleJourney.setBounds(79, 332, 220, 19);
 		add(lblJdaysCoupleJourney);
 		
-		JLabel lblSpaPackages = new JLabel("   SPA PACKAGES\r\n");
+		JLabel lblSpaPackages = new JLabel("  Lifestyle");
 		lblSpaPackages.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/Logo.png")));
-		lblSpaPackages.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		lblSpaPackages.setBounds(26, 11, 265, 121);
+		lblSpaPackages.setFont(new Font("Trebuchet MS", Font.ITALIC, 18));
+		lblSpaPackages.setBounds(68, 45, 265, 121);
 		add(lblSpaPackages);
 		
 		JRadioButton rdbtnBalancingSpaPackage = new JRadioButton("Balancing Spa Package");
@@ -172,7 +172,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnBalancingSpaPackage);
 		rdbtnBalancingSpaPackage.setBorder(new SoftBevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), null, null, null));
 		rdbtnBalancingSpaPackage.setFont(new Font("Candara", Font.ITALIC, 16));
-		rdbtnBalancingSpaPackage.setBounds(73, 194, 232, 29);
+		rdbtnBalancingSpaPackage.setBounds(115, 228, 232, 29);
 		add(rdbtnBalancingSpaPackage);
 		
 		JRadioButton rdbtnHealingSpaPackage = new JRadioButton("Healing Spa Package");
@@ -193,7 +193,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnHealingSpaPackage);
 		rdbtnHealingSpaPackage.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		rdbtnHealingSpaPackage.setFont(new Font("Candara", Font.ITALIC, 16));
-		rdbtnHealingSpaPackage.setBounds(73, 219, 232, 29);
+		rdbtnHealingSpaPackage.setBounds(115, 253, 232, 29);
 		add(rdbtnHealingSpaPackage);
 		
 		JRadioButton rdbtnJdayExperience = new JRadioButton("JDAY Experience");
@@ -214,7 +214,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnJdayExperience);
 		rdbtnJdayExperience.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		rdbtnJdayExperience.setFont(new Font("Candara", Font.ITALIC, 16));
-		rdbtnJdayExperience.setBounds(73, 245, 232, 29);
+		rdbtnJdayExperience.setBounds(115, 279, 232, 29);
 		add(rdbtnJdayExperience);
 		
 		JRadioButton rdbtnBerduadua = new JRadioButton("Berdua-Dua");
@@ -235,7 +235,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnBerduadua);
 		rdbtnBerduadua.setFont(new Font("Candara", Font.ITALIC, 16));
 		rdbtnBerduadua.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		rdbtnBerduadua.setBounds(73, 340, 232, 29);
+		rdbtnBerduadua.setBounds(115, 374, 232, 29);
 		add(rdbtnBerduadua);
 		
 		JRadioButton rdbtnBestOfFriends = new JRadioButton("Best of Friends");
@@ -256,8 +256,13 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnBestOfFriends);
 		rdbtnBestOfFriends.setFont(new Font("Candara", Font.ITALIC, 16));
 		rdbtnBestOfFriends.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		rdbtnBestOfFriends.setBounds(73, 367, 232, 29);
+		rdbtnBestOfFriends.setBounds(115, 401, 232, 29);
 		add(rdbtnBestOfFriends);
+		
+		JLabel label_1 = new JLabel("   SPA PACKAGES\r\n");
+		label_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		label_1.setBounds(475, -39, 265, 121);
+		add(label_1);
 
 	}
 }

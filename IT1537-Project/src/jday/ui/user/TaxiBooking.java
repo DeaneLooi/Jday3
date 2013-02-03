@@ -18,15 +18,13 @@ import java.io.IOException;
 
 import jday.util.BackgroundPanel;
 
-public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
+public class TaxiBooking  extends BackgroundPanel{
 	
 	private JTable table;
 
-	/**
-	 * Create the panel.
-	 */
 	public TaxiBooking() {
 		super();
+		setBackground(new Color(0, 0, 255));
 		initialize();
 	}
 	
@@ -52,7 +50,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 				try {
 					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.cdgtaxi.com.sg/commuters_service_rates.mvn");
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
@@ -67,7 +65,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 				try {
 					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.smrt.com.sg/Taxis/FaresSurcharges.aspx");
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
@@ -82,98 +80,83 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 				try {
 					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.premiertaxi.com/our_commuters/taxi_fare.asp");
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
 		});
 		lblPremierTaxis_1.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
-		lblPremierTaxis_1.setBounds(607, 175, 84, 14);
+		lblPremierTaxis_1.setBounds(592, 195, 84, 14);
 		add(lblPremierTaxis_1);
 		lblSmrt_1.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
-		lblSmrt_1.setBounds(414, 175, 38, 14);
+		lblSmrt_1.setBounds(414, 195, 38, 14);
 		add(lblSmrt_1);
 		lblComfortDelgroWeb.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
-		lblComfortDelgroWeb.setBounds(186, 175, 106, 14);
+		lblComfortDelgroWeb.setBounds(186, 195, 106, 14);
 		add(lblComfortDelgroWeb);
 		lblImgComfort.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/comfortCity.jpg")));
-		lblImgComfort.setBounds(131, 26, 221, 112);
+		lblImgComfort.setBounds(132, 58, 221, 112);
 		add(lblImgComfort);
 		
 		JLabel lblImgSMRT = new JLabel("");
-		lblImgSMRT.setBounds(334, 26, 204, 112);
+		lblImgSMRT.setBounds(335, 58, 204, 112);
 		lblImgSMRT.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/SMRT.jpg")));
 		add(lblImgSMRT);
 		
 		JLabel lblImgPremier = new JLabel("");
 		lblImgPremier.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/PremierTaxi.jpg")));
-		lblImgPremier.setBounds(536, 26, 190, 112);
+		lblImgPremier.setBounds(537, 58, 190, 112);
 		add(lblImgPremier);
 		
 		JLabel lblBookingNumber = new JLabel("Telephone No.");
+		lblBookingNumber.setBackground(new Color(0, 0, 255));
 		lblBookingNumber.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
 		lblBookingNumber.setForeground(UIManager.getColor("MenuItem.foreground"));
-		lblBookingNumber.setBounds(36, 154, 84, 14);
+		lblBookingNumber.setBounds(44, 181, 84, 14);
 		add(lblBookingNumber);
 		
 		JLabel lblWebsite = new JLabel("Website");
+		lblWebsite.setBackground(new Color(0, 0, 255));
 		lblWebsite.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
 		lblWebsite.setForeground(UIManager.getColor("MenuItem.foreground"));
-		lblWebsite.setBounds(76, 174, 44, 14);
+		lblWebsite.setBounds(82, 195, 46, 14);
 		add(lblWebsite);
 		
-		JLabel label_1 = new JLabel("Current Booking");
-		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		label_1.setForeground(UIManager.getColor("MenuItem.foreground"));
-		label_1.setBounds(28, 278, 94, 14);
-		add(label_1);
-		
-		JLabel label_2 = new JLabel("Current Booking");
-		label_2.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		label_2.setForeground(UIManager.getColor("MenuItem.foreground"));
-		label_2.setBounds(26, 440, 94, 14);
-		add(label_2);
-		
-		JLabel label_3 = new JLabel("Advance Booking");
-		label_3.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		label_3.setForeground(UIManager.getColor("MenuItem.foreground"));
-		label_3.setBounds(25, 310, 100, 14);
-		add(label_3);
-		
-		JLabel label_4 = new JLabel("Advance Booking");
-		label_4.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		label_4.setForeground(UIManager.getColor("MenuItem.foreground"));
-		label_4.setBounds(24, 456, 93, 14);
-		add(label_4);
+		JLabel lblBooking = new JLabel("Booking Type:");
+		lblBooking.setBackground(new Color(0, 0, 255));
+		lblBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 11));
+		lblBooking.setForeground(UIManager.getColor("MenuItem.foreground"));
+		lblBooking.setBounds(44, 287, 88, 14);
+		add(lblBooking);
 		
 		JLabel label_5 = new JLabel("Normal Taxis");
 		label_5.setFont(new Font("Candara", Font.BOLD, 13));
-		label_5.setBounds(177, 195, 84, 14);
+		label_5.setBounds(186, 217, 84, 14);
 		add(label_5);
 		
 		JLabel label_6 = new JLabel("Normal Taxis");
 		label_6.setFont(new Font("Candara", Font.BOLD, 13));
-		label_6.setBounds(395, 195, 84, 14);
+		label_6.setBounds(395, 217, 84, 14);
 		add(label_6);
 		
 		JLabel label_7 = new JLabel("Normal Taxis [SilverCab]");
 		label_7.setFont(new Font("Candara", Font.BOLD, 13));
-		label_7.setBounds(566, 195, 139, 14);
+		label_7.setBounds(565, 217, 139, 14);
 		add(label_7);
 		
 		JLabel label_8 = new JLabel("Limousine Taxis");
 		label_8.setFont(new Font("Candara", Font.BOLD, 13));
-		label_8.setBounds(183, 340, 99, 14);
+		label_8.setBounds(186, 368, 99, 14);
 		add(label_8);
 		
 		JLabel label_9 = new JLabel("Limousine Taxis");
 		label_9.setFont(new Font("Candara", Font.BOLD, 13));
-		label_9.setBounds(380, 340, 99, 14);
+		label_9.setBounds(395, 368, 99, 14);
 		add(label_9);
 		
 		JLabel label_10 = new JLabel("Limousine Taxis");
 		label_10.setFont(new Font("Candara", Font.BOLD, 13));
-		label_10.setBounds(574, 340, 99, 14);
+		label_10.setBounds(577, 368, 99, 14);
 		add(label_10);
 		
 		table = new JTable();
@@ -183,7 +166,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		table.setFont(new Font("Candara", Font.PLAIN, 12));
 		table.setShowGrid(false);
 		table.setShowHorizontalLines(false);
-		table.setBackground(new Color(245, 245, 245));
+		table.setBackground(new Color(255, 204, 255));
 		table.setShowVerticalLines(false);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -214,7 +197,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 				"New column", "New column", "New column"
 			}
 		));
-		table.setBounds(131, 137, 596, 352);
+		table.setBounds(132, 157, 595, 332);
 		add(table);
 		
 		JLabel lblPremierTaxis = new JLabel("Premier Taxis");
@@ -236,6 +219,34 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		lblSmrt.setFont(new Font("Candara", Font.BOLD, 12));
 		lblSmrt.setBounds(422, 181, 94, 14);
 		add(lblSmrt);
+		
+		JLabel lblCurrent = new JLabel("Current");
+		lblCurrent.setBackground(new Color(0, 0, 255));
+		lblCurrent.setForeground(Color.BLACK);
+		lblCurrent.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblCurrent.setBounds(82, 302, 46, 14);
+		add(lblCurrent);
+		
+		JLabel lblAdvance = new JLabel("Advance");
+		lblAdvance.setBackground(new Color(0, 0, 255));
+		lblAdvance.setForeground(Color.BLACK);
+		lblAdvance.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblAdvance.setBounds(82, 332, 46, 14);
+		add(lblAdvance);
+		
+		JLabel label = new JLabel("Current");
+		label.setForeground(Color.BLACK);
+		label.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		label.setBackground(Color.BLUE);
+		label.setBounds(82, 463, 46, 14);
+		add(label);
+		
+		JLabel label_1 = new JLabel("Advance");
+		label_1.setForeground(Color.BLACK);
+		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		label_1.setBackground(Color.BLUE);
+		label_1.setBounds(82, 477, 46, 14);
+		add(label_1);
 
 	}
 }

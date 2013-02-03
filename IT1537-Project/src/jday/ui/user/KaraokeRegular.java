@@ -30,15 +30,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 
-public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
+public class KaraokeRegular extends BackgroundPanel {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	protected static final JComponent txtpnRoomTypeCorporate = null;
 	protected static final JComponent txtpnRoomTypeFamily = null;
 	protected static final JComponent txtpnRoomTypeFriends = null;
 	
-	/**
-	 * Create the panel.
-	 */
 	public KaraokeRegular() {
 		super();
 		initialize();
@@ -65,29 +62,29 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 			}
 		});
 		
-		JLabel lblKaraokeRooms = new JLabel("KARAOKE ROOMS");
-		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class
-				.getResource("/images/microphone.png")));
-		lblKaraokeRooms.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		lblKaraokeRooms.setBounds(12, -14, 286, 155);
+		JLabel lblKaraokeRooms = new JLabel("Lifestyle");
+		lblKaraokeRooms.setHorizontalAlignment(SwingConstants.LEFT);
+		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/microphone.png")));
+		lblKaraokeRooms.setFont(new Font("Trebuchet MS", Font.ITALIC, 18));
+		lblKaraokeRooms.setBounds(56, 29, 214, 101);
 		add(lblKaraokeRooms);
 
 		
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setOpaque(false);
-		button.setBounds(116, 445, 95, 32);
+		button.setBounds(151, 445, 95, 32);
 		add(button);
 		
-				final JTextPane txtpnRoomTypeCorporate_1 = new JTextPane();
-				txtpnRoomTypeCorporate_1.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
-				txtpnRoomTypeCorporate_1.setFont(new Font("Candara", Font.PLAIN, 15));
-				txtpnRoomTypeCorporate_1.setEditable(false);
-				txtpnRoomTypeCorporate_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
-				txtpnRoomTypeCorporate_1.setBackground(new Color(250, 235, 215));
-				txtpnRoomTypeCorporate_1.setAlignmentY(5.0f);
-				txtpnRoomTypeCorporate_1.setAlignmentX(3.0f);
-				txtpnRoomTypeCorporate_1.setBounds(12, 125, 286, 312);
-				add(txtpnRoomTypeCorporate_1);
+		final JTextPane txtpnRoomTypeCorporate_1 = new JTextPane();
+		txtpnRoomTypeCorporate_1.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeCorporate_1.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnRoomTypeCorporate_1.setEditable(false);
+		txtpnRoomTypeCorporate_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
+		txtpnRoomTypeCorporate_1.setBackground(new Color(250, 235, 215));
+		txtpnRoomTypeCorporate_1.setAlignmentY(5.0f);
+		txtpnRoomTypeCorporate_1.setAlignmentX(3.0f);
+		txtpnRoomTypeCorporate_1.setBounds(67, 134, 277, 300);
+		add(txtpnRoomTypeCorporate_1);
 
 		final JTextPane txtpnRoomTypeFamily = new JTextPane();
 		txtpnRoomTypeFamily.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
@@ -97,7 +94,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		txtpnRoomTypeFamily.setBackground(new Color(255, 204, 255));
 		txtpnRoomTypeFamily.setAlignmentY(5.0f);
 		txtpnRoomTypeFamily.setAlignmentX(3.0f);
-		txtpnRoomTypeFamily.setBounds(12, 125, 286, 312);
+		txtpnRoomTypeFamily.setBounds(67, 134, 277, 300);
 		add(txtpnRoomTypeFamily);
 
 		final JTextPane txtpnRoomTypeFriends = new JTextPane();
@@ -108,7 +105,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		txtpnRoomTypeFriends.setBackground(new Color(250, 235, 215));
 		txtpnRoomTypeFriends.setAlignmentY(5.0f);
 		txtpnRoomTypeFriends.setAlignmentX(3.0f);
-		txtpnRoomTypeFriends.setBounds(12, 125, 286, 312);
+		txtpnRoomTypeFriends.setBounds(67, 134, 277, 300);
 		add(txtpnRoomTypeFriends);
 
 		JRadioButton rdbtnCorporateRoom = new JRadioButton("            Corporate Room");
@@ -125,7 +122,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnCorporateRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnCorporateRoom.setOpaque(false);
 		rdbtnCorporateRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/BusinessRoom.png")));
-		rdbtnCorporateRoom.setBounds(329, 18, 385, 150);
+		rdbtnCorporateRoom.setBounds(359, 83, 366, 125);
 		add(rdbtnCorporateRoom);
 
 		JRadioButton rdbtnFamilyRoom = new JRadioButton("           Family Room");
@@ -142,7 +139,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnFamilyRoom.setOpaque(false);
 		rdbtnFamilyRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FamilyRoom.png")));
 		rdbtnFamilyRoom.setFont(new Font("Candara", Font.PLAIN, 16));
-		rdbtnFamilyRoom.setBounds(329, 178, 385, 150);
+		rdbtnFamilyRoom.setBounds(359, 221, 366, 128);
 		add(rdbtnFamilyRoom);
 
 		JRadioButton rdbtnFriendsRoom = new JRadioButton("           Friends Room");
@@ -150,8 +147,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				txtpnRoomTypeCorporate_1.setVisible(false);
-				txtpnRoomTypeFamily
-				.setVisible(false);
+				txtpnRoomTypeFamily.setVisible(false);
 				txtpnRoomTypeFriends.setVisible(true);
 			}
 		});
@@ -160,8 +156,13 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnFriendsRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FriendsRoom.png")));
 		rdbtnFriendsRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnFriendsRoom.setOpaque(false);
-		rdbtnFriendsRoom.setBounds(329, 343, 385, 144);
+		rdbtnFriendsRoom.setBounds(359, 362, 366, 125);
 		add(rdbtnFriendsRoom);
+		
+		JLabel label = new JLabel("KARAOKE ROOMS");
+		label.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		label.setBounds(476, -25, 233, 95);
+		add(label);
 	}
 
 }
