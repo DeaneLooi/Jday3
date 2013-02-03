@@ -42,8 +42,8 @@ public class Gym  extends BackgroundPanel{
 		
 		JLabel lblGymProgrammes = new JLabel("Gym Programmes");
 		lblGymProgrammes.setForeground(new Color(0, 0, 0));
-		lblGymProgrammes.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lblGymProgrammes.setBounds(51, 11, 160, 14);
+		lblGymProgrammes.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblGymProgrammes.setBounds(410, 19, 174, 27);
 		add(lblGymProgrammes);
 		
 		list = new JList();
@@ -52,7 +52,7 @@ public class Gym  extends BackgroundPanel{
 		list.setBounds(51, 103, 193, 92);
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setLocation(51, 30);
+		scrollPane.setLocation(89, 41);
 		scrollPane.setSize(160, 70);
 		add(scrollPane);
 		list.setModel(new AbstractListModel() {
@@ -106,7 +106,7 @@ public class Gym  extends BackgroundPanel{
 		txtpnGymInformation.setEditable(false);
 		txtpnGymInformation.setForeground(new Color(0, 0, 0));
 		txtpnGymInformation.setText("Gym Information:\r\n\r\nIsland Gym Operating Hours\r\nDaily,\t7:00am to 9:00pm\r\n\r\nBukit Gym Operating Hours\r\nMonday, Wednesday & Friday  -  6.30am to 9.30pm\r\nTuesday & Thursday - 7.00am to 9.30pm\r\nWeekends, eve of Public Holiday - 7.00am to 9.00pm");
-		txtpnGymInformation.setBounds(51, 120, 200, 287);
+		txtpnGymInformation.setBounds(81, 138, 200, 287);
 		add(txtpnGymInformation);
 		
 		list.addListSelectionListener(

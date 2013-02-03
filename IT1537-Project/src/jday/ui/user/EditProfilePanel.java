@@ -61,33 +61,33 @@ public class EditProfilePanel extends BackgroundPanel {
 		
 		JLabel lblCheckingOfParticulars = new JLabel("Checking of particulars");
 		lblCheckingOfParticulars.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCheckingOfParticulars.setFont(new Font("Candara", Font.BOLD, 16));
+		lblCheckingOfParticulars.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblCheckingOfParticulars.setForeground(new Color(0, 0, 0));
-		lblCheckingOfParticulars.setBounds(206, 11, 253, 45);
+		lblCheckingOfParticulars.setBounds(395, 5, 253, 45);
 		add(lblCheckingOfParticulars);
 		
 		JLabel lblName = new JLabel("Name:");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblName.setBounds(20, 210, 178, 36);
+		lblName.setBounds(60, 207, 178, 36);
 		add(lblName);
 		
 		JLabel lblBirthdate = new JLabel("Birthdate:");
 		lblBirthdate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBirthdate.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblBirthdate.setBounds(20, 257, 178, 36);
+		lblBirthdate.setBounds(60, 254, 178, 36);
 		add(lblBirthdate);
 		
 		JLabel lblContactNoh = new JLabel("Contact No (H):");
 		lblContactNoh.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContactNoh.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblContactNoh.setBounds(20, 351, 178, 36);
+		lblContactNoh.setBounds(60, 348, 178, 36);
 		add(lblContactNoh);
 		
 		JLabel lblContactNom = new JLabel("Contact No (M):");
 		lblContactNom.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContactNom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblContactNom.setBounds(20, 304, 178, 36);
+		lblContactNom.setBounds(60, 301, 178, 36);
 		add(lblContactNom);
 		
 		JLabel lblEmail = new JLabel("Email:");
@@ -135,7 +135,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfName = new JTextField();
 		tfName.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfName.setForeground(new Color(0, 0, 0));
-		tfName.setBounds(172, 210, 198, 36);
+		tfName.setBounds(212, 207, 198, 36);
 		tfName.setColumns(10);
 		tfName.setText(m.getName());
 		add(tfName);
@@ -146,7 +146,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfBirthdate.setForeground(Color.BLACK);
 		tfBirthdate.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfBirthdate.setColumns(10);
-		tfBirthdate.setBounds(172, 257, 198, 36);
+		tfBirthdate.setBounds(212, 254, 198, 36);
 		tfBirthdate.setText(m.getBirthdate());
 		add(tfBirthdate);
 		
@@ -154,7 +154,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfContactNoH.setForeground(Color.BLACK);
 		tfContactNoH.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfContactNoH.setColumns(10);
-		tfContactNoH.setBounds(172, 352, 198, 36);
+		tfContactNoH.setBounds(212, 349, 198, 36);
 		tfContactNoH.setText(Integer.toString(m.getContactnoH()));
         tfContactNoH.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
@@ -175,7 +175,7 @@ public class EditProfilePanel extends BackgroundPanel {
 		tfContactNoM.setForeground(Color.BLACK);
 		tfContactNoM.setFont(new Font("Candara", Font.PLAIN, 16));
 		tfContactNoM.setColumns(10);
-		tfContactNoM.setBounds(172, 304, 198, 36);
+		tfContactNoM.setBounds(212, 301, 198, 36);
 		tfContactNoM.setText(Integer.toString(m.getContactnoM()));
         tfContactNoM.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {

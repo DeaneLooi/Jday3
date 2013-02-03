@@ -60,9 +60,9 @@ public class CoursesRegister extends BackgroundPanel{
 		JLabel lblCheck = new JLabel("Please check your particulars:");
 		lblCheck.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCheck.setBackground(Color.BLACK);
-		lblCheck.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 30));
+		lblCheck.setFont(new Font("Candara", Font.BOLD, 17));
 		lblCheck.setForeground(new Color(0, 0, 0));
-		lblCheck.setBounds(10, 11, 600, 36);
+		lblCheck.setBounds(94, 85, 600, 36);
 		add(lblCheck);
 		
 		JLabel lblName = new JLabel("Name:");
@@ -70,55 +70,55 @@ public class CoursesRegister extends BackgroundPanel{
 		lblName.setBackground(Color.BLACK);
 		lblName.setFont(new Font("Candara", Font.BOLD, 16));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblName.setBounds(10, 58, 232, 22);
+		lblName.setBounds(106, 132, 232, 22);
 		add(lblName);
 		
 		JLabel lblBirthdate = new JLabel("Birthdate:");
 		lblBirthdate.setForeground(new Color(0, 0, 0));
 		lblBirthdate.setFont(new Font("Candara", Font.BOLD, 16));
 		lblBirthdate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBirthdate.setBounds(10, 91, 232, 22);
+		lblBirthdate.setBounds(106, 165, 232, 22);
 		add(lblBirthdate);
 		
 		JLabel lblContactNoh = new JLabel("Contact No (H):");
 		lblContactNoh.setForeground(new Color(0, 0, 0));
 		lblContactNoh.setFont(new Font("Candara", Font.BOLD, 16));
 		lblContactNoh.setHorizontalAlignment(SwingConstants.CENTER);
-		lblContactNoh.setBounds(10, 124, 232, 22);
+		lblContactNoh.setBounds(106, 198, 232, 22);
 		add(lblContactNoh);
 		
 		JLabel lblContactNom = new JLabel("Contact No (M):");
 		lblContactNom.setForeground(new Color(0, 0, 0));
 		lblContactNom.setFont(new Font("Candara", Font.BOLD, 16));
 		lblContactNom.setHorizontalAlignment(SwingConstants.CENTER);
-		lblContactNom.setBounds(10, 157, 232, 22);
+		lblContactNom.setBounds(106, 231, 232, 22);
 		add(lblContactNom);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setForeground(new Color(0, 0, 0));
 		lblEmail.setFont(new Font("Candara", Font.BOLD, 16));
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setBounds(10, 190, 232, 22);
+		lblEmail.setBounds(106, 264, 232, 22);
 		add(lblEmail);
 		
 		JLabel lblMemberId = new JLabel("Member ID");
 		lblMemberId.setForeground(new Color(0, 0, 0));
 		lblMemberId.setFont(new Font("Candara", Font.BOLD, 16));
 		lblMemberId.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMemberId.setBounds(10, 223, 232, 22);
+		lblMemberId.setBounds(106, 297, 232, 22);
 		add(lblMemberId);
 		
 		JLabel lblAddress = new JLabel("Address:");
 		lblAddress.setForeground(new Color(0, 0, 0));
 		lblAddress.setFont(new Font("Candara", Font.BOLD, 16));
 		lblAddress.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAddress.setBounds(10, 256, 232, 22);
+		lblAddress.setBounds(106, 330, 232, 22);
 		add(lblAddress);
 		
 		Name = new JTextField(m.getName());
 		Name.setFont(new Font("Candara", Font.PLAIN, 16));
 		Name.setForeground(new Color(0, 0, 0));
-		Name.setBounds(252, 58, 296, 20);
+		Name.setBounds(348, 132, 296, 20);
 		add(Name);
 		Name.setColumns(10);
 		
@@ -126,28 +126,28 @@ public class CoursesRegister extends BackgroundPanel{
 		Birthdate.setForeground(new Color(0, 0, 0));
 		Birthdate.setFont(new Font("Candara", Font.PLAIN, 16));
 		Birthdate.setColumns(10);
-		Birthdate.setBounds(252, 94, 296, 20);
+		Birthdate.setBounds(348, 168, 296, 20);
 		add(Birthdate);
 		
 		ContactNoH = new JTextField(Integer.toString(m.getContactnoH()));
 		ContactNoH.setForeground(new Color(0, 0, 0));
 		ContactNoH.setFont(new Font("Candara", Font.PLAIN, 16));
 		ContactNoH.setColumns(10);
-		ContactNoH.setBounds(252, 127, 296, 20);
+		ContactNoH.setBounds(348, 201, 296, 20);
 		add(ContactNoH);
 		
 		ContactNoM = new JTextField(Integer.toString(m.getContactnoM()));
 		ContactNoM.setFont(new Font("Candara", Font.PLAIN, 16));
 		ContactNoM.setForeground(new Color(0, 0, 0));
 		ContactNoM.setColumns(10);
-		ContactNoM.setBounds(252, 160, 296, 20);
+		ContactNoM.setBounds(348, 234, 296, 20);
 		add(ContactNoM);
 		
 		Email = new JTextField(m.getEmail());
 		Email.setForeground(new Color(0, 0, 0));
 		Email.setFont(new Font("Candara", Font.PLAIN, 16));
 		Email.setColumns(10);
-		Email.setBounds(252, 193, 296, 20);
+		Email.setBounds(348, 267, 296, 20);
 		add(Email);
 		
 		MemberID = new JTextField(m.getMemberid());
@@ -155,14 +155,14 @@ public class CoursesRegister extends BackgroundPanel{
 		MemberID.setFont(new Font("Candara", Font.PLAIN, 16));
 		MemberID.setForeground(new Color(0, 0, 0));
 		MemberID.setColumns(10);
-		MemberID.setBounds(252, 226, 296, 20);
+		MemberID.setBounds(348, 300, 296, 20);
 		add(MemberID);
 		
 		Address = new JTextField(m.getAddress());
 		Address.setForeground(new Color(0, 0, 0));
 		Address.setFont(new Font("Candara", Font.PLAIN, 16));
 		Address.setColumns(10);
-		Address.setBounds(252, 256, 296, 36);
+		Address.setBounds(348, 330, 296, 36);
 		add(Address);
 		
 		JButton btnEdit = new JButton("edit");
@@ -186,7 +186,7 @@ public class CoursesRegister extends BackgroundPanel{
 		});
 		btnEdit.setFont(new Font("Candara", Font.PLAIN, 16));
 		btnEdit.setForeground(new Color(0, 0, 0));
-		btnEdit.setBounds(252, 303, 89, 23);
+		btnEdit.setBounds(348, 377, 89, 23);
 		add(btnEdit);
 		
 		JButton btnConfirm = new JButton("Confirm");
@@ -217,7 +217,7 @@ public class CoursesRegister extends BackgroundPanel{
 				*/
 			}
 		});
-		btnConfirm.setBounds(369, 303, 89, 23);
+		btnConfirm.setBounds(465, 377, 89, 23);
 		add(btnConfirm);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -233,7 +233,13 @@ public class CoursesRegister extends BackgroundPanel{
 		});
 		btnCancel.setForeground(new Color(0, 0, 0));
 		btnCancel.setFont(new Font("Candara", Font.PLAIN, 16));
-		btnCancel.setBounds(483, 303, 89, 23);
+		btnCancel.setBounds(579, 377, 89, 23);
 		add(btnCancel);
+		
+		JLabel lblCourseRegister = new JLabel("Course Register");
+		lblCourseRegister.setForeground(new Color(0, 0, 0));
+		lblCourseRegister.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblCourseRegister.setBounds(434, 0, 287, 47);
+		add(lblCourseRegister);
 	}
 }

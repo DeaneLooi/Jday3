@@ -53,11 +53,13 @@ public class Courses extends BackgroundPanel{
 
 		
 		final JTable tableList = new JTable();
+		tableList.setBackground(new Color(216, 191, 216));
 		ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
 		tableList.setModel(model);
 		tableList.setBounds(0,0,850,165);
+		tableList.setRowHeight(30);
 		tableList.getColumnModel().getColumn(0).setPreferredWidth(75);
-		tableList.getColumnModel().getColumn(1).setPreferredWidth(300);
+		tableList.getColumnModel().getColumn(1).setPreferredWidth(150);
 		tableList.getColumnModel().getColumn(2).setPreferredWidth(300);
 		tableList.getColumnModel().getColumn(3).setPreferredWidth(200);
 		tableList.getColumnModel().getColumn(4).setPreferredWidth(300);
@@ -85,8 +87,15 @@ public class Courses extends BackgroundPanel{
 			
 		});
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(0, 75, 750, 165);
+		scrollPane.setBounds(64, 75, 664, 303);
 		add(scrollPane);
+		
+		JLabel lblCourses = new JLabel("Courses");
+		lblCourses.setForeground(new Color(0, 0, 0));
+		lblCourses.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblCourses.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCourses.setBounds(381, 11, 333, 31);
+		add(lblCourses);
 
 	}
 }

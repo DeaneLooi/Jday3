@@ -105,6 +105,13 @@ public class AProfile extends BackgroundPanel{
 				ArrayList <Member> mlist = MemberDAO.searchByName(name);
 				ProfileTableModel model = new ProfileTableModel(mlist);
 				table.setModel(model);
+				table.getColumnModel().getColumn(0).setPreferredWidth(180);
+				table.getColumnModel().getColumn(1).setPreferredWidth(180);
+				table.getColumnModel().getColumn(2).setPreferredWidth(180);
+				table.getColumnModel().getColumn(3).setPreferredWidth(180);
+				table.getColumnModel().getColumn(4).setPreferredWidth(180);
+				table.getColumnModel().getColumn(5).setPreferredWidth(400);
+				table.getColumnModel().getColumn(6).setPreferredWidth(400);
 			}
 		});
 		btnSearch.setBounds(345, 445, 89, 23);

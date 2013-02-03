@@ -21,6 +21,7 @@ import jday.entities.CourseBooking;
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import jday.util.ClassTableModel;
+import java.awt.Color;
 
 public class AUpdateCourse extends BackgroundPanel{
 	
@@ -48,7 +49,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		setSize(750,500);
 		
 		JButton btnAddCourse = new JButton("Add Course");
-		btnAddCourse.setBounds(41, 405, 130, 37);
+		btnAddCourse.setBounds(70, 391, 130, 37);
 		btnAddCourse.setOpaque(false);
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -63,7 +64,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		add(btnAddCourse);
 		
 		JButton btnRemoveCourse = new JButton("Remove Course");
-		btnRemoveCourse.setBounds(210, 405, 161, 37);
+		btnRemoveCourse.setBounds(229, 391, 161, 37);
 		btnRemoveCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -79,6 +80,8 @@ public class AUpdateCourse extends BackgroundPanel{
 		
 
 		ClassTableModel model = new ClassTableModel(CourseBooking.retrieveCourses());
+		tableList.setBackground(new Color(216, 191, 216));
+		tableList.setRowHeight(30);
 		tableList.setModel(model);
 		tableList.setBounds(0,0,850,165);
 		tableList.getColumnModel().getColumn(0).setPreferredWidth(75);
@@ -88,7 +91,7 @@ public class AUpdateCourse extends BackgroundPanel{
 		tableList.getColumnModel().getColumn(4).setPreferredWidth(300);
 		
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(0, 133, 750, 165);
+		scrollPane.setBounds(70, 204, 670, 165);
 		add(scrollPane);
 		
 		JLabel lblLogo = new JLabel("");
@@ -104,8 +107,13 @@ public class AUpdateCourse extends BackgroundPanel{
 			}
 		});
 		lblLogo.setIcon(new ImageIcon(AUpdateCourse.class.getResource("/images/90logo.png")));
-		lblLogo.setBounds(10, 11, 130, 97);
+		lblLogo.setBounds(58, 26, 130, 97);
 		add(lblLogo);
+		
+		JLabel lblUpdateCourse = new JLabel("Update Course");
+		lblUpdateCourse.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblUpdateCourse.setBounds(434, 11, 283, 29);
+		add(lblUpdateCourse);
 
 	}
 	

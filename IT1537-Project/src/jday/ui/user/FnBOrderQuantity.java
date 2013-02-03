@@ -15,31 +15,34 @@ import jday.entities.FnB;
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import jday.util.FnBTableModel;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class FnBOrderQuantity extends BackgroundPanel{
 
 
 	public FnBOrderQuantity(){
 		super();
-		setLayout(null);
 
-	}
-	public FnBOrderQuantity(JFrame f,ArrayList<FnB>fnb, Member mem){
+	} 
+	public FnBOrderQuantity(JFrame f,ArrayList<FnB>fnb, Member mem){ 
 		super();
 		myFrame = f;
 		ArrayList<FnB>list = new ArrayList<FnB>(fnb);
 		this.m = mem;
-		
 		setSize(750,500);
 		setLayout(null);
 		final JTable tableList = new JTable(new FnBTableModel(list));
+		tableList.setBackground(new Color(216, 191, 216));;
+		tableList.setRowHeight(30);
 		tableList.setBounds(0,0,510,165);
 		tableList.setShowGrid(false);
 		tableList.setShowVerticalLines(false);
 		tableList.setShowGrid(false);
 		tableList.setShowHorizontalLines(false);
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(30, 75, 510, 165);
+		scrollPane.setBounds(79, 127, 510, 165);
 		add(scrollPane);
 	
 		JButton btnConfirm = new JButton("Confirm");
@@ -87,6 +90,13 @@ public class FnBOrderQuantity extends BackgroundPanel{
 		btnBack.setFont(new Font("Candara", Font.BOLD, 16));
 		btnBack.setBounds(85, 400, 100, 54);
 		add(btnBack);
+		
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantity.setForeground(Color.BLACK);
+		lblQuantity.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblQuantity.setBounds(361, 11, 228, 39);
+		add(lblQuantity);
 
 	}
 }

@@ -81,7 +81,7 @@ public class ARegister extends BackgroundPanel {
 		setSize(new Dimension(750, 500));
 		
 		JLabel label = new JLabel("logo");
-		label.setBounds(10, 11, 94, 102);
+		label.setBounds(49, 24, 94, 102);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -209,69 +209,69 @@ public class ARegister extends BackgroundPanel {
 		});
 		add(btnCreate);
 		
-		JLabel lblJdayRegister = new JLabel("JDAY Register");
-		lblJdayRegister.setBounds(124, 46, 222, 43);
-		lblJdayRegister.setFont(new Font("Trebuchet MS", Font.PLAIN, 30));
+		JLabel lblJdayRegister = new JLabel("Register");
+		lblJdayRegister.setBounds(478, 0, 202, 39);
+		lblJdayRegister.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		add(lblJdayRegister);
 		
 		JLabel lblName = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Name:\r\n</html>");
-		lblName.setBounds(162, 192, 54, 23);
+		lblName.setBounds(166, 218, 54, 23);
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblName);
 		
 		JLabel lbldetails = new JLabel("Please enter your details:");
-		lbldetails.setBounds(44, 125, 246, 29);
+		lbldetails.setBounds(79, 146, 246, 29);
 		lbldetails.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		add(lbldetails);
 		
 		JLabel lblMemberId = new JLabel("Member ID:");
-		lblMemberId.setBounds(418, 192, 89, 24);
+		lblMemberId.setBounds(422, 218, 89, 24);
 		lblMemberId.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblMemberId);
 		
 		JLabel lblContactNumberh = new JLabel("Contact number (H):");
-		lblContactNumberh.setBounds(64, 336, 158, 23);
+		lblContactNumberh.setBounds(68, 362, 158, 23);
 		lblContactNumberh.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblContactNumberh);
 		
 		JLabel lblContactNumberm = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Contact number (M):\r\n</html>");
-		lblContactNumberm.setBounds(64, 282, 158, 29);
+		lblContactNumberm.setBounds(68, 308, 158, 29);
 		lblContactNumberm.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblContactNumberm);
 		
 		JLabel lblEmail = new JLabel("<html>\r\n<span style=\"color:red\">*</span>E-mail:\r\n</html>");
-		lblEmail.setBounds(454, 237, 54, 22);
+		lblEmail.setBounds(458, 263, 54, 22);
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblEmail);
 		
 		JLabel lblBirthDate = new JLabel("Birth date:");
-		lblBirthDate.setBounds(138, 237, 81, 23);
+		lblBirthDate.setBounds(142, 263, 81, 23);
 		lblBirthDate.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblBirthDate);
 		
 		JLabel lblAddress = new JLabel("Address: ");
-		lblAddress.setBounds(439, 284, 68, 24);
+		lblAddress.setBounds(443, 310, 68, 24);
 		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		add(lblAddress);
 		
 		JLabel lblPin = new JLabel("PIN:");
 		lblPin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPin.setBounds(179, 381, 37, 23);
+		lblPin.setBounds(183, 407, 37, 23);
 		add(lblPin);
 		
 		
 		tfname = new JTextField();
-		tfname.setBounds(226, 194, 140, 23);
+		tfname.setBounds(230, 220, 140, 23);
 		add(tfname);
 		tfname.setColumns(10);
 		
 		tfbirthdate = new JTextField();
-		tfbirthdate.setBounds(226, 237, 140, 23);
+		tfbirthdate.setBounds(230, 263, 140, 23);
 		tfbirthdate.setColumns(10);
 		add(tfbirthdate);
 		
 		tfnoM = new JTextField("0");
-		tfnoM.setBounds(226, 285, 140, 23);
+		tfnoM.setBounds(230, 311, 140, 23);
 		tfnoM.setColumns(10);
 		add(tfnoM);
         tfnoM.addKeyListener(new KeyAdapter() {
@@ -290,7 +290,7 @@ public class ARegister extends BackgroundPanel {
     });
 		
 		tfnoh = new JTextField("0");
-		tfnoh.setBounds(226, 336, 140, 23);
+		tfnoh.setBounds(230, 362, 140, 23);
 		tfnoh.setColumns(10);
 		add(tfnoh);
         tfnoh.addKeyListener(new KeyAdapter() {
@@ -309,70 +309,70 @@ public class ARegister extends BackgroundPanel {
     });
 		
 		tfmemberid = new JTextField(getMemberid());
-		tfmemberid.setBounds(531, 192, 141, 23);
+		tfmemberid.setBounds(535, 218, 141, 23);
 		tfmemberid.setColumns(10);
 		add(tfmemberid);
 		
 		tfemail = new JTextField();
-		tfemail.setBounds(532, 237, 140, 23);
+		tfemail.setBounds(536, 263, 140, 23);
 		tfemail.setColumns(10);
 		add(tfemail);
 		
 		taaddress = new JTextArea();
 		taaddress.setBorder(new LineBorder(UIManager.getColor("Button.shadow")));
-		taaddress.setBounds(531, 286, 141, 75);
+		taaddress.setBounds(535, 312, 141, 75);
 		add(taaddress);
 
 		pwdPin = new JPasswordField(Integer.toString(getPin()));
 		pwdPin.setEchoChar('*');
-		pwdPin.setBounds(226, 384, 140, 23);
+		pwdPin.setBounds(230, 410, 140, 23);
 		pwdPin.setEditable(false);
 		add(pwdPin);
 		
 		cbbmembertype = new JComboBox();
 		cbbmembertype.setModel(new DefaultComboBoxModel(new String[] {"Choose member type","Basic member", "Premium member", "Admin", "Kitchen admin"}));
-		cbbmembertype.setBounds(226, 426, 167, 23);
+		cbbmembertype.setBounds(230, 452, 167, 23);
 		cbbmembertype.setMaximumRowCount(3);
 		add(cbbmembertype);
 		
 		JLabel lblmembertype = new JLabel("<html>\r\n<span style=\"color:red\">*</span>Member type:\r\n</html>");
 		lblmembertype.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblmembertype.setBounds(113, 422, 140, 25);
+		lblmembertype.setBounds(117, 448, 140, 25);
 		add(lblmembertype);
 		
 		lblErrorMessage = new JLabel("<html>\r\n<p>All fields with * cannot be blank</p>\r\n</html>");
 		lblErrorMessage.setVerticalAlignment(SwingConstants.TOP);
 		lblErrorMessage.setFont(new Font("Candara", Font.PLAIN, 16));
 		lblErrorMessage.setForeground(Color.RED);
-		lblErrorMessage.setBounds(361, 27, 360, 29);
+		lblErrorMessage.setBounds(362, 61, 360, 29);
 		add(lblErrorMessage);
 		
 		lblNameError = new JLabel();
 		lblNameError.setVerticalAlignment(SwingConstants.TOP);
 		lblNameError.setForeground(Color.RED);
 		lblNameError.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblNameError.setBounds(361, 55, 360, 29);
+		lblNameError.setBounds(362, 89, 360, 29);
 		add(lblNameError);
 		
 		lblEmailError = new JLabel();
 		lblEmailError.setVerticalAlignment(SwingConstants.TOP);
 		lblEmailError.setForeground(Color.RED);
 		lblEmailError.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblEmailError.setBounds(361, 84, 360, 29);
+		lblEmailError.setBounds(362, 118, 360, 29);
 		add(lblEmailError);
 		
 		lblContactError = new JLabel();
 		lblContactError.setVerticalAlignment(SwingConstants.TOP);
 		lblContactError.setForeground(Color.RED);
 		lblContactError.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblContactError.setBounds(361, 112, 360, 29);
+		lblContactError.setBounds(362, 146, 360, 29);
 		add(lblContactError);
 		
 		lblMemberTypeError = new JLabel();
 		lblMemberTypeError.setVerticalAlignment(SwingConstants.TOP);
 		lblMemberTypeError.setForeground(Color.RED);
 		lblMemberTypeError.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblMemberTypeError.setBounds(361, 135, 360, 29);
+		lblMemberTypeError.setBounds(362, 169, 360, 29);
 		add(lblMemberTypeError);
 
 	}

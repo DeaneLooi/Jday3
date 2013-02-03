@@ -23,7 +23,6 @@ public class FnBConfirmation extends BackgroundPanel {
 
 	public FnBConfirmation() {
 		super();
-
 	}
 
 	public FnBConfirmation(JFrame f,Member mem,ArrayList<FnB>fnb) {
@@ -36,16 +35,19 @@ public class FnBConfirmation extends BackgroundPanel {
 		setLayout(null);
 		
 		JLabel lbl = new JLabel("Confirmation Page");
-		lbl.setFont(new Font("Candara", Font.BOLD, 16));
-		lbl.setBounds(50,10,200,100);
+		lbl.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lbl.setForeground(new Color(0,0,0));
+		lbl.setBounds(399,-11,198,78);
 		add(lbl);
 		JTable table = new JTable();
+		table.setBackground(new Color(216, 191, 216));;
+		table.setRowHeight(30);
 		ArrayList<FnB>list = new ArrayList<FnB>(fnb);
 		FnBViewTableModel model = new FnBViewTableModel(list);
 		table.setModel(model);
 		table.setBounds(0,0,600,400);
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(50,75,400,200);
+		scrollPane.setBounds(96,115,400,200);
 		add(scrollPane);
 		
 		JButton btnNewButton = new JButton("Ok");
@@ -62,7 +64,7 @@ public class FnBConfirmation extends BackgroundPanel {
 		btnNewButton.setOpaque(false);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(316, 309, 89, 23);
+		btnNewButton.setBounds(407, 337, 89, 23);
 		add(btnNewButton);
 	}
 }
