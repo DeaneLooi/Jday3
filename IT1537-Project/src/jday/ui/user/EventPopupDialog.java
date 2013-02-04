@@ -67,13 +67,13 @@ public class EventPopupDialog extends JDialog {
 		}
 		
 		
-		getContentPane().setBackground(new Color(240, 240, 240));
+		getContentPane().setBackground(new Color(125, 51, 96));
 		setBounds(new Rectangle(0, 0, 700, 450));
 		setSize(new Dimension(700, 450));
 		setResizable(false);
 		setBounds(100, 100, 593, 393);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(204, 51, 153));
+		contentPanel.setBackground(new Color(125, 51, 96));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -107,16 +107,16 @@ public class EventPopupDialog extends JDialog {
 		
 		JTextPane txpInfo = new JTextPane();
 		txpInfo.setEditable(false);
-		txpInfo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 204, 255)));
-		txpInfo.setForeground(new Color(0, 0, 51));
-		txpInfo.setBackground(new Color(255, 153, 255));
+		txpInfo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		txpInfo.setForeground(new Color(255, 204, 255));
+		txpInfo.setBackground(new Color(153, 0, 102));
 		txpInfo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txpInfo.setText(info);
 		txpInfo.setBounds(271, 11, 306, 310);
 		contentPanel.add(txpInfo);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(204, 51, 153));
+			buttonPane.setBackground(new Color(125, 51, 96));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
