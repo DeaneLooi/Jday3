@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			ABooking
+ * Purpose:					for admin staff to view booking that user booked 
+ * Name of Author:			Di Yuwen
+ * Admin No. of Author:		120923R
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.ui.admin;
 import javax.swing.JPanel;
 import java.awt.Dimension;

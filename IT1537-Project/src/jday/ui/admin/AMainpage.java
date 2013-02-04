@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			
+ * Purpose:					
+ * Name of Author:			
+ * Admin No. of Author:		
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.ui.admin;
 
 import java.awt.Color;

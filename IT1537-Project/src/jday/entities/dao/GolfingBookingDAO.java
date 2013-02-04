@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			GolfingBookingDAO
+ * Purpose:					create golf booking, retrieve golf booking
+ * Name of Author:			Di Yuwen
+ * Admin No. of Author:		120923R
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import java.sql.Connection;

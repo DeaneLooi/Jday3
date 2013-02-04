@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			MemberDAO
+ * Purpose:					register member, search member by name ,retrieve member
+ * Name of Author:			Di Yuwen
+ * Admin No. of Author:		120923r
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import jday.entities.dao.DBConnectionManager;

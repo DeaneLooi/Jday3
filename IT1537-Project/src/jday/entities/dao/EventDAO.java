@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			EventDAO
+ * Purpose:					
+ * Name of Author:			
+ * Admin No. of Author:		
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import java.awt.Component;

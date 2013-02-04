@@ -90,8 +90,8 @@ public class EventCalendar extends BackgroundPanel {
 		add(calendar);
 		
 		JLabel lblEvents = new JLabel("Events");
-		lblEvents.setForeground(new Color(102, 0, 102));
-		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblEvents.setForeground(Color.BLACK);
+		lblEvents.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblEvents.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblEvents.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEvents.setBounds(399, 0, 300, 45);

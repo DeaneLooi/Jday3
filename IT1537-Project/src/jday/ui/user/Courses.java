@@ -87,7 +87,7 @@ public class Courses extends BackgroundPanel{
 			
 		});
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(64, 75, 664, 303);
+		scrollPane.setBounds(64, 120, 664, 340);
 		add(scrollPane);
 		
 		JLabel lblCourses = new JLabel("Courses");

@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			AdminViewBookingDAO
+ * Purpose:					call all the 'retrieveAll()' in different DAO
+ * Name of Author:			Di Yuwen
+ * Admin No. of Author:		120923r
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import jday.entities.dao.DBConnectionManager;

@@ -42,8 +42,8 @@ public class Gym  extends BackgroundPanel{
 		
 		JLabel lblGymProgrammes = new JLabel("Gym Programmes");
 		lblGymProgrammes.setForeground(new Color(0, 0, 0));
-		lblGymProgrammes.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblGymProgrammes.setBounds(410, 19, 174, 27);
+		lblGymProgrammes.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblGymProgrammes.setBounds(426, 0, 253, 46);
 		add(lblGymProgrammes);
 		
 		list = new JList();
@@ -52,7 +52,7 @@ public class Gym  extends BackgroundPanel{
 		list.setBounds(51, 103, 193, 92);
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setLocation(89, 41);
+		scrollPane.setLocation(81, 68);
 		scrollPane.setSize(160, 70);
 		add(scrollPane);
 		list.setModel(new AbstractListModel() {
@@ -76,7 +76,7 @@ public class Gym  extends BackgroundPanel{
 		txtpnPersonal.setForeground(new Color(0, 0, 0));
 		txtpnPersonal.setText("Fees: \t\r\n1 hour session $65\r\n1/2 hour session $40\r\nFitness Assessment $45\r\nPartner and group training sessions available\r\n\r\nFitness packages:\r\n(12 session package includes FREE fitness assessment and re-assessment after 36 sessions)\r\n(12) 1 hour sessions\t\t$655\r\n(12) 1/2 hour sessions\t$355\r\n\r\n(8) 1 hour session\t$475\r\n(8) 1/2 hour session $275\r\n\r\n(4) 1 hour sessions $255\r\n(4) 1/2 hour sessions $155");
 		txtpnPersonal.setFont(new Font("Candara", Font.PLAIN, 16));
-		txtpnPersonal.setBounds(337, 44, 342, 381);
+		txtpnPersonal.setBounds(337, 76, 342, 381);
 
 		add(txtpnPersonal);
 		
@@ -87,7 +87,7 @@ public class Gym  extends BackgroundPanel{
 		txtpnPartner.setForeground(new Color(0, 0, 0));
 		txtpnPartner.setText("Partner Nutrition Counseling:\r\nInitial Visit \t\t$150\r\nFollow-up visit\t$75\r\n\r\nPartner Personal Training Packages (per person)\r\n(12 session package includes FREE fitness assessment and re-assessment after 36 sessions)\r\n(12) 1 hour sessions\t\t$325\r\n(12) 1/2 hour sessions\t$175\r\n\r\n(8) 1 hour session\t$235\r\n(8) 1/2 hour session $135\r\n\r\n(4) 1 hour sessions $125\r\n(4) 1/2 hour sessions $75");
 		txtpnPartner.setFont(new Font("Candara", Font.PLAIN, 16));
-		txtpnPartner.setBounds(337, 44, 342, 381);
+		txtpnPartner.setBounds(337, 76, 342, 381);
 		add(txtpnPartner);
 		
 		txtpnWeight = new JTextPane();
@@ -97,7 +97,7 @@ public class Gym  extends BackgroundPanel{
 		txtpnWeight.setForeground(new Color(0, 0, 0));
 		txtpnWeight.setFont(new Font("Candara", Font.PLAIN, 16));
 		txtpnWeight.setEditable(false);
-		txtpnWeight.setBounds(337, 44, 342, 381);
+		txtpnWeight.setBounds(337, 76, 342, 381);
 		add(txtpnWeight);
 		
 		JTextPane txtpnGymInformation = new JTextPane();
@@ -106,7 +106,7 @@ public class Gym  extends BackgroundPanel{
 		txtpnGymInformation.setEditable(false);
 		txtpnGymInformation.setForeground(new Color(0, 0, 0));
 		txtpnGymInformation.setText("Gym Information:\r\n\r\nIsland Gym Operating Hours\r\nDaily,\t7:00am to 9:00pm\r\n\r\nBukit Gym Operating Hours\r\nMonday, Wednesday & Friday  -  6.30am to 9.30pm\r\nTuesday & Thursday - 7.00am to 9.30pm\r\nWeekends, eve of Public Holiday - 7.00am to 9.00pm");
-		txtpnGymInformation.setBounds(81, 138, 200, 287);
+		txtpnGymInformation.setBounds(81, 170, 200, 287);
 		add(txtpnGymInformation);
 		
 		list.addListSelectionListener(

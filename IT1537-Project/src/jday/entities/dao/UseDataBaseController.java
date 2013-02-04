@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			UseDataBaseController
+ * Purpose:					
+ * Name of Author:			
+ * Admin No. of Author:		
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import java.sql.ResultSet;

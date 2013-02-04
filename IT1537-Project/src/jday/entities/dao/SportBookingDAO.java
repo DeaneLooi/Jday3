@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Program Name: 			SportBookingDAO
+ * Purpose:					create sport and retrieve sports
+ * Name of Author:			Di Yuwen
+ * Admin No. of Author:		120923r
+ * Module Group: 			IS1201
+ * *****************************************************************************/
 package jday.entities.dao;
 
 import java.sql.Connection;

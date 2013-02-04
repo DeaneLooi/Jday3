@@ -55,9 +55,9 @@ public class ChangePinPanel extends BackgroundPanel {
 		
 		lblChangePin = new JLabel("Changing Of Pin");
 		lblChangePin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChangePin.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblChangePin.setFont(new Font("Tahoma", Font.PLAIN ,26));
 		lblChangePin.setForeground(new Color(0, 0, 0));
-		lblChangePin.setBounds(334, -11, 343, 77);
+		lblChangePin.setBounds(360, -11, 343, 77);
 		add(lblChangePin);
 		
 		JLabel lblNewPin = new JLabel("New Pin:");

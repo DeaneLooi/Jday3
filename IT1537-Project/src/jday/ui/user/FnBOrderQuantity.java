@@ -42,7 +42,7 @@ public class FnBOrderQuantity extends BackgroundPanel{
 		tableList.setShowGrid(false);
 		tableList.setShowHorizontalLines(false);
 		JScrollPane scrollPane = new JScrollPane(tableList);
-		scrollPane.setBounds(79, 127, 510, 165);
+		scrollPane.setBounds(140, 110, 490, 300);
 		add(scrollPane);
 	
 		JButton btnConfirm = new JButton("Confirm");
@@ -73,7 +73,7 @@ public class FnBOrderQuantity extends BackgroundPanel{
 			}
 		});
 		btnConfirm.setFont(new Font("Candara", Font.BOLD, 16));
-		btnConfirm.setBounds(249, 400, 100, 54);
+		btnConfirm.setBounds(535, 440, 95, 30);
 		add(btnConfirm);
 		
 		JButton btnBack = new JButton("Back");
@@ -88,14 +88,14 @@ public class FnBOrderQuantity extends BackgroundPanel{
 			}
 		});
 		btnBack.setFont(new Font("Candara", Font.BOLD, 16));
-		btnBack.setBounds(85, 400, 100, 54);
+		btnBack.setBounds(400, 440, 95, 30);
 		add(btnBack);
 		
 		JLabel lblQuantity = new JLabel("Quantity");
 		lblQuantity.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuantity.setForeground(Color.BLACK);
-		lblQuantity.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblQuantity.setBounds(361, 11, 228, 39);
+		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblQuantity.setBounds(430, 5, 228, 39);
 		add(lblQuantity);
 
 	}

@@ -44,8 +44,8 @@ public class ForgotPasswordPanel extends BackgroundPanel{
 		
 		JLabel lblForgotYourPassword = new JLabel("Forgot your password?");
 		lblForgotYourPassword.setHorizontalAlignment(SwingConstants.CENTER);
-		lblForgotYourPassword.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblForgotYourPassword.setBounds(308, 0, 417, 61);
+		lblForgotYourPassword.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblForgotYourPassword.setBounds(340, -11, 417, 61);
 		add(lblForgotYourPassword);
 		
 		JLabel lblMemberId = new JLabel("Member Id:");

@@ -61,9 +61,9 @@ public class EditProfilePanel extends BackgroundPanel {
 		
 		JLabel lblCheckingOfParticulars = new JLabel("Checking of particulars");
 		lblCheckingOfParticulars.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCheckingOfParticulars.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblCheckingOfParticulars.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblCheckingOfParticulars.setForeground(new Color(0, 0, 0));
-		lblCheckingOfParticulars.setBounds(395, 5, 253, 45);
+		lblCheckingOfParticulars.setBounds(435, 5, 253, 45);
 		add(lblCheckingOfParticulars);
 		
 		JLabel lblName = new JLabel("Name:");
